@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deadline Day - transfer negotiation</title>
+<style>
+  :root {
+    --bg: #eef2ee; --card: #ffffff; --ink: #10201a; --soft: #5a6a63; --line: #dde5df;
+    --pitch: #0f6b3f; --pitch-dark: #0a4a2c; --gold: #f6c343;
+    --buyer: #2a78d6; --seller: #eb6834; --agent: #1baf7a; --press: #7a5af8; --rival: #9b4dca;
+    --good: #0b8a43; --bad: #c0362c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, "Segoe UI", sans-serif; }
+  .hero { color: #fff; padding: 26px 28px 30px; background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 90px, transparent 90px 180px),
+      linear-gradient(135deg, var(--pitch) 0%, var(--pitch-dark) 100%); position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; right: -90px; top: -90px; width: 320px; height: 320px;
+      border: 3px solid rgba(255,255,255,0.14); border-radius: 50%; }
+  .hero h1 { margin: 0; font-size: 34px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 12px; }
+  .hero h1 span { background: var(--gold); color: #1b1b10; font-size: 13px; font-weight: 800; padding: 4px 10px;
+      border-radius: 999px; letter-spacing: 0.06em; }
+  .hero p { margin: 6px 0 0; max-width: 72ch; color: rgba(255,255,255,0.86); }
+  main { padding: 20px 28px 60px; max-width: 1280px; margin: 0 auto; }
+  @media (max-width: 760px) { main { padding: 14px 14px 40px; } .hero { padding: 20px 16px 22px; } }
+  .setup { display: grid; grid-template-columns: 1.25fr 1fr 0.8fr; gap: 18px; align-items: stretch; }
+  @media (max-width: 1080px) { .setup { grid-template-columns: 1fr; } }
+  /* the online copy: no Python and no language model, so it only replays the recorded experiments */
+  .static .setup { grid-template-columns: 1fr; max-width: 680px; margin: 0 auto; }
+  .static .setup > section:not(:last-child), .static .live { display: none; }
+  .staticnote { display: none; }
+  .static .staticnote { display: block; margin: 0 0 6px; color: var(--soft); font-size: 14px; }
+  .static .replay { border-top: 0; margin-top: 0; padding-top: 0; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 18px;
+      border-top: 5px solid var(--c, var(--pitch)); }
+  .panel h2 { margin: 0 0 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--c, var(--pitch)); }
+  label { display: block; font-size: 12px; font-weight: 600; color: var(--soft); margin: 9px 0 3px; }
+  select, input[type=text] { width: 100%; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 10px;
+      background: #fff; color: var(--ink); font: inherit; }
+  select:focus, input:focus { outline: none; border-color: var(--c, var(--pitch)); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .player { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 18px; }
+  @media (max-width: 560px) { .player { grid-template-columns: 1fr; } }
+
+  /* the player card */
+  .pcard { border-radius: 18px; padding: 14px 14px 12px; color: #fff; position: relative; overflow: hidden;
+      background: linear-gradient(160deg, var(--p1), var(--p2)); box-shadow: 0 8px 20px rgba(0,0,0,0.18); min-height: 330px; }
+  .pcard::before { content: ""; position: absolute; inset: 0; background:
+      radial-gradient(circle at 80% 0%, rgba(255,255,255,0.28), transparent 55%); pointer-events: none; }
+  .pcard .top { display: flex; justify-content: space-between; align-items: flex-start; position: relative; }
+  .pcard .rating { font-size: 40px; font-weight: 800; line-height: 1; }
+  .pcard .pos { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; }
+  .pcard svg.shirt { display: block; margin: 2px auto 0; width: 104px; height: 96px; position: relative; }
+  .pcard .name { text-align: center; font-size: 19px; font-weight: 800; margin-top: 2px; position: relative;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pcard .sub { text-align: center; font-size: 12px; opacity: 0.9; position: relative; }
+  .stat { display: grid; grid-template-columns: 62px 1fr; align-items: center; gap: 8px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; margin-top: 6px; position: relative; }
+  .bar { height: 7px; border-radius: 99px; background: rgba(255,255,255,0.28); overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 99px; background: #fff; transition: width 0.3s; }
+  .value { margin-top: 10px; background: rgba(0,0,0,0.26); border-radius: 12px; padding: 7px 10px; text-align: center; position: relative; }
+  .value small { display: block; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+  .value b { font-size: 22px; }
+
+  /* the clubs */
+  .match { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 6px; margin: 2px 0 6px; text-align: center; }
+  .crest svg { width: 66px; height: 74px; }
+  .crest b { display: block; font-size: 13px; } .crest small { color: var(--soft); font-size: 11px; display: block; }
+  .arrow { color: var(--pitch); font-weight: 800; font-size: 12px; text-align: center; }
+  .arrow svg { width: 70px; height: 26px; display: block; margin: 0 auto; }
+  .rivals { display: flex; align-items: flex-start; gap: 14px; justify-content: center; min-height: 34px; font-size: 12px; color: var(--soft);
+      border-top: 1px dashed var(--line); padding-top: 8px; margin-top: 4px; text-align: center; }
+  .rivals svg { width: 34px; height: 38px; display: block; margin: 0 auto; }
+  .rivals b { display: block; font-size: 11px; color: var(--ink); }
+  .race { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .racer { display: flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); border-radius: 12px; padding: 6px 12px 6px 8px; }
+  .racer svg { width: 26px; height: 29px; flex: none; }
+  .racer b { display: block; font-size: 13px; } .racer small { color: var(--soft); font-size: 12px; }
+  .racer.out { opacity: 0.5; } .racer.lead { border-color: var(--gold); background: #fffaf0; }
+  .go { margin-top: 16px; width: 100%; padding: 14px; border: 0; border-radius: 12px; color: #fff; cursor: pointer;
+      font: 800 16px system-ui, sans-serif; letter-spacing: 0.02em;
+      background: linear-gradient(135deg, #18a05c, var(--pitch-dark)); box-shadow: 0 6px 16px rgba(15,107,63,0.35); }
+  .go:disabled { opacity: 0.55; cursor: default; box-shadow: none; }
+  details > summary { cursor: pointer; color: var(--soft); font-size: 13px; user-select: none; margin-top: 10px; }
+
+  /* results */
+  #results { display: grid; gap: 14px; margin-top: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+  .banner { color: #fff; border: 0; background: linear-gradient(135deg, #17a35b, #0a5c35); }
+  .banner.fail { background: linear-gradient(135deg, #d9534a, #8c231c); }
+  .banner h3 { margin: 0 0 4px; font-size: 24px; } .banner p { margin: 0; opacity: 0.95; }
+  .tiles { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .tile { background: rgba(255,255,255,0.16); border-radius: 12px; padding: 8px 14px; }
+  .tile small { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; opacity: 0.85; }
+  .tile b { font-size: 19px; }
+  .status { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+  .ball { width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--pitch); animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 760px) { .tracks { grid-template-columns: 1fr; } }
+  .track h4 { margin: 0 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--soft); }
+  .track svg { width: 100%; height: 74px; display: block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--soft); }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+  .hour { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 14px; }
+  .time { align-self: start; background: var(--pitch-dark); color: #fff; font-weight: 800; font-size: 16px; text-align: center;
+      border-radius: 10px; padding: 6px 0; font-variant-numeric: tabular-nums; }
+  .line { margin: 0 0 5px; display: flex; gap: 8px; align-items: baseline; }
+  .line .dot { flex: none; }
+  .tag { flex: none; width: 58px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--soft); }
+  .event { margin: 6px 0; padding: 7px 11px; border-radius: 10px; background: #fff6da; border: 1px solid #f2dc9a; font-weight: 600; }
+  /* the journalist's feed */
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 18px; align-items: start; }
+  @media (max-width: 1080px) { .split { grid-template-columns: 1fr; } .feed { order: -1; } }
+  .timeline { display: grid; gap: 14px; }
+  .feed { display: grid; gap: 14px; }
+  .feed h4 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--soft); }
+  .post { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .post header { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 13px;
+      background: #14251d; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e1306c; flex: none; }
+  .post header b { font-size: 14px; } .post header small { display: block; color: var(--soft); font-size: 12px; }
+  .post header svg { width: 14px; height: 14px; vertical-align: -2px; }
+  .pic { color: #fff; padding: 20px 18px; min-height: 190px; display: flex; flex-direction: column; justify-content: center;
+      background: linear-gradient(135deg, #3a4a55, #1c262d); position: relative; overflow: hidden; }
+  .pic::after { content: ""; position: absolute; right: -50px; bottom: -50px; width: 170px; height: 170px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.16); }
+  .pic.opening { background: linear-gradient(135deg, #7a2ff7, #e1306c 55%, #f77737); }
+  .pic.rival { background: linear-gradient(135deg, #6b2fa0, #2c1250); }
+  .pic.agreed { background: linear-gradient(135deg, #2a78d6, #123a73); }
+  .pic.done { background: linear-gradient(135deg, #17a35b, #07522e); }
+  .pic.off { background: linear-gradient(135deg, #d9534a, #5e1712); }
+  .pic .kicker { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; }
+  .pic .big { font-size: 34px; font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; margin: 2px 0 4px; }
+  .pic .note { font-size: 14px; font-weight: 600; opacity: 0.95; position: relative; }
+  .pic table { margin-top: 10px; border-collapse: collapse; width: 100%; position: relative; font-size: 13px; }
+  .pic td { padding: 4px 0; border-top: 1px solid rgba(255,255,255,0.22); } .pic td:last-child { text-align: right; font-weight: 800; }
+  .acts { display: flex; gap: 14px; padding: 10px 12px 2px; } .acts svg { width: 22px; height: 22px; } .acts .gap { flex: 1; }
+  .likes { padding: 2px 12px; font-weight: 700; font-size: 13px; }
+  .cap { margin: 0; padding: 2px 12px 4px; font-size: 14px; overflow-wrap: anywhere; }
+  .tags { padding: 0 12px 12px; color: #1d5fb0; font-size: 13px; }
+  .scenes > summary { color: var(--pitch); font-weight: 600; }
+  .think { border: 1px solid var(--line); border-left: 5px solid var(--press); border-radius: 10px; padding: 9px 12px; margin: 8px 0 0; }
+  .think.buyer { border-left-color: var(--buyer); } .think.seller { border-left-color: var(--seller); }
+  .think.player_agent { border-left-color: var(--agent); }
+  .think .who { font-weight: 700; } .think .kind { color: var(--soft); font-size: 12px; margin-left: 6px; }
+  .step { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--soft); margin: 8px 0 2px; }
+  .think p { margin: 0 0 3px; overflow-wrap: anywhere; }
+  .msg { font-style: italic; } .warn { color: var(--bad); }
+  pre { margin: 4px 0 0; padding: 8px 10px; background: #f1f4f1; border-radius: 8px; font: 12px/1.45 ui-monospace, Consolas, monospace;
+      white-space: pre-wrap; overflow-wrap: anywhere; }
+  .private { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 8px; }
+  .private div { border-top: 4px solid var(--press); padding-top: 6px; }
+  .private .buyer { border-top-color: var(--buyer); } .private .seller { border-top-color: var(--seller); }
+  .private .player_agent { border-top-color: var(--agent); }
+  .private p { margin: 0; color: var(--soft); font-size: 14px; } .private b { display: block; }
+
+  /* ---------- football theme ---------- */
+  body { background: repeating-linear-gradient(90deg, #eaf3ec 0 110px, #e1eee4 110px 220px) fixed; }
+  .hero { padding: 0; background: linear-gradient(180deg, #0a3b24, #0f6b3f); }
+  .hero::after { display: none; }
+  .hero .pitch { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero .inner { position: relative; max-width: 1280px; margin: 0 auto; padding: 30px 28px 34px; display: flex;
+      justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .hero h1 { font-size: 40px; text-transform: uppercase; letter-spacing: 0.01em; font-weight: 900;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+  .hero h1::before { content: ""; width: 38px; height: 38px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.5' fill='%23fff' stroke='%23151515' stroke-width='1.6'/%3E%3Cpath d='M12 7.2l4.2 3-1.6 4.9H9.4l-1.6-4.9z' fill='%23151515'/%3E%3Cpath d='M12 7.2V2M16.2 10.2l4.9-1.6M14.6 15.1l3 4.1M9.4 15.1l-3 4.1M7.8 10.2L2.900 8.600' stroke='%23151515' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat; flex: none; }
+  .hero p { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+  .board { background: #0b0f0c; border: 3px solid #2b3b31; border-radius: 12px; padding: 8px 18px 10px; text-align: center;
+      font-family: ui-monospace, Consolas, monospace; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+  .board small { display: block; color: #9fb3a6; font-size: 10px; letter-spacing: 0.16em; }
+  .board b { color: #ffc93c; font-size: 34px; letter-spacing: 0.08em; text-shadow: 0 0 10px rgba(255,201,60,0.55); }
+  .panel { box-shadow: 0 4px 14px rgba(10,59,36,0.08); }
+  .panel h2::before, .feed h4::before { content: ""; display: inline-block; width: 16px; height: 16px; margin-right: 7px;
+      vertical-align: -3px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.5' fill='%23fff' stroke='%23151515' stroke-width='1.6'/%3E%3Cpath d='M12 7.2l4.2 3-1.6 4.9H9.4l-1.6-4.9z' fill='%23151515'/%3E%3Cpath d='M12 7.2V2M16.2 10.2l4.9-1.6M14.6 15.1l3 4.1M9.4 15.1l-3 4.1M7.8 10.2L2.900 8.600' stroke='%23151515' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat; }
+  /* the two clubs face each other across a pitch */
+  .match { border-radius: 14px; padding: 14px 8px 12px; color: #fff; margin-bottom: 10px; background:
+      linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,0.55) calc(50% - 1px), rgba(255,255,255,0.55) calc(50% + 1px), transparent calc(50% + 1px)),
+      radial-gradient(circle at 50% 50%, transparent 40px, rgba(255,255,255,0.55) 40px, rgba(255,255,255,0.55) 42px, transparent 42px),
+      repeating-linear-gradient(90deg, #18864f 0 44px, #147646 44px 88px);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.55); }
+  .match .crest b { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+  .match .crest small { color: rgba(255,255,255,0.92); }
+  .match .crest svg { filter: drop-shadow(0 3px 4px rgba(0,0,0,0.35)); }
+  .match .arrow { color: #fff; background: rgba(8,45,27,0.78); border-radius: 10px; padding: 4px 8px; }
+  .go::before { content: ""; display: inline-block; width: 20px; height: 20px; margin-right: 9px; vertical-align: -4px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.5' fill='%23fff' stroke='%23151515' stroke-width='1.6'/%3E%3Cpath d='M12 7.2l4.2 3-1.6 4.9H9.4l-1.6-4.9z' fill='%23151515'/%3E%3Cpath d='M12 7.2V2M16.2 10.2l4.9-1.6M14.6 15.1l3 4.1M9.4 15.1l-3 4.1M7.8 10.2L2.900 8.600' stroke='%23151515' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat; }
+  /* results */
+  .banner { position: relative; overflow: hidden; border-radius: 16px; }
+  .banner::after { content: ""; position: absolute; right: -40px; top: -40px; width: 190px; height: 190px; opacity: 0.16;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.5' fill='%23fff' stroke='%23151515' stroke-width='1.6'/%3E%3Cpath d='M12 7.2l4.2 3-1.6 4.9H9.4l-1.6-4.9z' fill='%23151515'/%3E%3Cpath d='M12 7.2V2M16.2 10.2l4.9-1.6M14.6 15.1l3 4.1M9.4 15.1l-3 4.1M7.8 10.2L2.900 8.600' stroke='%23151515' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .banner .kicker { font: 800 11px ui-monospace, Consolas, monospace; letter-spacing: 0.2em; color: #ffe08a; margin-bottom: 2px; }
+  .ball { width: 24px; height: 24px; border: 0; border-radius: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.5' fill='%23fff' stroke='%23151515' stroke-width='1.6'/%3E%3Cpath d='M12 7.2l4.2 3-1.6 4.9H9.4l-1.6-4.9z' fill='%23151515'/%3E%3Cpath d='M12 7.2V2M16.2 10.2l4.9-1.6M14.6 15.1l3 4.1M9.4 15.1l-3 4.1M7.8 10.2L2.900 8.600' stroke='%23151515' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+      animation: spin 0.9s linear infinite; }
+  .time { background: #0b0f0c; color: #ffc93c; border: 2px solid #2b3b31; font-family: ui-monospace, Consolas, monospace;
+      letter-spacing: 0.04em; text-shadow: 0 0 8px rgba(255,201,60,0.5); }
+  .event { background: #f0f7f1; border: 1px solid #cfe3d4; border-left: 5px solid var(--pitch); }
+  .event::before { content: ""; display: inline-block; width: 15px; height: 15px; margin-right: 7px; vertical-align: -2px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.5' fill='%23fff' stroke='%23151515' stroke-width='1.6'/%3E%3Cpath d='M12 7.2l4.2 3-1.6 4.9H9.4l-1.6-4.9z' fill='%23151515'/%3E%3Cpath d='M12 7.2V2M16.2 10.2l4.9-1.6M14.6 15.1l3 4.1M9.4 15.1l-3 4.1M7.8 10.2L2.900 8.600' stroke='%23151515' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") center/contain no-repeat; }
+  .racer { background: #fff; }
+
+  /* replay controls and the planner's beliefs */
+  .replay { border-top: 1px dashed var(--line); margin-top: 16px; padding-top: 6px; }
+  .replay .row { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 8px; }
+  .replay button, .linkbtn { padding: 8px 14px; border: 1.5px solid var(--pitch); border-radius: 10px; background: #fff;
+      color: var(--pitch); font: 700 14px system-ui, sans-serif; cursor: pointer; text-decoration: none; display: inline-block; }
+  .replay button:disabled { opacity: 0.5; cursor: default; }
+  .linkbtn { margin-top: 14px; width: 100%; text-align: center; }
+  .chip { display: inline-block; background: #0b0f0c; color: #ffc93c; font: 800 11px ui-monospace, Consolas, monospace;
+      letter-spacing: 0.14em; border-radius: 6px; padding: 3px 8px; margin-right: 8px; }
+  .beliefs { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 18px 26px; margin-top: 10px; }
+  .beliefs figure { margin: 0; }
+  .beliefs figcaption { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .beliefs svg { width: 100%; height: auto; display: block; }
+  .card > h4 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--soft); }
+  .card > h4 + p { margin: 4px 0 0; color: var(--soft); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <svg class="pitch" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="rgba(255,255,255,0.05)"><rect x="0" width="100" height="220"/><rect x="200" width="100" height="220"/><rect x="400" width="100" height="220"/>
+      <rect x="600" width="100" height="220"/><rect x="800" width="100" height="220"/><rect x="1000" width="100" height="220"/></g>
+    <g fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="3">
+      <rect x="14" y="12" width="1172" height="196"/><line x1="600" y1="12" x2="600" y2="208"/><circle cx="600" cy="110" r="62"/>
+      <rect x="14" y="40" width="130" height="140"/><rect x="14" y="78" width="46" height="64"/><path d="M144 82 A44 44 0 0 1 144 138"/>
+      <rect x="1056" y="40" width="130" height="140"/><rect x="1140" y="78" width="46" height="64"/><path d="M1056 82 A44 44 0 0 0 1056 138"/>
+    </g><circle cx="600" cy="110" r="5" fill="rgba(255,255,255,0.4)"/>
+  </svg>
+  <div class="inner"><div>
+  <h1>Deadline Day</h1>
+  <p>Set up a transfer, then watch AI agents for the buying club, the selling club and the player's agent
+     negotiate it hour by hour, with rival bids, the press and a medical along the way.</p>
+  </div><div class="board"><small>TRANSFER WINDOW CLOSES</small><b>23:00</b></div></div>
+</div>
+<main>
+  <form id="form">
+    <div class="setup">
+      <section class="panel" style="--c: var(--pitch)">
+        <h2>1 &middot; The player</h2>
+        <div class="player">
+          <div class="pcard" id="pcard">
+            <div class="top"><div><div class="rating" id="c-rating">81</div><div class="pos" id="c-pos">STR</div></div>
+              <svg viewBox="0 0 60 84" width="52" height="72" aria-hidden="true">
+                <rect x="1" y="1" width="58" height="82" rx="4" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+                <line x1="1" y1="42" x2="59" y2="42" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <circle cx="30" cy="42" r="8" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <rect x="16" y="1" width="28" height="12" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <rect x="16" y="71" width="28" height="12" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+                <circle id="c-spot" cx="30" cy="14" r="5.5" fill="#fff"/>
+              </svg></div>
+            <svg class="shirt" viewBox="0 0 104 96" aria-hidden="true">
+              <path d="M34 8 L16 16 L2 36 L18 46 L26 38 L26 90 L78 90 L78 38 L86 46 L102 36 L88 16 L70 8 C66 18 38 18 34 8 Z"
+                    fill="rgba(255,255,255,0.93)" stroke="rgba(0,0,0,0.18)" stroke-width="1.5"/>
+              <text id="c-age" x="52" y="68" text-anchor="middle" font-size="34" font-weight="800" fill="#1d2b25">24</text>
+            </svg>
+            <div class="name" id="c-name">Leo Silva</div>
+            <div class="sub" id="c-sub">Striker &middot; age 24</div>
+            <div class="stat">FORM <div class="bar"><i id="c-form"></i></div></div>
+            <div class="stat">CONTRACT <div class="bar"><i id="c-contract"></i></div></div>
+            <div class="stat">FITNESS <div class="bar"><i id="c-fit"></i></div></div>
+            <div class="value"><small>Estimated market value</small><b id="c-value">-</b>
+              <small id="c-clause" style="margin-top:2px; text-transform:none; letter-spacing:0"></small></div>
+          </div>
+          <div>
+            <label for="preset">Choose a player</label><select id="preset"></select>
+            <label for="player_name">Name</label><input type="text" id="player_name" maxlength="40">
+            <label for="position">Position</label><select id="position"></select>
+            <label for="age">Age group</label><select id="age"></select>
+            <label for="performance">Performance this season</label><select id="performance"></select>
+            <label for="contract">Contract</label><select id="contract"></select>
+            <label for="injuries">Fitness record</label><select id="injuries"></select>
+            <label for="release_clause">Release clause</label><select id="release_clause"></select>
+            <label for="player_attitude">His attitude to the move</label><select id="player_attitude"></select>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="--c: var(--seller)">
+        <h2>2 &middot; The clubs</h2>
+        <div class="match">
+          <div class="crest"><svg viewBox="0 0 66 74"><path d="M33 2 L62 12 V38 C62 56 48 67 33 72 C18 67 4 56 4 38 V12 Z" fill="#eb6834"/>
+            <path d="M33 2 L62 12 V38 C62 56 48 67 33 72 Z" fill="#c9521f"/><text x="33" y="45" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">R</text></svg>
+            <b>Riverside FC</b><small id="s-tag">selling</small></div>
+          <div class="arrow"><svg viewBox="0 0 70 26"><path d="M4 13 H56" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 6">
+            <animate attributeName="stroke-dashoffset" from="26" to="0" dur="1s" repeatCount="indefinite"/></path>
+            <path d="M52 4 L66 13 L52 22 Z" fill="#ffffff"/></svg><span id="c-fee">transfer</span></div>
+          <div class="crest"><svg viewBox="0 0 66 74"><path d="M33 2 L62 12 V38 C62 56 48 67 33 72 C18 67 4 56 4 38 V12 Z" fill="#2a78d6"/>
+            <path d="M33 2 L62 12 V38 C62 56 48 67 33 72 Z" fill="#1d5fb0"/><text x="33" y="45" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">N</text></svg>
+            <b>Northbridge FC</b><small id="b-tag">buying</small></div>
+        </div>
+        <div class="rivals" id="rivals"></div>
+        <label for="seller_stance">Selling club's position</label><select id="seller_stance"></select>
+        <label for="buyer_need">How much the buying club needs him</label><select id="buyer_need"></select>
+        <label for="buyer_finances">Buying club's finances</label><select id="buyer_finances"></select>
+        <label for="rivals_select">Other interested clubs</label><select id="rivals_select" data-field="rivals"></select>
+      </section>
+
+      <section class="panel" style="--c: var(--press)">
+        <h2 class="live">3 &middot; Kick off</h2>
+        <h2 class="staticnote" style="color: var(--ink); font-size: 20px">Replay a recorded negotiation</h2>
+        <p class="staticnote">This online copy replays the 108 negotiations recorded for the experiments, hour by hour,
+           with what every agent believed, planned and wrote. To set up a new transfer, run the app locally with
+           Ollama (see the README on GitHub).</p>
+        <div class="live">
+        <label for="speed">Speed</label><select id="speed"></select>
+        <details>
+          <summary>Choose which kind of agent plays each side</summary>
+          <label for="agent_buyer">Buying club</label><select id="agent_buyer"></select>
+          <label for="agent_seller">Selling club</label><select id="agent_seller"></select>
+          <label for="agent_player_agent">Player's agent</label><select id="agent_player_agent"></select>
+        </details>
+        <button class="go" id="go" type="submit">Kick off the negotiation</button>
+        <p style="color: var(--soft); font-size: 13px; margin: 12px 0 0">With the language model, each hour of
+           deadline day takes a little while. The instant preview uses the same planning without the wording.</p>
+        </div>
+        <div class="replay">
+          <label for="saved">Replay a saved negotiation</label><select id="saved"></select>
+          <div class="row"><select id="pace" aria-label="Replay speed">
+            <option value="2500">Slow: 2.5 seconds per hour</option><option value="1300" selected>Normal: 1.3 seconds per hour</option>
+            <option value="500">Fast: half a second per hour</option></select>
+            <button type="button" id="play">Replay</button></div>
+        </div>
+        <a class="linkbtn" id="resultslink" href="/results">See the experiment results</a>
+      </section>
+    </div>
+  </form>
+
+  <section id="results"></section>
+</main>
+
+<script>window.STATIC_SITE = true;</script>
+<script>
+const $ = id => document.getElementById(id);
+// The online copy (built by export_static.py) sets STATIC_SITE and reads pre-built files instead of the server.
+const STATIC = window.STATIC_SITE === true, replays = {};
+if (STATIC) { document.body.classList.add("static"); $("resultslink").href = "results.html"; }
+async function getJSON(url) {
+  if (!STATIC) return (await fetch(url)).json();
+  if (url.startsWith("/replay?")) {
+    const q = new URLSearchParams(url.slice(8)), file = q.get("file");
+    replays[file] = replays[file] || await (await fetch("data/replay/" + file)).json();
+    const states = replays[file];
+    return states[Math.min(Math.max(+q.get("hour") - 14, 0), states.length - 1)];
+  }
+  return (await fetch("data" + url + ".json")).json();
+}
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const FIELDS = ["age", "position", "performance", "contract", "injuries", "release_clause", "player_attitude", "seller_stance", "buyer_need", "buyer_finances", "rivals"];
+const el = f => f === "rivals" ? $("rivals_select") : $(f);
+const POSITIONS = {  // card colours, short name, spot on the little pitch
+  Goalkeeper: ["#f2a900", "#b36b00", "GK", 30, 77], Defender: ["#2f80ed", "#1b4fa3", "DEF", 30, 62],
+  Midfielder: ["#16a35d", "#0a5f36", "MID", 30, 42], Winger: ["#f2711c", "#b8430a", "WNG", 49, 26],
+  Striker: ["#e2413c", "#931f1c", "STR", 30, 14] };
+let options = {}, presets = {}, ages = {}, timer = null, previewTimer = null;
+
+function fill(select, values, labels) {
+  select.innerHTML = values.map((v, i) => `<option value="${esc(v)}">${esc(labels ? labels[i] : v)}</option>`).join("");
+}
+const choices = () => {
+  const c = {};
+  ["player_name", "speed", "agent_buyer", "agent_seller", "agent_player_agent"].forEach(f => c[f] = $(f).value);
+  FIELDS.forEach(f => c[f] = el(f).value);
+  return c;
+};
+const level = f => options[f].indexOf(el(f).value) / (options[f].length - 1);
+const crest = (color, letter) => `<svg viewBox="0 0 66 74"><path d="M33 2 L62 12 V38 C62 56 48 67 33 72 C18 67 4 56 4 38 V12 Z" fill="${color}"/><path d="M33 2 L62 12 V38 C62 56 48 67 33 72 Z" fill="rgba(0,0,0,0.16)"/><text x="33" y="46" text-anchor="middle" font-size="26" font-weight="800" fill="#fff">${letter}</text></svg>`;
+let rivalClubs = [];
+
+// Shirt numbers follow football convention for each position, within the 1-25 first-team range.
+// The name picks one of the usual numbers, so the same player always wears the same shirt.
+const SHIRTS = {Goalkeeper: [13, 25, 1], Defender: [2, 3, 4, 5], Midfielder: [6, 8, 10, 14],
+                Winger: [7, 11, 17], Striker: [19, 9, 21]};
+function shirtNumber(position, name) {
+  const numbers = SHIRTS[position];
+  let sum = 0;
+  for (const ch of name.trim().toLowerCase()) sum += ch.charCodeAt(0);
+  return numbers[sum % numbers.length];
+}
+
+function drawCard() {
+  const [p1, p2, short, x, y] = POSITIONS[$("position").value];
+  $("pcard").style.setProperty("--p1", p1); $("pcard").style.setProperty("--p2", p2);
+  $("c-pos").textContent = short; $("c-spot").setAttribute("cx", x); $("c-spot").setAttribute("cy", y);
+  $("c-rating").textContent = [66, 74, 81, 88, 94][options.performance.indexOf($("performance").value)];
+  $("c-age").textContent = shirtNumber($("position").value, $("player_name").value);
+  $("c-name").textContent = $("player_name").value || "The player";
+  $("c-sub").textContent = `${$("position").value} · age ${$("age").value.split(" (")[0]}`;
+  $("c-form").style.width = (20 + 80 * level("performance")) + "%";
+  $("c-contract").style.width = (15 + 85 * level("contract")) + "%";
+  $("c-fit").style.width = (100 - 55 * level("injuries")) + "%";
+  $("s-tag").textContent = $("seller_stance").value.toLowerCase();
+  $("b-tag").textContent = `${$("buyer_need").value.toLowerCase()} · ${$("buyer_finances").value.toLowerCase()}`;
+  const n = options.rivals.indexOf(el("rivals").value);
+  $("rivals").innerHTML = n === 0 ? "No other club in the race"
+    : rivalClubs.slice(0, n === 1 ? 1 : 3).map(c => `<div>${crest(c.color, c.letter)}<b>${esc(c.name)}</b>also interested</div>`).join("");
+  clearTimeout(previewTimer);
+  if (!STATIC) previewTimer = setTimeout(async () => {
+    const facts = await (await fetch("/preview", {method: "POST", body: JSON.stringify(choices())})).json();
+    if (facts.market_value != null) { $("c-value").textContent = facts.market_value + "M"; $("c-fee").textContent = "worth about " + facts.market_value + "M";
+      $("c-clause").textContent = "Release clause " + facts.release_clause + "M"; }
+  }, 120);
+}
+
+async function setup() {
+  const o = await getJSON("/options");
+  options = o.options; presets = o.presets; ages = o.ages; rivalClubs = o.rival_clubs;
+  fill($("preset"), [...Object.keys(o.presets), ""], [...Object.keys(o.presets), "Custom player"]);
+  FIELDS.forEach(f => fill(el(f), o.options[f]));
+  fill($("speed"), Object.keys(o.speeds), Object.values(o.speeds));
+  ["agent_buyer", "agent_seller", "agent_player_agent"].forEach(f => fill($(f), Object.keys(o.agent_types), Object.values(o.agent_types)));
+  Object.entries(o.defaults).forEach(([k, v]) => { const e = k === "rivals" ? el(k) : $(k); if (e) e.value = v; });
+  $("preset").addEventListener("change", () => {
+    Object.entries(presets[$("preset").value] || {}).forEach(([k, v]) => { $(k).value = v; });
+    drawCard();
+  });
+  ["player_name", "position", "age", "performance", "contract", "injuries", "release_clause"].forEach(f =>
+    $(f).addEventListener("input", e => { if (e.isTrusted) $("preset").value = ""; }));
+  $("form").addEventListener("input", drawCard);
+  drawCard();
+  await loadSaved();
+  await poll();
+  const wanted = new URLSearchParams(location.search).get("replay");     // e.g. /?replay=web/run_....json
+  if (wanted) { $("saved").value = wanted; replay(); }
+}
+
+$("form").addEventListener("submit", async e => {
+  e.preventDefault();
+  $("go").disabled = true;
+  const reply = await (await fetch("/start", {method: "POST", body: JSON.stringify(choices())})).json();
+  if (reply.error) { alert(reply.error); $("go").disabled = false; return; }
+  await poll();
+  $("results").scrollIntoView({behavior: "smooth", block: "start"});
+});
+
+async function poll() {
+  clearTimeout(timer);
+  replaying++;                      // a live negotiation takes over from any replay
+  const s = await getJSON("/state");
+  render(s);
+  if (s.status === "done") loadSaved();
+  $("go").disabled = s.status === "running";
+  $("go").textContent = s.status === "running" ? "Negotiating..." : s.status === "idle" ? "Kick off the negotiation" : "Kick off a new negotiation";
+  if (s.status === "running") timer = setTimeout(poll, 1200);
+}
+
+// A horizontal scale showing where the two sides stand and how far apart they are.
+function track(title, marks, unit) {
+  const shown = marks.filter(m => m.value != null);
+  if (shown.length < 2) return `<div class="track"><h4>${esc(title)}</h4><p style="color:var(--soft);margin:0">Talks have not started yet.</p></div>`;
+  const values = shown.map(m => m.value), lo = Math.min(...values), hi = Math.max(...values), pad = (hi - lo || 1) * 0.12;
+  const x = v => 30 + 540 * (v - (lo - pad)) / ((hi + pad) - (lo - pad));
+  let g = `<rect x="22" y="31" width="556" height="18" rx="9" fill="#18864f"/>` +     // a strip of turf
+          [100, 200, 300, 400, 500].map(x => `<line x1="${x}" y1="31" x2="${x}" y2="49" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>`).join("");
+  const a = marks.find(m => m.key === "low"), b = marks.find(m => m.key === "high");
+  if (a.value != null && b.value != null) g += `<line x1="${x(a.value)}" y1="40" x2="${x(b.value)}" y2="40" stroke="#f6c343" stroke-width="6" stroke-linecap="round"/>`;
+  shown.forEach((m, i) => {
+    const up = m.up, cx = x(m.value);
+    g += m.tick ? `<line x1="${cx}" y1="30" x2="${cx}" y2="50" stroke="${m.color}" stroke-width="3"/>`
+               : m.star ? `<circle cx="${cx}" cy="40" r="11" fill="${m.color}" stroke="#fff" stroke-width="3"/><path d="M${cx - 5} 40 l4 4 l7 -8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>`
+               : `<circle cx="${cx}" cy="40" r="9" fill="${m.color}" stroke="#fff" stroke-width="3"/>`;
+    g += `<text x="${Math.min(Math.max(cx, 60), 540)}" y="${up ? 18 : 70}" text-anchor="middle" font-size="13" font-weight="700" fill="#10201a">${esc(m.label)} ${m.value}${unit}</text>`;
+  });
+  return `<div class="track"><h4>${esc(title)}</h4><svg viewBox="0 0 600 78" role="img" aria-label="${esc(title)}">${g}</svg></div>`;
+}
+
+function thinking(t) {
+  let h = `<div class="think ${esc(t.role)}"><span class="who">${esc(t.agent)}</span><span class="kind">${esc(t.kind)}</span>`;
+  if (t.reasoning.length) h += `<div class="step">${t.planned ? "Belief and plan (computed, not written by the language model)" : "Private reasoning"}</div>` + t.reasoning.map(r => `<p>${esc(r)}</p>`).join("");
+  if (t.intents.length) {
+    h += `<div class="step">Instructions handed to the language model</div>`;
+    h += t.intents.map(i => `<p><b>${esc(i.type.toUpperCase())}</b>${i.text ? " " + esc(i.text) : ""} &rarr; ${esc(i.to)}: ${esc(i.purpose)} <span style="color:var(--soft)">(tone: ${esc(i.tone)})</span></p>`).join("");
+  }
+  if (t.actions.length) {
+    h += `<div class="step">What it sent</div>`;
+    h += t.actions.map(a => `<p><b>${esc(a.type.toUpperCase())}</b>${a.text ? " " + esc(a.text) : ""} &rarr; ${esc(a.to)}` +
+      (a.message ? `: <span class="msg">&ldquo;${esc(a.message)}&rdquo;</span>` : "") +
+      (a.valid ? "" : ` <span class="warn">(rejected by the rules: ${esc(a.note)})</span>`) + `</p>`).join("");
+  } else if (t.post == null) h += `<div class="step">What it sent</div><p style="color:var(--soft)">Nothing this hour: it waited.</p>`;
+  if (t.post != null) h += `<div class="step">Decision</div><p>${t.post ? "Publish: <span class=\"msg\">&ldquo;" + esc(t.post) + "&rdquo;</span>" : "Publish nothing."}</p>`;
+  if (t.rejected.length) h += `<div class="step">Wording blocked by the filter</div>` + t.rejected.map(r => `<p class="warn">&ldquo;${esc(r.message)}&rdquo; (${esc(r.why)})</p>`).join("");
+  if (t.llm_output.length) h += `<div class="step">Raw output of the language model</div>` + t.llm_output.map(r => `<pre>${esc(r)}</pre>`).join("");
+  return h + `</div>`;
+}
+
+// The journalist's posts as a social feed, newest first. The picture's facts come from the engine;
+// the caption underneath is what the journalist wrote.
+const ICONS = {
+  heart: '<svg viewBox="0 0 24 24" fill="none" stroke="#10201a" stroke-width="2"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.400 3 5 6.300 5c2 0 3.600 1.100 5.700 3.300C14.100 6.100 15.700 5 17.700 5 21 5 23.100 8.400 21.600 11.800 19.500 16.400 12 21 12 21z"/></svg>',
+  comment: '<svg viewBox="0 0 24 24" fill="none" stroke="#10201a" stroke-width="2"><path d="M21 12a8.500 8.500 0 0 1-12.600 7.400L3 21l1.600-5.400A8.500 8.500 0 1 1 21 12z"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="#10201a" stroke-width="2" stroke-linejoin="round"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4z"/></svg>',
+  save: '<svg viewBox="0 0 24 24" fill="none" stroke="#10201a" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-5-6 5z"/></svg>',
+  tick: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2a78d6"/><path d="M7 12.500l3.300 3.300L17 9" fill="none" stroke="#fff" stroke-width="2.500" stroke-linecap="round"/></svg>'};
+function feed(s) {
+  if (!s.feed.length) return `<div class="card" style="color:var(--soft)">No posts yet.</div>`;
+  const tag = "#" + s.player.replace(/[^A-Za-z]/g, "");
+  return s.feed.map((p, i) => {
+    const pic = p.picture, final = pic.kind === "done" || pic.kind === "off";
+    const likes = (2400 + (p.text.length * 137 + i * 911) % 9000) * (final ? 9 : 1);
+    return `<article class="post"><header><span class="avatar">MF</span><div><b>marcofontana</b> ${ICONS.tick}<small>Transfer news &middot; ${esc(p.hour)}</small></div></header>
+      <div class="pic ${esc(pic.kind)}"><div class="kicker">Deadline day &middot; ${esc(p.hour)}</div><div class="big">${esc(pic.headline)}</div>
+      ${pic.note ? `<div class="note">${esc(pic.note)}</div>` : ""}
+      ${pic.rows.length ? `<table>${pic.rows.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>` : ""}</div>
+      <div class="acts">${ICONS.heart}${ICONS.comment}${ICONS.send}<span class="gap"></span>${ICONS.save}</div>
+      <div class="likes">${likes.toLocaleString("en-US")} likes</div>
+      <p class="cap"><b>marcofontana</b> ${esc(p.text)}</p>
+      <div class="tags">#DeadlineDay ${esc(tag)} #Transfers</div></article>`;
+  }).reverse().join("");
+}
+
+// The clubs chasing the player, with where each one stands.
+function race(s) {
+  const t = s.track;
+  if (!t.rivals.length) return "";
+  const best = Math.max(0, ...t.rivals.map(r => r.bid || 0));
+  const main = `<div class="racer"><svg viewBox="0 0 66 74"><path d="M33 2 L62 12 V38 C62 56 48 67 33 72 C18 67 4 56 4 38 V12 Z" fill="#2a78d6"/><text x="33" y="46" text-anchor="middle" font-size="26" font-weight="800" fill="#fff">N</text></svg>
+    <div><b>${esc(s.buyer)}</b><small>${t.agreed != null ? (t.clause_paid ? "release clause triggered: " : "fee agreed: ") + t.agreed + "M" : t.buyer != null ? "last bid " + t.buyer + "M" : "no bid yet"}</small></div></div>`;
+  return `<div class="race">${main}` + t.rivals.map(r => `<div class="racer ${r.out ? "out" : ""} ${r.bid && r.bid === best && t.agreed == null ? "lead" : ""}">${crest(r.color, r.letter)}
+    <div><b>${esc(r.name)}</b><small>${r.out ? "dropped out" : r.bid != null ? "bid " + r.bid + "M" : "watching, no bid yet"}</small></div></div>`).join("") + `</div>`;
+}
+
+// ---- replaying a saved negotiation hour by hour ------------------------------------------------------------
+let replaying = 0;
+async function loadSaved() {
+  const items = await getJSON("/saved");
+  $("saved").innerHTML = items.length ? items.map(i => `<option value="${esc(i.file)}">${esc(i.label)}</option>`).join("")
+                                      : `<option value="">No saved negotiations yet</option>`;
+  $("play").disabled = !items.length;
+}
+async function replay() {
+  const file = $("saved").value, me = ++replaying;
+  if (!file) return;
+  clearTimeout(timer);
+  $("results").scrollIntoView({behavior: "smooth", block: "start"});
+  for (let hour = 14; me === replaying; hour++) {
+    const s = await getJSON(`/replay?file=${encodeURIComponent(file)}&hour=${hour}`);
+    if (s.error) { alert(s.error); return; }
+    if (me !== replaying) return;
+    render(s);
+    if (s.status === "done") return;
+    await new Promise(done => setTimeout(done, +$("pace").value));
+  }
+}
+$("play").addEventListener("click", replay);
+
+// ---- what each planner agent believed about the other side's secret limit ------------------------------------
+function beliefChart(b) {
+  const W = 440, H = 190, L = 44, R = 96, T = 14, B = 30, color = {buyer: "#2a78d6", seller: "#eb6834", player_agent: "#1baf7a"}[b.role];
+  const pts = b.points.map(p => ({...p, h: +p.hour.split(":")[0]}));
+  const values = pts.flatMap(p => [p.low, p.high]).concat(b.truth);
+  let lo = Math.min(...values), hi = Math.max(...values);
+  const pad = (hi - lo || 1) * 0.12; lo -= pad; hi += pad;
+  const x = h => L + (W - L - R) * (h - 14) / 9, y = v => T + (H - T - B) * (1 - (v - lo) / (hi - lo));
+  const fmt = v => (Math.round(v * 10) / 10) + "M";
+  let g = "";
+  for (let i = 0; i <= 2; i++) {                                   // recessive grid and y ticks
+    const v = lo + (hi - lo) * i / 2;
+    g += `<line x1="${L}" y1="${y(v)}" x2="${W - R}" y2="${y(v)}" stroke="#e1e0d9" stroke-width="1"/>` +
+         `<text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#898781">${fmt(v)}</text>`;
+  }
+  [14, 17, 20, 23].forEach(h => g += `<text x="${x(h)}" y="${H - 10}" text-anchor="middle" font-size="11" fill="#898781">${h}:00</text>`);
+  g += `<line x1="${L}" y1="${y(b.truth)}" x2="${W - R}" y2="${y(b.truth)}" stroke="#52514e" stroke-width="2"/>` +
+       `<text x="${W - R + 6}" y="${y(b.truth) + 4}" font-size="11" font-weight="700" fill="#10201a">true limit ${fmt(b.truth)}</text>`;
+  if (pts.length > 1) g += `<polygon points="${pts.map(p => x(p.h) + "," + y(p.high)).join(" ")} ${[...pts].reverse().map(p => x(p.h) + "," + y(p.low)).join(" ")}" fill="${color}" opacity="0.14"/>` +
+                           `<polyline points="${pts.map(p => x(p.h) + "," + y(p.mean)).join(" ")}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  pts.forEach(p => g += `<circle cx="${x(p.h)}" cy="${y(p.mean)}" r="4.5" fill="${color}" stroke="#fff" stroke-width="2"><title>${p.hour}: estimate ${fmt(p.mean)} (likely between ${fmt(p.low)} and ${fmt(p.high)}); true limit ${fmt(b.truth)}</title></circle>`);
+  const end = pts[pts.length - 1];
+  let ly = y(end.mean) + 4;                                         // keep the two labels apart
+  if (Math.abs(ly - (y(b.truth) + 4)) < 13) ly += ly >= y(b.truth) + 4 ? 13 : -13;
+  g += `<text x="${Math.min(x(end.h) + 9, W - R + 6)}" y="${ly}" font-size="11" fill="#10201a">estimate ${fmt(end.mean)}</text>`;
+  return `<figure><figcaption>${esc(b.title)}</figcaption><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(b.title)}">${g}</svg></figure>`;
+}
+function beliefCharts(s) {
+  if (!s.beliefs.length) return "";
+  return `<div class="card"><h4>Inside the planner: what each side believed about the other's secret limit</h4>
+    <p>Coloured line: the agent's best estimate each hour, updated from the other side's offers. Shaded band: the range it
+       considered likely. Grey line: the true limit, which the agent never sees.</p>
+    <div class="beliefs">${s.beliefs.map(beliefChart).join("")}</div></div>`;
+}
+
+const COLOR = {buyer: "var(--buyer)", seller: "var(--seller)", player_agent: "var(--agent)"};
+function render(s) {
+  if (s.status === "idle") { $("results").innerHTML = ""; return; }
+  const open = new Set([...document.querySelectorAll("#results details[open]")].map(d => d.id));
+  let h = "";
+  if (s.result) h += `<div class="card banner ${s.result.ok ? "" : "fail"}"><div class="kicker">${s.replay ? "REPLAY &middot; " : ""}FULL TIME &middot; ${s.result.ok ? "TRANSFER COMPLETE" : "NO TRANSFER"}</div><h3>${esc(s.result.headline)}</h3><p>${esc(s.result.text)}</p>` +
+      (s.result.tiles.length ? `<div class="tiles">${s.result.tiles.map(t => `<div class="tile"><small>${esc(t[0])}</small><b>${esc(t[1])}</b></div>`).join("")}</div>` : "") + `</div>`;
+  if (s.status === "error") h += `<div class="card banner fail"><h3>The negotiation stopped</h3><p>${esc(s.error)}. If this mentions a refused connection, start Ollama and try again.</p></div>`;
+  if (s.replay && s.status === "running") h += `<div class="card status"><span class="chip">REPLAY</span>It is ${s.replay.hour}:00 on deadline day...</div>`;
+  else if (s.status === "running") h += `<div class="card status"><div class="ball"></div>Negotiating${s.hours.length ? ": it is " + esc(s.hours[s.hours.length - 1].hour) + " on deadline day" : ""}...</div>`;
+  const t = s.track;
+  h += `<div class="card"><div class="tracks">` +
+    track("Transfer fee (guaranteed part)", [
+      {key: "low", label: "Bid", value: t.agreed == null ? t.buyer : null, color: "#2a78d6", up: true},
+      {key: "high", label: "Asking", value: t.agreed == null ? t.seller : null, color: "#eb6834", up: true},
+      {label: "Market value", value: t.market, color: "#5a6a63", tick: true},
+      ...t.rivals.filter(r => r.bid != null && t.agreed == null).map(r => ({label: r.short, value: r.bid, color: r.color})),
+      {label: t.clause_paid ? "Release clause triggered" : "Agreed", value: t.agreed, color: "#0b8a43", star: true, up: true}], "M") +
+    track("Salary per year", [
+      {key: "low", label: "Club offers", value: t.salary_agreed == null ? t.salary_buyer : null, color: "#2a78d6", up: true},
+      {key: "high", label: "Agent asks", value: t.salary_agreed == null ? t.salary_agent : null, color: "#1baf7a", up: true},
+      {label: "Typical", value: t.wage, color: "#5a6a63", tick: true},
+      {label: "Agreed", value: t.salary_agreed, color: "#0b8a43", star: true, up: true}], "M") +
+    `</div><div class="legend" style="margin-top:8px"><span><i class="dot" style="background:var(--buyer)"></i>${esc(s.buyer)}</span>
+     <span><i class="dot" style="background:var(--seller)"></i>${esc(s.seller)}</span><span><i class="dot" style="background:var(--agent)"></i>Player's agent</span>
+     <span>Release clause: <b>${esc(t.clause)}M</b></span>
+     <span>${esc(s.facts.summary)}</span></div>
+     ${race(s)}
+     <details id="d-private"><summary>Reveal each side's private numbers</summary>
+     <div class="private">${s.private.map(p => `<div class="${esc(p.role)}"><b>${esc(p.who)}</b>${p.lines.map(l => `<p>${esc(l)}</p>`).join("")}</div>`).join("")}</div>
+     ${s.facts.deal_possible ? "" : `<p class="warn" style="margin:10px 0 0">With these numbers no deal can satisfy everyone, as sometimes happens in real windows.</p>`}
+     </details></div>`;
+  h += beliefCharts(s);
+  h += `<div class="split"><div class="timeline">`;
+  for (const hr of [...s.hours].reverse()) {
+    h += `<div class="card hour"><div class="time">${esc(hr.hour)}</div><div>`;
+    h += hr.events.map(e => `<div class="event">${esc(e)}</div>`).join("");
+    for (const [kind, label] of [["fee", "Fee"], ["salary", "Player"], ["stay", "Stay"]])
+      h += hr[kind].map(l => `<p class="line"><span class="tag">${label}</span><i class="dot" style="background:${COLOR[l.role]}"></i><span>${esc(l.text)}</span></p>`).join("");
+    if (!hr.fee.length && !hr.salary.length && !hr.stay.length && !hr.events.length) h += `<p class="line" style="color:var(--soft)">A quiet hour: everyone waits for someone else to move.</p>`;
+    if (hr.thinking.length) h += `<details class="scenes" id="d-${esc(hr.hour)}"><summary>Behind the scenes: what each agent was thinking</summary>${hr.thinking.map(thinking).join("")}</details>`;
+    h += `</div></div>`;
+  }
+  h += `</div><aside class="feed"><h4>Marco Fontana's feed</h4>${feed(s)}</aside></div>`;
+  $("results").innerHTML = h;
+  open.forEach(id => { const d = document.getElementById(id); if (d) d.open = true; });
+}
+
+setup();
+</script>
+</body>
+</html>

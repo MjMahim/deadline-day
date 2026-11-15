@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# test runs made in the web app; the experiments are in the other log folders
+logs/web/

@@ -1,0 +1,1086 @@
+{
+  "scenario_name": "default",
+  "seed": 5,
+  "features": [],
+  "use_llm": true,
+  "model": null,
+  "seats": {
+    "buyer": "rule",
+    "seller": "rule",
+    "player_agent": "rule"
+  },
+  "seconds": 0.0,
+  "choices": {
+    "player_name": "Leo Silva",
+    "position": "Striker",
+    "age": "22-25 (rising)",
+    "performance": "Key player",
+    "contract": "2 years left",
+    "injuries": "No injury problems",
+    "seller_stance": "Must sell (needs the money)",
+    "buyer_need": "A main target",
+    "buyer_finances": "Comfortable",
+    "player_attitude": "Open to it",
+    "rivals": "One other club is interested",
+    "release_clause": "80M",
+    "buyer_name": "Northbridge FC",
+    "seller_name": "Riverside FC"
+  },
+  "facts": {
+    "summary": "Leo Silva is a 24-year-old striker, rated as: key player. He has 2 years left on his contract at Riverside FC, with a release clause of 80M.",
+    "market_value": 52.0,
+    "market_wage": 5.2,
+    "release_clause": 80,
+    "deal_possible": true
+  },
+  "scenario": {
+    "rounds": 10,
+    "start_hour": 14,
+    "market": {
+      "value": 52.0,
+      "wage": 5.2
+    },
+    "medical": {
+      "pass": 0.97,
+      "concern": 0.03
+    },
+    "rivals": {
+      "level": 1,
+      "clubs": [
+        {
+          "name": "Eastgate United",
+          "short": "Eastgate",
+          "letter": "E",
+          "color": "#9b4dca"
+        }
+      ]
+    },
+    "player": {
+      "name": "Leo Silva",
+      "position": "striker",
+      "age": 24,
+      "club": "Riverside FC",
+      "min_salary": 5.2,
+      "release_clause": 80,
+      "loyalty": 0.95
+    },
+    "agents": {
+      "Northbridge FC": {
+        "role": "buyer",
+        "short": "Northbridge",
+        "hurry": 0.4,
+        "transfer_budget": 67.5,
+        "valuation": 57.0,
+        "max_salary": 7.8,
+        "brief": "He is one of your main targets in this window. Leo Silva is a 24-year-old striker, rated as: key player. He has 2 years left on his contract at Riverside FC, with a release clause of 80M.",
+        "prefs": {
+          "delay": 0.03,
+          "add_on": 0.4,
+          "resale": 14.0,
+          "contract_years": 5
+        }
+      },
+      "Riverside FC": {
+        "role": "seller",
+        "short": "Riverside",
+        "hurry": 0.7,
+        "min_fee": 41.5,
+        "asking_fee": 67.5,
+        "keep_salary": 0,
+        "brief": "The club needs money now to cover debts, so selling matters and cash up front matters. Leo Silva is a 24-year-old striker, rated as: key player. He has 2 years left on his contract at Riverside FC, with a release clause of 80M.",
+        "prefs": {
+          "delay": 0.06,
+          "add_on": 0.35,
+          "resale": 15.55,
+          "contract_years": 5
+        }
+      },
+      "Silva's agent": {
+        "role": "player_agent",
+        "short": "Agent",
+        "hurry": 0.4,
+        "target_salary": 7.8,
+        "brief": "You earn a 10% commission on his salary, so you want it as high as possible. Silva is open to the move if the terms are right. Leo Silva is a 24-year-old striker, rated as: key player. He has 2 years left on his contract at Riverside FC, with a release clause of 80M.",
+        "prefs": {
+          "contract_years": 4
+        }
+      }
+    },
+    "reporter": {
+      "name": "Marco Fontana",
+      "short": "Fontana"
+    }
+  },
+  "outcome": {
+    "hour": "20:00",
+    "round": 7,
+    "medical": "passed",
+    "result": "completed",
+    "fee_terms": {
+      "fee": 51.3,
+      "add_ons": 0,
+      "years": 1,
+      "sell_on": 0
+    },
+    "salary_terms": {
+      "salary": 6.76,
+      "years": 5
+    },
+    "clause_paid": false,
+    "fee": 51.3,
+    "salary": 6.76,
+    "invalid_actions": 0,
+    "fee_offers": 13,
+    "salary_offers": 11,
+    "leaks": 0,
+    "news_posts": 3,
+    "early_here_we_go": 0,
+    "corrected_posts": 0,
+    "buyer_cost": 51.3,
+    "seller_value": 51.3,
+    "buyer_surplus_share": 0.37,
+    "overpaid": false,
+    "seller_sold_below_minimum": false
+  },
+  "news_feed": [
+    {
+      "hour": "14:00",
+      "text": "Northbridge FC open talks with Riverside FC to sign Leo Silva before the window closes.",
+      "final": false,
+      "facts": [
+        "Northbridge FC open talks with Riverside FC to sign Leo Silva before the window closes."
+      ]
+    },
+    {
+      "hour": "19:00",
+      "text": "Personal terms agreed between Silva's agent and Northbridge FC: 6.76M a year on a 5-year contract.",
+      "final": false,
+      "facts": [
+        "Personal terms agreed between Silva's agent and Northbridge FC: 6.76M a year on a 5-year contract."
+      ]
+    },
+    {
+      "hour": "20:00",
+      "text": "Here we go! Transfer fee agreed between Riverside FC and Northbridge FC: 51.3M. Leo Silva passes his medical. Leo Silva joins Northbridge FC: 51.3M; 6.76M a year on a 5-year contract.",
+      "final": true,
+      "facts": [
+        "Transfer fee agreed between Riverside FC and Northbridge FC: 51.3M.",
+        "Leo Silva passes his medical.",
+        "Leo Silva joins Northbridge FC: 51.3M; 6.76M a year on a 5-year contract."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "hour": "14:00",
+      "text": "Northbridge FC open talks with Riverside FC to sign Leo Silva before the window closes.",
+      "public": true
+    },
+    {
+      "hour": "20:00",
+      "text": "Leo Silva passes his medical.",
+      "public": true
+    },
+    {
+      "hour": "20:00",
+      "text": "Leo Silva joins Northbridge FC: 51.3M; 6.76M a year on a 5-year contract.",
+      "public": true
+    }
+  ],
+  "rival_history": [
+    {
+      "hour": "14:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": false
+    },
+    {
+      "hour": "15:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": false
+    },
+    {
+      "hour": "16:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": false
+    },
+    {
+      "hour": "17:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": false
+    },
+    {
+      "hour": "18:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": false
+    },
+    {
+      "hour": "19:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": true
+    },
+    {
+      "hour": "20:00",
+      "name": "Eastgate United",
+      "bid": null,
+      "out": true
+    }
+  ],
+  "leaks": [],
+  "transcript": [
+    {
+      "hour": "14:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 39.9,
+      "terms": {
+        "fee": 39.9,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "39.9M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "14:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 5.46,
+      "terms": {
+        "salary": 5.46,
+        "years": 5
+      },
+      "text": "5.46M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "14:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 67.5,
+      "terms": {
+        "fee": 67.5,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "67.5M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "14:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 4
+      },
+      "text": "7.8M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 41.8,
+      "terms": {
+        "fee": 41.8,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "41.8M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 5.72,
+      "terms": {
+        "salary": 5.72,
+        "years": 5
+      },
+      "text": "5.72M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 64.6,
+      "terms": {
+        "fee": 64.6,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "64.6M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 7.51,
+      "terms": {
+        "salary": 7.51,
+        "years": 4
+      },
+      "text": "7.51M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 43.7,
+      "terms": {
+        "fee": 43.7,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "43.7M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 5.98,
+      "terms": {
+        "salary": 5.98,
+        "years": 5
+      },
+      "text": "5.98M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 61.7,
+      "terms": {
+        "fee": 61.7,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "61.7M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 7.22,
+      "terms": {
+        "salary": 7.22,
+        "years": 4
+      },
+      "text": "7.22M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 45.6,
+      "terms": {
+        "fee": 45.6,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "45.6M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 6.24,
+      "terms": {
+        "salary": 6.24,
+        "years": 5
+      },
+      "text": "6.24M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 58.8,
+      "terms": {
+        "fee": 58.8,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "58.8M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 6.93,
+      "terms": {
+        "salary": 6.93,
+        "years": 4
+      },
+      "text": "6.93M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 47.5,
+      "terms": {
+        "fee": 47.5,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "47.5M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 6.5,
+      "terms": {
+        "salary": 6.5,
+        "years": 5
+      },
+      "text": "6.5M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 55.9,
+      "terms": {
+        "fee": 55.9,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "55.9M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 6.64,
+      "terms": {
+        "salary": 6.64,
+        "years": 4
+      },
+      "text": "6.64M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 49.4,
+      "terms": {
+        "fee": 49.4,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "49.4M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 6.76,
+      "terms": {
+        "salary": 6.76,
+        "years": 5
+      },
+      "text": "6.76M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 53.1,
+      "terms": {
+        "fee": 53.1,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "53.1M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "accept",
+      "amount": 6.76,
+      "terms": {
+        "salary": 6.76,
+        "years": 5
+      },
+      "text": "6.76M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 51.3,
+      "terms": {
+        "fee": 51.3,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "51.3M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "accept",
+      "amount": 51.3,
+      "terms": {
+        "fee": 51.3,
+        "add_ons": 0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "51.3M",
+      "message": "",
+      "valid": true,
+      "note": ""
+    }
+  ],
+  "turns": [
+    {
+      "hour": "14:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 0%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 39.9,
+            "terms": {},
+            "message": ""
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 5.46,
+            "terms": {
+              "years": 5
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "14:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 0%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 67.5,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "14:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 0%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 7.8,
+            "terms": {
+              "years": 4
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "14:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "rule: report confirmed facts only",
+        "post": "Northbridge FC open talks with Riverside FC to sign Leo Silva before the window closes."
+      },
+      "raw": null
+    },
+    {
+      "hour": "15:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 11%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 41.8,
+            "terms": {},
+            "message": ""
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 5.72,
+            "terms": {
+              "years": 5
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "15:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 11%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 64.6,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "15:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 11%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 7.51,
+            "terms": {
+              "years": 4
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "16:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 22%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 43.7,
+            "terms": {},
+            "message": ""
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 5.98,
+            "terms": {
+              "years": 5
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "16:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 22%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 61.7,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "16:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 22%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 7.22,
+            "terms": {
+              "years": 4
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "17:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 33%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 45.6,
+            "terms": {},
+            "message": ""
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 6.24,
+            "terms": {
+              "years": 5
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "17:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 33%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 58.8,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "17:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 33%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 6.93,
+            "terms": {
+              "years": 4
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "18:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 44%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 47.5,
+            "terms": {},
+            "message": ""
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 6.5,
+            "terms": {
+              "years": 5
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "18:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 44%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 55.9,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "18:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 44%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 6.64,
+            "terms": {
+              "years": 4
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "19:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 56%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 49.4,
+            "terms": {},
+            "message": ""
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 6.76,
+            "terms": {
+              "years": 5
+            },
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "19:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 56%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 53.1,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "19:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 56%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "accept",
+            "amount": null,
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "19:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "rule: report confirmed facts only",
+        "post": "Personal terms agreed between Silva's agent and Northbridge FC: 6.76M a year on a 5-year contract."
+      },
+      "raw": null
+    },
+    {
+      "hour": "20:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 67%",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 51.3,
+            "terms": {},
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "20:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "rule: limit moves linearly, progress 67%",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "accept",
+            "amount": null,
+            "message": ""
+          }
+        ]
+      },
+      "raw": null
+    },
+    {
+      "hour": "20:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "rule: report confirmed facts only",
+        "post": "Here we go! Transfer fee agreed between Riverside FC and Northbridge FC: 51.3M. Leo Silva passes his medical. Leo Silva joins Northbridge FC: 51.3M; 6.76M a year on a 5-year contract."
+      },
+      "raw": null
+    }
+  ]
+}
