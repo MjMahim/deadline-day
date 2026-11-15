@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="190" viewBox="0 0 1000 190" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#52514e"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="190" rx="14" fill="#ffffff"/>
+  <!-- boxes: orange = language model, green = code -->
+  <g stroke-width="2.5">
+    <rect x="20"  y="28" width="160" height="104" rx="12" fill="#fdeee6" stroke="#eb6834"/>
+    <rect x="215" y="28" width="160" height="104" rx="12" fill="#e3f1e8" stroke="#0f6b3f"/>
+    <rect x="410" y="28" width="180" height="104" rx="12" fill="#e3f1e8" stroke="#0f6b3f"/>
+    <rect x="625" y="28" width="160" height="104" rx="12" fill="#fdeee6" stroke="#eb6834"/>
+    <rect x="820" y="28" width="160" height="104" rx="12" fill="#e3f1e8" stroke="#0f6b3f"/>
+  </g>
+  <g fill="none" stroke="#52514e" stroke-width="2.5" marker-end="url(#a)">
+    <line x1="182" y1="80" x2="211" y2="80"/>
+    <line x1="377" y1="80" x2="406" y2="80"/>
+    <line x1="592" y1="80" x2="621" y2="80"/>
+    <line x1="787" y1="80" x2="816" y2="80"/>
+  </g>
+  <g text-anchor="middle" font-size="20" font-weight="700" fill="#10201a">
+    <text x="100" y="62">1. Read</text>
+    <text x="295" y="62">2. Believe</text>
+    <text x="500" y="62">3. Plan</text>
+    <text x="705" y="62">4. Write</text>
+    <text x="900" y="62">5. Filter</text>
+  </g>
+  <g text-anchor="middle" font-size="14.5" fill="#33413a">
+    <text x="100" y="88">is the other side</text><text x="100" y="108">firm or flexible?</text>
+    <text x="295" y="88">estimate their</text><text x="295" y="108">secret limit</text>
+    <text x="500" y="88">wait, bid, accept</text><text x="500" y="108">or trigger the clause</text>
+    <text x="705" y="88">one sentence</text><text x="705" y="108">per action</text>
+    <text x="900" y="88">block wording</text><text x="900" y="108">that breaks the plan</text>
+  </g>
+  <g font-size="14" fill="#33413a">
+    <rect x="300" y="157" width="16" height="16" rx="3" fill="#e3f1e8" stroke="#0f6b3f" stroke-width="2"/>
+    <text x="324" y="170">code (decides)</text>
+    <rect x="490" y="157" width="16" height="16" rx="3" fill="#fdeee6" stroke="#eb6834" stroke-width="2"/>
+    <text x="514" y="170">language model (reads and writes)</text>
+  </g>
+</svg>

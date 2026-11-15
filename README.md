@@ -33,18 +33,10 @@ medical and a journalist who reports on every move.
 
 ## How the agent works
 
-```mermaid
-flowchart LR
-    A["📨 Read<br/><sub>LLM: is the other side<br/>firm or flexible?</sub>"] --> B["🧠 Believe<br/><sub>Bayesian estimate of<br/>their secret limit</sub>"]
-    B --> C["♟️ Plan<br/><sub>wait, bid, accept<br/>or trigger the clause</sub>"]
-    C --> D["✍️ Write<br/><sub>LLM: one sentence<br/>per action</sub>"]
-    D --> E["🛡️ Filter<br/><sub>block wording that<br/>breaks the plan</sub>"]
-    style B fill:#e3f1e8,stroke:#0f6b3f
-    style C fill:#e3f1e8,stroke:#0f6b3f
-    style E fill:#e3f1e8,stroke:#0f6b3f
-```
+<img src="assets/cycle.svg" alt="Every hour: 1 Read, 2 Believe, 3 Plan, 4 Write, 5 Filter. Steps 2, 3 and 5 are code; steps 1 and 4 use the language model" width="900">
 
-Green steps are code; the language model only reads and writes. Every number the agent sends comes from the plan.
+Every hour the agent runs five steps. The belief is a Bayesian estimate of the other side's secret limit, updated
+from how fast they concede. Every number the agent sends comes from the plan.
 
 <img src="assets/timeline.png" alt="One negotiation: the buyer opens low, holds, outbids a rival by 1M and signs 13.5M below the player's worth" width="760">
 
