@@ -130,3 +130,7 @@ Learning, LUT University, 2026.
 - Faratin, P., Sierra, C. and Jennings, N. R. (1998). Negotiation decision functions for autonomous agents.
   *Robotics and Autonomous Systems*, 24(3–4), 159–182.
 - Yang, A. et al. (2025). Qwen3 technical report. arXiv:2505.09388.
+
+## Author
+
+Monjurul Islam Mahim
