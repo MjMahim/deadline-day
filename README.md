@@ -117,10 +117,9 @@ Python or a model.
 | `test_engine.py` | Checks for the engine and the planner |
 | `logs/` | The recorded experiments: `logs/<situation>/<line-up>/seed<N>.json` |
 
-## Authors
+## Author
 
-**Md Mahim** (agent design and implementation, simulation, experiments) and **Toki Ahamed** (literature
-review, analysis of results). Course project for BM40A1601 Foundations of Artificial Intelligence and Machine
+**Monjurul Islam Mahim**. Course project for BM40A1601 Foundations of Artificial Intelligence and Machine
 Learning, LUT University, 2026.
 
 ## References
@@ -130,7 +129,3 @@ Learning, LUT University, 2026.
 - Faratin, P., Sierra, C. and Jennings, N. R. (1998). Negotiation decision functions for autonomous agents.
   *Robotics and Autonomous Systems*, 24(3–4), 159–182.
 - Yang, A. et al. (2025). Qwen3 technical report. arXiv:2505.09388.
-
-## Author
-
-Monjurul Islam Mahim
