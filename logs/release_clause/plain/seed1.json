@@ -9,7 +9,7 @@
     "seller": "plain",
     "player_agent": "plain"
   },
-  "seconds": 189.8,
+  "seconds": 415.1,
   "choices": {
     "player_name": "Leo Silva",
     "position": "Striker",
@@ -105,32 +105,28 @@
     }
   },
   "outcome": {
-    "hour": "18:00",
-    "round": 5,
+    "hour": null,
+    "round": null,
     "medical": null,
-    "result": "stayed (new contract)",
-    "stay_terms": {
-      "salary": 8.5,
-      "years": 3
-    },
-    "reason": "Leo Silva chose to stay at Riverside FC and signed a new contract: 8.5M a year on a 3-year contract",
+    "result": "failed (deadline passed)",
+    "reason": "time ran out with no agreement on personal terms (Northbridge's last offer was 7.8M a year on a 5-year contract, the demand was 10M a year on a 4-year contract)",
     "fee_terms": null,
     "salary_terms": null,
     "clause_paid": true,
     "fee": null,
     "salary": null,
-    "invalid_actions": 1,
+    "invalid_actions": 3,
     "fee_offers": 0,
-    "salary_offers": 5,
-    "leaks": 0,
-    "news_posts": 2,
-    "early_here_we_go": 1,
+    "salary_offers": 16,
+    "leaks": 3,
+    "news_posts": 5,
+    "early_here_we_go": 0,
     "corrected_posts": 0
   },
   "news_feed": [
     {
       "hour": "14:00",
-      "text": "Northbridge FC have triggered Leo Silva's release clause, with the player now deciding his future.",
+      "text": "Northbridge FC have triggered Leo Silva's release clause. The player now decides his future.",
       "final": false,
       "facts": [
         "Northbridge FC open talks with Riverside FC to sign Leo Silva before the window closes.",
@@ -138,12 +134,29 @@
       ]
     },
     {
-      "hour": "18:00",
-      "text": "Leo Silva has signed a new 3-year contract at Riverside FC for 8.5M annually. Transfer to Northbridge collapsed.",
+      "hour": "19:00",
+      "text": "Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal.",
+      "final": false,
+      "facts": []
+    },
+    {
+      "hour": "20:00",
+      "text": "Silva's agent remains firm at 10M/year, but Northbridge FC is determined to secure the deal before the deadline.",
+      "final": false,
+      "facts": []
+    },
+    {
+      "hour": "22:00",
+      "text": "Northbridge FC is in a race against the clock to finalize Silva's transfer before the deadline.",
+      "final": false,
+      "facts": []
+    },
+    {
+      "hour": "23:00",
+      "text": "The transfer window closes with no deal. Silva's agent holds firm at 10M/year, while Northbridge pushes for a better deal. Silva stays at Riverside FC.",
       "final": true,
       "facts": [
-        "New contract to stay agreed between Riverside FC and Silva's agent: 8.5M a year on a 3-year contract.",
-        "Leo Silva turns down Northbridge FC and signs a new contract at Riverside FC: 8.5M a year on a 3-year contract."
+        "The window closes with no deal on personal terms (Northbridge's last offer was 7.8M a year on a 5-year contract, the demand was 10M a year on a 4-year contract). Leo Silva stays at Riverside FC."
       ]
     }
   ],
@@ -159,13 +172,29 @@
       "public": true
     },
     {
-      "hour": "18:00",
-      "text": "Leo Silva turns down Northbridge FC and signs a new contract at Riverside FC: 8.5M a year on a 3-year contract.",
+      "hour": "23:00",
+      "text": "The window closes with no deal on personal terms (Northbridge's last offer was 7.8M a year on a 5-year contract, the demand was 10M a year on a 4-year contract). Leo Silva stays at Riverside FC.",
       "public": true
     }
   ],
   "rival_history": [],
-  "leaks": [],
+  "leaks": [
+    {
+      "hour": "19:00",
+      "from": "Northbridge FC",
+      "message": "Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal."
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "message": "Silva's agent is holding firm at 10M/year, but we are open to negotiation if it helps expedite the deal."
+    },
+    {
+      "hour": "22:00",
+      "from": "Northbridge FC",
+      "message": "Northbridge FC is close to finalizing a deal with Silva's agent, but the agent is holding firm at 10M/year."
+    }
+  ],
   "transcript": [
     {
       "hour": "14:00",
@@ -192,9 +221,9 @@
       "amount": 7.3,
       "terms": {
         "salary": 7.3,
-        "years": 2
+        "years": 3
       },
-      "text": "7.3M a year on a 2-year contract",
+      "text": "7.3M a year on a 3-year contract",
       "message": "",
       "valid": true,
       "note": ""
@@ -204,18 +233,63 @@
       "from": "Silva's agent",
       "to": "Northbridge FC",
       "type": "offer",
-      "amount": 10.0,
+      "amount": 9.0,
       "terms": {
-        "salary": 10.0,
+        "salary": 9.0,
         "years": 4
       },
-      "text": "10M a year on a 4-year contract",
+      "text": "9M a year on a 4-year contract",
       "message": "",
       "valid": true,
       "note": ""
     },
     {
       "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.5,
+      "terms": {
+        "salary": 7.5,
+        "years": 5
+      },
+      "text": "7.5M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Riverside FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.3,
+      "terms": {
+        "salary": 7.3,
+        "years": 3
+      },
+      "text": "7.3M a year on a 3-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 9.5,
+      "terms": {
+        "salary": 9.5,
+        "years": 4
+      },
+      "text": "9.5M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
       "from": "Northbridge FC",
       "to": "Silva's agent",
       "type": "offer",
@@ -230,7 +304,100 @@
       "note": ""
     },
     {
-      "hour": "15:00",
+      "hour": "16:00",
+      "from": "Riverside FC",
+      "to": "Silva's agent",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are committed to offering Leo Silva a new contract to stay, with a salary of 7.3M a year for 3 years. We hope he considers this opportunity.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 10.0,
+      "terms": {
+        "salary": 10.0,
+        "years": 4
+      },
+      "text": "10M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 5
+      },
+      "text": "7.8M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Riverside FC",
+      "to": "Silva's agent",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are confident Leo Silva will consider this offer, and we are ready to move forward if he agrees.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Leo Silva is not interested in anything below 6.7M/year. We are pushing for 10M/year on a 4-year contract.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Silva's agent",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Leo Silva is committed to moving, and we are ready to finalize the deal if you are prepared to offer a fair personal contract.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 5
+      },
+      "text": "7.8M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
       "from": "Riverside FC",
       "to": "Silva's agent",
       "type": "accept",
@@ -242,7 +409,7 @@
       "note": "there is no offer from the other side to accept"
     },
     {
-      "hour": "15:00",
+      "hour": "18:00",
       "from": "Silva's agent",
       "to": "Northbridge FC",
       "type": "offer",
@@ -257,143 +424,314 @@
       "note": ""
     },
     {
-      "hour": "16:00",
+      "hour": "18:00",
+      "from": "Silva's agent",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
       "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 5
+      },
+      "text": "7.8M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Northbridge FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Riverside FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.3,
+      "terms": {
+        "salary": 7.3,
+        "years": 3
+      },
+      "text": "7.3M a year on a 3-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 10.0,
+      "terms": {
+        "salary": 10.0,
+        "years": 4
+      },
+      "text": "10M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Silva's agent",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Leo Silva is focused on moving and is not interested in staying. We are ready to finalize the deal if you are prepared to offer a fair personal contract.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 5
+      },
+      "text": "7.8M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
       "to": "Silva's agent",
       "type": "message",
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "We are committed to signing Leo Silva and are willing to offer a 5-year contract at 7.8M/year. We believe this is a fair and competitive deal.",
+      "message": "We understand Leo's ambitions, but we are prepared to increase the personal terms if it helps finalize the transfer quickly.",
       "valid": true,
       "note": ""
     },
     {
-      "hour": "16:00",
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Silva's agent is holding firm at 10M/year, but we are open to negotiation if it helps expedite the deal.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 10.0,
+      "terms": {
+        "salary": 10.0,
+        "years": 4
+      },
+      "text": "10M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Silva's agent",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "21:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 5
+      },
+      "text": "7.8M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "21:00",
       "from": "Riverside FC",
       "to": "Silva's agent",
       "type": "offer",
-      "amount": 7.5,
+      "amount": 8.5,
       "terms": {
-        "salary": 7.5,
+        "salary": 8.5,
         "years": 2
       },
-      "text": "7.5M a year on a 2-year contract",
+      "text": "8.5M a year on a 2-year contract",
       "message": "",
       "valid": true,
       "note": ""
     },
     {
-      "hour": "16:00",
+      "hour": "21:00",
       "from": "Silva's agent",
       "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 10.0,
+      "terms": {
+        "salary": 10.0,
+        "years": 4
+      },
+      "text": "10M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "22:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "",
+      "valid": false,
+      "note": "the salary is above your wage limit of 7.8M a year"
+    },
+    {
+      "hour": "22:00",
+      "from": "Northbridge FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Northbridge FC is close to finalizing a deal with Silva's agent, but the agent is holding firm at 10M/year.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "22:00",
+      "from": "Riverside FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 9.0,
+      "terms": {
+        "salary": 9.0,
+        "years": 2
+      },
+      "text": "9M a year on a 2-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "22:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 10.0,
+      "terms": {
+        "salary": 10.0,
+        "years": 4
+      },
+      "text": "10M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "22:00",
+      "from": "Silva's agent",
+      "to": "Riverside FC",
       "type": "message",
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "We are confident Leo Silva will only agree to a deal that reflects his value. We are prepared to negotiate further but insist on a minimum of 10M/year on a 4-year contract.",
+      "message": "Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract.",
       "valid": true,
       "note": ""
     },
     {
-      "hour": "16:00",
-      "from": "Silva's agent",
-      "to": "Riverside FC",
-      "type": "offer",
-      "amount": 8.5,
-      "terms": {
-        "salary": 8.5,
-        "years": 3
-      },
-      "text": "8.5M a year on a 3-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "17:00",
+      "hour": "23:00",
       "from": "Northbridge FC",
-      "to": "Silva's agent",
-      "type": "offer",
-      "amount": 7.8,
-      "terms": {
-        "salary": 7.8,
-        "years": 5
-      },
-      "text": "7.8M a year on a 5-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "17:00",
-      "from": "Riverside FC",
-      "to": "Silva's agent",
-      "type": "offer",
-      "amount": 8.0,
-      "terms": {
-        "salary": 8.0,
-        "years": 3
-      },
-      "text": "8M a year on a 3-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "17:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "Leo Silva will not accept anything below 6.7M/year. We are prepared to walk away if he is not offered a deal that reflects his value.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "17:00",
-      "from": "Silva's agent",
-      "to": "Riverside FC",
-      "type": "offer",
-      "amount": 8.5,
-      "terms": {
-        "salary": 8.5,
-        "years": 3
-      },
-      "text": "8.5M a year on a 3-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "18:00",
-      "from": "Northbridge FC",
-      "to": "Silva's agent",
-      "type": "offer",
-      "amount": 7.8,
-      "terms": {
-        "salary": 7.8,
-        "years": 5
-      },
-      "text": "7.8M a year on a 5-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "18:00",
-      "from": "Riverside FC",
       "to": "Silva's agent",
       "type": "accept",
-      "amount": 8.5,
-      "terms": {
-        "salary": 8.5,
-        "years": 3
-      },
-      "text": "8.5M a year on a 3-year contract",
+      "amount": null,
+      "terms": null,
+      "text": "",
       "message": "",
+      "valid": false,
+      "note": "the salary is above your wage limit of 7.8M a year"
+    },
+    {
+      "hour": "23:00",
+      "from": "Riverside FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 9.0,
+      "terms": {
+        "salary": 9.0,
+        "years": 2
+      },
+      "text": "9M a year on a 2-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "23:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 10.0,
+      "terms": {
+        "salary": 10.0,
+        "years": 4
+      },
+      "text": "10M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "23:00",
+      "from": "Silva's agent",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Leo Silva is focused on moving and is not interested in staying. We are ready to finalize the deal if you are prepared to offer a fair personal contract.",
       "valid": true,
       "note": ""
     }
@@ -403,37 +741,142 @@
       "hour": "14:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "Starting the negotiation by triggering the release clause will secure the player's transfer without needing to negotiate a fee, which allows me to focus on personal terms and keep costs low.",
+        "private_reasoning": "Starting with the release clause is the most cost-effective way to secure the transfer, as it allows us to bypass the fee negotiation and ensures we get the player if personal terms are agreed.",
         "actions": [
           {
             "to": "Riverside FC",
-            "type": "release"
+            "type": "release",
+            "amount": null
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"Starting the negotiation by triggering the release clause will secure the player's transfer without needing to negotiate a fee, which allows me to focus on personal terms and keep costs low.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Starting with the release clause is the most cost-effective way to secure the transfer, as it allows us to bypass the fee negotiation and ensures we get the player if personal terms are agreed.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\",\n      \"amount\": null\n    }\n  ]\n}"
     },
     {
       "hour": "14:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "The release clause has been triggered, and the transfer fee is agreed. Now, I need to focus on securing a favorable personal contract for Silva to stay, which could potentially add value to the deal.",
+        "private_reasoning": "We have agreed on the release clause of 60M, and now we need to negotiate the personal terms with Silva's agent to secure the best possible package for the player. Our goal is to offer a contract that keeps him at Riverside FC for as long as possible while maximizing our financial gain.",
         "actions": [
           {
             "to": "Silva's agent",
             "type": "offer",
             "amount": 7.3,
-            "contract_years": 2
+            "contract_years": 3
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"The release clause has been triggered, and the transfer fee is agreed. Now, I need to focus on securing a favorable personal contract for Silva to stay, which could potentially add value to the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.3,\n      \"contract_years\": 2\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"We have agreed on the release clause of 60M, and now we need to negotiate the personal terms with Silva's agent to secure the best possible package for the player. Our goal is to offer a contract that keeps him at Riverside FC for as long as possible while maximizing our financial gain.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.3,\n      \"contract_years\": 3\n    }\n  ]\n}"
     },
     {
       "hour": "14:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "Riverside FC has already offered a contract to stay, but it's below Leo's minimum. I need to push for better personal terms with Northbridge FC to secure a deal that meets his minimum and maximizes my commission.",
+        "private_reasoning": "Riverside FC has already offered Silva a 3-year contract at 7.3M/year, which is below his minimum of 6.7M/year. I need to push for a better deal for him to leave. I should focus on getting a higher salary and longer contract to maximize his value.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 9.0,
+            "contract_years": 4
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Riverside FC has already offered Silva a 3-year contract at 7.3M/year, which is below his minimum of 6.7M/year. I need to push for a better deal for him to leave. I should focus on getting a higher salary and longer contract to maximize his value.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 9.0,\n      \"contract_years\": 4\n    }\n  ]\n}"
+    },
+    {
+      "hour": "14:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Introducing the key story of the day: Northbridge FC's pursuit of Leo Silva.",
+        "post": "Northbridge FC have triggered Leo Silva's release clause. The player now decides his future."
+      },
+      "raw": "{\"private_reasoning\": \"Introducing the key story of the day: Northbridge FC's pursuit of Leo Silva.\", \"post\": \"Northbridge FC have triggered Leo Silva's release clause. The player now decides his future.\"}"
+    },
+    {
+      "hour": "15:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "I have triggered the release clause, so the transfer fee is fixed at 60M. Now I need to secure Silva's personal terms. Offering a salary slightly below the wage budget and a contract length close to 5 years will help keep costs low while ensuring he signs.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.5,
+            "contract_years": 5
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I have triggered the release clause, so the transfer fee is fixed at 60M. Now I need to secure Silva's personal terms. Offering a salary slightly below the wage budget and a contract length close to 5 years will help keep costs low while ensuring he signs.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.5,\n      \"contract_years\": 5\n    }\n  ]\n}"
+    },
+    {
+      "hour": "15:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "I need to secure the best possible personal terms for Leo Silva to keep him at Riverside FC, while ensuring the transfer fee is already agreed. Offering a competitive contract will increase the chances of him staying, but I must balance this with the club's financial interests.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.3,
+            "contract_years": 3
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to secure the best possible personal terms for Leo Silva to keep him at Riverside FC, while ensuring the transfer fee is already agreed. Offering a competitive contract will increase the chances of him staying, but I must balance this with the club's financial interests.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.3,\n      \"contract_years\": 3\n    }\n  ]\n}"
+    },
+    {
+      "hour": "15:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "I need to push for better personal terms for Leo Silva. The current offer from Northbridge FC is below my minimum, and I should not accept anything less than 6.7M/year. I will counter with a higher offer to secure the best deal.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 9.5,
+            "contract_years": 4
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for better personal terms for Leo Silva. The current offer from Northbridge FC is below my minimum, and I should not accept anything less than 6.7M/year. I will counter with a higher offer to secure the best deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 9.5,\n      \"contract_years\": 4\n    }\n  ]\n}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "Silva's agent is pushing for higher salary and shorter contract. I need to offer a competitive package that stays within my wage budget and maximizes long-term value.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 5
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Silva's agent is pushing for higher salary and shorter contract. I need to offer a competitive package that stays within my wage budget and maximizes long-term value.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "The release clause has been triggered, so the transfer fee is fixed at 60M. Now, I need to focus on securing the personal terms with Silva's agent. My offer of 7.3M a year on a 3-year contract is already on the table, and I should wait for a response before making any further moves.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "message",
+            "message": "We are committed to offering Leo Silva a new contract to stay, with a salary of 7.3M a year for 3 years. We hope he considers this opportunity."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"The release clause has been triggered, so the transfer fee is fixed at 60M. Now, I need to focus on securing the personal terms with Silva's agent. My offer of 7.3M a year on a 3-year contract is already on the table, and I should wait for a response before making any further moves.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are committed to offering Leo Silva a new contract to stay, with a salary of 7.3M a year for 3 years. We hope he considers this opportunity.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "Northbridge FC's latest offer is below my minimum, and they are not matching my previous offer. I need to push for a better deal or risk losing him to Riverside FC.",
         "actions": [
           {
             "to": "Northbridge FC",
@@ -443,22 +886,13 @@
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"Riverside FC has already offered a contract to stay, but it's below Leo's minimum. I need to push for better personal terms with Northbridge FC to secure a deal that meets his minimum and maximizes my commission.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10.0,\n      \"contract_years\": 4\n    }\n  ]\n}"
+      "raw": "{\"private_reasoning\": \"Northbridge FC's latest offer is below my minimum, and they are not matching my previous offer. I need to push for a better deal or risk losing him to Riverside FC.\", \"actions\": [{\"to\": \"Northbridge FC\", \"type\": \"offer\", \"amount\": 10.0, \"contract_years\": 4}]}"
     },
     {
-      "hour": "14:00",
-      "agent": "Marco Fontana",
-      "decision": {
-        "private_reasoning": "Introducing the key players and the status of the transfer.",
-        "post": "Northbridge FC have triggered Leo Silva's release clause, with the player now deciding his future."
-      },
-      "raw": "{\"private_reasoning\": \"Introducing the key players and the status of the transfer.\", \"post\": \"Northbridge FC have triggered Leo Silva's release clause, with the player now deciding his future.\"}"
-    },
-    {
-      "hour": "15:00",
+      "hour": "17:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I have triggered the release clause, so the transfer fee is fixed at 60M. Now I need to secure Silva's personal terms at the lowest possible cost. Offering a salary of 7.8M over 5 years will be most cost-effective and align with my wage budget.",
+        "private_reasoning": "Silva's agent is pushing for higher salary and shorter contract, but we are within our wage budget and prefer a 5-year deal. We need to counter their latest offer and push for a deal before the deadline.",
         "actions": [
           {
             "to": "Silva's agent",
@@ -468,29 +902,266 @@
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I have triggered the release clause, so the transfer fee is fixed at 60M. Now I need to secure Silva's personal terms at the lowest possible cost. Offering a salary of 7.8M over 5 years will be most cost-effective and align with my wage budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Silva's agent is pushing for higher salary and shorter contract, but we are within our wage budget and prefer a 5-year deal. We need to counter their latest offer and push for a deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
     },
     {
-      "hour": "15:00",
+      "hour": "17:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "The release clause is triggered, so I need to secure Silva's personal terms to complete the transfer. My offer of 7.3M/year for 2 years is fair and meets my minimum, so I should now push for acceptance.",
+        "private_reasoning": "I need to ensure the personal terms are agreed to keep Leo Silva at Riverside FC, but I must remain competitive. The current offer is fair, and I should maintain pressure without overcommitting.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "message",
+            "message": "We are confident Leo Silva will consider this offer, and we are ready to move forward if he agrees."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to ensure the personal terms are agreed to keep Leo Silva at Riverside FC, but I must remain competitive. The current offer is fair, and I should maintain pressure without overcommitting.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are confident Leo Silva will consider this offer, and we are ready to move forward if he agrees.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "17:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "I need to push for the best personal terms for Leo Silva, ideally 10M/year on a 4-year contract. Northbridge FC is not meeting my previous offer, so I should reinforce my stance and try to secure the deal before the deadline.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "Leo Silva is not interested in anything below 6.7M/year. We are pushing for 10M/year on a 4-year contract."
+          },
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "message": "Leo Silva is committed to moving, and we are ready to finalize the deal if you are prepared to offer a fair personal contract."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for the best personal terms for Leo Silva, ideally 10M/year on a 4-year contract. Northbridge FC is not meeting my previous offer, so I should reinforce my stance and try to secure the deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva is not interested in anything below 6.7M/year. We are pushing for 10M/year on a 4-year contract.\"\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva is committed to moving, and we are ready to finalize the deal if you are prepared to offer a fair personal contract.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "18:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "We need to secure Leo Silva's personal terms without exceeding our wage budget. Offering a 5-year contract at 7.8M/year is the best we can do while staying within our limits.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 5
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We need to secure Leo Silva's personal terms without exceeding our wage budget. Offering a 5-year contract at 7.8M/year is the best we can do while staying within our limits.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
+    },
+    {
+      "hour": "18:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "The release clause has been triggered, so the transfer is now dependent on Silva's personal terms. We need to finalize the deal by offering a fair contract to keep him, but we must ensure we do not overpay. The current offer of 7.3M for 3 years is fair and reasonable, and we should push for an agreement.",
         "actions": [
           {
             "to": "Silva's agent",
             "type": "accept",
             "amount": 7.3,
+            "contract_years": 3
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"The release clause has been triggered, so the transfer is now dependent on Silva's personal terms. We need to finalize the deal by offering a fair contract to keep him, but we must ensure we do not overpay. The current offer of 7.3M for 3 years is fair and reasonable, and we should push for an agreement.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"accept\",\n      \"amount\": 7.3,\n      \"contract_years\": 3\n    }\n  ]\n}"
+    },
+    {
+      "hour": "18:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "I need to push for the best personal terms for Leo Silva, which is 10M/year on a 4-year contract. I will make a final offer to Northbridge FC and also ensure that Riverside FC understands that Leo is not interested in staying.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 10,
+            "contract_years": 4
+          },
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "message": "Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for the best personal terms for Leo Silva, which is 10M/year on a 4-year contract. I will make a final offer to Northbridge FC and also ensure that Riverside FC understands that Leo is not interested in staying.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10,\n      \"contract_years\": 4\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "The agent is firm on 10M/year, but our wage budget is 7.8M. We need to push for a lower salary while keeping the contract length at 5 years to minimize long-term costs. We can also try to negotiate add-ons or instalments to reduce the upfront cost.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 5
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"The agent is firm on 10M/year, but our wage budget is 7.8M. We need to push for a lower salary while keeping the contract length at 5 years to minimize long-term costs. We can also try to negotiate add-ons or instalments to reduce the upfront cost.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "The release clause has been triggered, so the transfer is now dependent on Silva's personal terms. We need to make a final push to secure the deal while ensuring we meet our minimum financial requirements.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.3,
+            "contract_years": 3
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"The release clause has been triggered, so the transfer is now dependent on Silva's personal terms. We need to make a final push to secure the deal while ensuring we meet our minimum financial requirements.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.3,\n      \"contract_years\": 3\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "Leo Silva is not interested in staying, and we need to push for the best personal terms. The release clause has been triggered, so we must secure a deal at or above his minimum of 6.7M/year. Our best offer is 10M/year on a 4-year contract, which is the highest we can get while keeping the player satisfied.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 10,
+            "contract_years": 4
+          },
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "message": "Leo Silva is focused on moving and is not interested in staying. We are ready to finalize the deal if you are prepared to offer a fair personal contract."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Leo Silva is not interested in staying, and we need to push for the best personal terms. The release clause has been triggered, so we must secure a deal at or above his minimum of 6.7M/year. Our best offer is 10M/year on a 4-year contract, which is the highest we can get while keeping the player satisfied.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10,\n      \"contract_years\": 4\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva is focused on moving and is not interested in staying. We are ready to finalize the deal if you are prepared to offer a fair personal contract.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "The release clause is triggered, but the transfer isn't complete yet. Need to keep the pressure on the agent.",
+        "post": "Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal."
+      },
+      "raw": "{\"private_reasoning\": \"The release clause is triggered, but the transfer isn't complete yet. Need to keep the pressure on the agent.\", \"post\": \"Silva's agent is holding firm at 10M/year, but Northbridge FC is pushing for a better deal.\"}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "I need to push for a better deal with Silva's agent while keeping the total cost under 67.5M. My latest offer of 7.8M/year on a 5-year contract is the maximum I can offer without exceeding the wage budget. I should try to negotiate further.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 5
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a better deal with Silva's agent while keeping the total cost under 67.5M. My latest offer of 7.8M/year on a 5-year contract is the maximum I can offer without exceeding the wage budget. I should try to negotiate further.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "Leo Silva is clearly focused on moving, and the agent is holding firm at 10M/year. To secure the deal, I need to either increase the personal terms or use a leak to influence the agent's stance.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "message",
+            "message": "We understand Leo's ambitions, but we are prepared to increase the personal terms if it helps finalize the transfer quickly."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Silva's agent is holding firm at 10M/year, but we are open to negotiation if it helps expedite the deal."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Leo Silva is clearly focused on moving, and the agent is holding firm at 10M/year. To secure the deal, I need to either increase the personal terms or use a leak to influence the agent's stance.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We understand Leo's ambitions, but we are prepared to increase the personal terms if it helps finalize the transfer quickly.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Silva's agent is holding firm at 10M/year, but we are open to negotiation if it helps expedite the deal.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "I need to push for the best personal terms for Leo Silva, aiming for 10M/year on a 4-year contract. I should make a final offer to Northbridge FC and reinforce that Leo is not interested in staying at Riverside FC.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 10,
+            "contract_years": 4
+          },
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "message": "Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for the best personal terms for Leo Silva, aiming for 10M/year on a 4-year contract. I should make a final offer to Northbridge FC and reinforce that Leo is not interested in staying at Riverside FC.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10,\n      \"contract_years\": 4\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "The release clause is triggered, but the fee hasn't been paid yet. I need to wait for confirmation that the deal is complete before saying 'Here we go!'",
+        "post": "Silva's agent remains firm at 10M/year, but Northbridge FC is determined to secure the deal before the deadline."
+      },
+      "raw": "{\"private_reasoning\": \"The release clause is triggered, but the fee hasn't been paid yet. I need to wait for confirmation that the deal is complete before saying 'Here we go!'\", \"post\": \"Silva's agent remains firm at 10M/year, but Northbridge FC is determined to secure the deal before the deadline.\"}"
+    },
+    {
+      "hour": "21:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "Silva's agent is holding firm at 10M/year, but we are close to our wage budget. We need to push for a better deal while staying within our limits.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 5
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Silva's agent is holding firm at 10M/year, but we are close to our wage budget. We need to push for a better deal while staying within our limits.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
+    },
+    {
+      "hour": "21:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "Silva's agent is firm on 10M/year, but we can push for a lower figure to expedite the deal. A lower offer may encourage the agent to accept a compromise before the deadline.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 8.5,
             "contract_years": 2
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"The release clause is triggered, so I need to secure Silva's personal terms to complete the transfer. My offer of 7.3M/year for 2 years is fair and meets my minimum, so I should now push for acceptance.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"accept\",\n      \"amount\": 7.3,\n      \"contract_years\": 2\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Silva's agent is firm on 10M/year, but we can push for a lower figure to expedite the deal. A lower offer may encourage the agent to accept a compromise before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 8.5,\n      \"contract_years\": 2\n    }\n  ]\n}"
     },
     {
-      "hour": "15:00",
+      "hour": "21:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "I need to push for better personal terms for Leo Silva, as he will not accept anything below 6.7M/year. My latest offer of 10M/year on a 4-year contract is strong, but Northbridge FC has countered with 7.8M on a 5-year deal. I should try to convince them to match my offer or offer a slightly better one to secure the deal.",
+        "private_reasoning": "I need to push for the best possible personal terms for Leo Silva. The release clause is triggered, so I can't let Northbridge FC get away with less than 10M/year. I should make a final push for the 10M/year on a 4-year contract.",
         "actions": [
           {
             "to": "Northbridge FC",
@@ -500,153 +1171,136 @@
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for better personal terms for Leo Silva, as he will not accept anything below 6.7M/year. My latest offer of 10M/year on a 4-year contract is strong, but Northbridge FC has countered with 7.8M on a 5-year deal. I should try to convince them to match my offer or offer a slightly better one to secure the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10,\n      \"contract_years\": 4\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push for the best possible personal terms for Leo Silva. The release clause is triggered, so I can't let Northbridge FC get away with less than 10M/year. I should make a final push for the 10M/year on a 4-year contract.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10,\n      \"contract_years\": 4\n    }\n  ]\n}"
     },
     {
-      "hour": "16:00",
+      "hour": "22:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to secure Leo Silva's personal terms without paying more than necessary. My offer of 7.8M/year on a 5-year contract is already within my wage budget. I should push for the 5-year contract to minimize salary cost over time.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "message",
-            "message": "We are committed to signing Leo Silva and are willing to offer a 5-year contract at 7.8M/year. We believe this is a fair and competitive deal."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to secure Leo Silva's personal terms without paying more than necessary. My offer of 7.8M/year on a 5-year contract is already within my wage budget. I should push for the 5-year contract to minimize salary cost over time.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are committed to signing Leo Silva and are willing to offer a 5-year contract at 7.8M/year. We believe this is a fair and competitive deal.\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "16:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "I need to push for the best possible personal terms for Leo Silva to ensure the deal goes through and maximizes the value for Riverside FC.",
+        "private_reasoning": "We are close to securing the deal with the release clause already triggered. The agent is firm at 10M/year, but we can try to push for a better deal by offering a slightly better contract or using the media to create pressure.",
         "actions": [
           {
             "to": "Silva's agent",
             "type": "offer",
-            "amount": 7.5,
+            "amount": 8.2,
+            "contract_years": 5
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Northbridge FC is close to finalizing a deal with Silva's agent, but the agent is holding firm at 10M/year."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We are close to securing the deal with the release clause already triggered. The agent is firm at 10M/year, but we can try to push for a better deal by offering a slightly better contract or using the media to create pressure.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 8.2,\n      \"contract_years\": 5\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Northbridge FC is close to finalizing a deal with Silva's agent, but the agent is holding firm at 10M/year.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "22:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "I need to push for a better personal terms offer to keep the deal moving, as the agent is firm at 10M/year. I should increase the offer to 9M/year on a 2-year contract to show willingness to negotiate and expedite the process.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 9,
             "contract_years": 2
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the best possible personal terms for Leo Silva to ensure the deal goes through and maximizes the value for Riverside FC.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.5,\n      \"contract_years\": 2\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a better personal terms offer to keep the deal moving, as the agent is firm at 10M/year. I should increase the offer to 9M/year on a 2-year contract to show willingness to negotiate and expedite the process.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 9,\n      \"contract_years\": 2\n    }\n  ]\n}"
     },
     {
-      "hour": "16:00",
+      "hour": "22:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "I need to push for the best personal terms for Leo Silva. Northbridge FC has already triggered the release clause, so the deal is now only dependent on personal terms. I should continue pushing for the 10M/year on a 4-year contract, as this is the minimum I can accept and maximizes my commission. If they refuse, I may consider the offer from Riverside FC to keep him at the club.",
+        "private_reasoning": "Leo Silva is focused on moving and has made it clear he will not accept anything below 6.7M/year. I need to push for the best personal terms possible before the deadline. The release clause has been triggered, so the transfer is dependent on his personal terms. I should continue to hold firm at 10M/year on a 4-year contract and make a final push to secure the deal.",
         "actions": [
           {
             "to": "Northbridge FC",
-            "type": "message",
-            "message": "We are confident Leo Silva will only agree to a deal that reflects his value. We are prepared to negotiate further but insist on a minimum of 10M/year on a 4-year contract."
+            "type": "offer",
+            "amount": 10,
+            "contract_years": 4
           },
           {
             "to": "Riverside FC",
-            "type": "offer",
-            "amount": 8.5,
-            "contract_years": 3
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the best personal terms for Leo Silva. Northbridge FC has already triggered the release clause, so the deal is now only dependent on personal terms. I should continue pushing for the 10M/year on a 4-year contract, as this is the minimum I can accept and maximizes my commission. If they refuse, I may consider the offer from Riverside FC to keep him at the club.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are confident Leo Silva will only agree to a deal that reflects his value. We are prepared to negotiate further but insist on a minimum of 10M/year on a 4-year contract.\"\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 8.5,\n      \"contract_years\": 3\n    }\n  ]\n}"
-    },
-    {
-      "hour": "17:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "We need to push for the 7.8M/year on a 5-year contract to stay within our wage budget and avoid paying more than the 67.5M limit. The agent is holding firm on 10M, but we are committed to signing Silva and will not exceed our budget.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "offer",
-            "amount": 7.8,
-            "contract_years": 5
-          }
-        ]
-      },
-      "raw": "{\"private_reasoning\": \"We need to push for the 7.8M/year on a 5-year contract to stay within our wage budget and avoid paying more than the 67.5M limit. The agent is holding firm on 10M, but we are committed to signing Silva and will not exceed our budget.\", \"actions\": [{\"to\": \"Silva's agent\", \"type\": \"offer\", \"amount\": 7.8, \"contract_years\": 5}]}"
-    },
-    {
-      "hour": "17:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "I need to push the personal terms to a deal that benefits Riverside FC. The agent is offering 8.5M for 3 years, which is above my minimum, but I can try to get a better package. I should offer a slightly higher salary to keep the agent interested while staying within my budget.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "offer",
-            "amount": 8.0,
-            "contract_years": 3
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to push the personal terms to a deal that benefits Riverside FC. The agent is offering 8.5M for 3 years, which is above my minimum, but I can try to get a better package. I should offer a slightly higher salary to keep the agent interested while staying within my budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 8.0,\n      \"contract_years\": 3\n    }\n  ]\n}"
-    },
-    {
-      "hour": "17:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "I need to push for the best personal terms for Leo Silva, ideally 10M/year on a 4-year contract. Northbridge FC is not budging from their 7.8M/year offer, so I should continue to emphasize that Leo Silva will not accept anything below 6.7M/year. If they refuse, I may consider the offer from Riverside FC, but only if it meets his minimum requirements.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
             "type": "message",
-            "message": "Leo Silva will not accept anything below 6.7M/year. We are prepared to walk away if he is not offered a deal that reflects his value."
-          },
-          {
-            "to": "Riverside FC",
-            "type": "offer",
-            "amount": 8.5,
-            "contract_years": 3
+            "message": "Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract."
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the best personal terms for Leo Silva, ideally 10M/year on a 4-year contract. Northbridge FC is not budging from their 7.8M/year offer, so I should continue to emphasize that Leo Silva will not accept anything below 6.7M/year. If they refuse, I may consider the offer from Riverside FC, but only if it meets his minimum requirements.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva will not accept anything below 6.7M/year. We are prepared to walk away if he is not offered a deal that reflects his value.\"\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 8.5,\n      \"contract_years\": 3\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Leo Silva is focused on moving and has made it clear he will not accept anything below 6.7M/year. I need to push for the best personal terms possible before the deadline. The release clause has been triggered, so the transfer is dependent on his personal terms. I should continue to hold firm at 10M/year on a 4-year contract and make a final push to secure the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 10,\n      \"contract_years\": 4\n    },\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"message\",\n      \"message\": \"Leo Silva is not interested in staying and is focused on moving. We are ready to finalize the deal if you are prepared to offer a fair personal contract.\"\n    }\n  ]\n}"
     },
     {
-      "hour": "18:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "We need to secure Leo Silva's personal terms without exceeding our budget. The agent is now insisting on a minimum of 6.7M/year, but we can offer 7.8M/year on a 5-year contract as our final offer. If the agent refuses, we may need to consider other options, but we are committed to signing him.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "offer",
-            "amount": 7.8,
-            "contract_years": 5
-          }
-        ]
-      },
-      "raw": "{\"private_reasoning\": \"We need to secure Leo Silva's personal terms without exceeding our budget. The agent is now insisting on a minimum of 6.7M/year, but we can offer 7.8M/year on a 5-year contract as our final offer. If the agent refuses, we may need to consider other options, but we are committed to signing him.\", \"actions\": [{\"to\": \"Silva's agent\", \"type\": \"offer\", \"amount\": 7.8, \"contract_years\": 5}]}"
-    },
-    {
-      "hour": "18:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "Silva's agent is pushing for a higher salary and longer contract. I need to make a final offer that is attractive enough to secure his loyalty while maximizing the value of the transfer.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "offer",
-            "amount": 8.5,
-            "contract_years": 3
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"Silva's agent is pushing for a higher salary and longer contract. I need to make a final offer that is attractive enough to secure his loyalty while maximizing the value of the transfer.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 8.5,\n      \"contract_years\": 3\n    }\n  ]\n}"
-    },
-    {
-      "hour": "18:00",
+      "hour": "22:00",
       "agent": "Marco Fontana",
       "decision": {
-        "private_reasoning": "The transfer is off. Silva has signed a new contract at Riverside, so Northbridge's efforts have failed.",
-        "post": "Leo Silva has signed a new 3-year contract at Riverside FC for 8.5M annually. Transfer to Northbridge collapsed. Here we go!"
+        "private_reasoning": "The release clause is triggered, but the fee is not yet paid. The agent is still holding firm at 10M/year, and Northbridge FC is under pressure to finalize before the deadline.",
+        "post": "Northbridge FC is in a race against the clock to finalize Silva's transfer before the deadline."
       },
-      "raw": "{\"private_reasoning\": \"The transfer is off. Silva has signed a new contract at Riverside, so Northbridge's efforts have failed.\", \"post\": \"Leo Silva has signed a new 3-year contract at Riverside FC for 8.5M annually. Transfer to Northbridge collapsed. Here we go!\"}"
+      "raw": "{\"private_reasoning\": \"The release clause is triggered, but the fee is not yet paid. The agent is still holding firm at 10M/year, and Northbridge FC is under pressure to finalize before the deadline.\", \"post\": \"Northbridge FC is in a race against the clock to finalize Silva's transfer before the deadline.\"}"
+    },
+    {
+      "hour": "23:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "We have already triggered the release clause, so the only remaining hurdle is the personal terms. Silva's agent is holding firm at 10M/year, but we cannot exceed our wage budget of 7.8M/year. Our best option is to accept the latest offer from the agent to secure the deal before the deadline.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "accept",
+            "amount": 10,
+            "contract_years": 4
+          }
+        ]
+      },
+      "raw": "{\"private_reasoning\": \"We have already triggered the release clause, so the only remaining hurdle is the personal terms. Silva's agent is holding firm at 10M/year, but we cannot exceed our wage budget of 7.8M/year. Our best option is to accept the latest offer from the agent to secure the deal before the deadline.\", \"actions\": [{\"to\": \"Silva's agent\", \"type\": \"accept\", \"amount\": 10, \"contract_years\": 4}]}"
+    },
+    {
+      "hour": "23:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "I need to push for a higher offer to secure Leo Silva's transfer, as the agent is firm on 10M/year. Offering 9M/year on a 2-year contract is the best I can do now to finalize the deal before the deadline.",
+        "actions": [
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 9,
+            "contract_years": 2
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a higher offer to secure Leo Silva's transfer, as the agent is firm on 10M/year. Offering 9M/year on a 2-year contract is the best I can do now to finalize the deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 9,\n      \"contract_years\": 2\n    }\n  ]\n}"
+    },
+    {
+      "hour": "23:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "Leo Silva is not interested in staying, and the release clause has been triggered. I need to push for the best personal terms possible before the deadline. I will make a final offer to Northbridge FC and simultaneously try to secure a better deal with Riverside FC to ensure the player moves.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 10,
+            "contract_years": 4
+          },
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "message": "Leo Silva is focused on moving and is not interested in staying. We are ready to finalize the deal if you are prepared to offer a fair personal contract."
+          }
+        ]
+      },
+      "raw": "{\"private_reasoning\": \"Leo Silva is not interested in staying, and the release clause has been triggered. I need to push for the best personal terms possible before the deadline. I will make a final offer to Northbridge FC and simultaneously try to secure a better deal with Riverside FC to ensure the player moves.\", \"actions\": [{\"to\": \"Northbridge FC\", \"type\": \"offer\", \"amount\": 10, \"contract_years\": 4}, {\"to\": \"Riverside FC\", \"type\": \"message\", \"message\": \"Leo Silva is focused on moving and is not interested in staying. We are ready to finalize the deal if you are prepared to offer a fair personal contract.\"}]}"
+    },
+    {
+      "hour": "23:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "The transfer window has closed without a deal, and Silva's personal terms remain unresolved.",
+        "post": "The transfer window closes with no deal. Silva's agent holds firm at 10M/year, while Northbridge pushes for a better deal. Silva stays at Riverside FC."
+      },
+      "raw": "{\"private_reasoning\": \"The transfer window has closed without a deal, and Silva's personal terms remain unresolved.\", \"post\": \"The transfer window closes with no deal. Silva's agent holds firm at 10M/year, while Northbridge pushes for a better deal. Silva stays at Riverside FC.\"}"
     }
   ]
 }

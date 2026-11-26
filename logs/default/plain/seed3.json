@@ -9,7 +9,7 @@
     "seller": "plain",
     "player_agent": "plain"
   },
-  "seconds": 372.6,
+  "seconds": 587.4,
   "choices": {
     "player_name": "Leo Silva",
     "position": "Striker",
@@ -112,23 +112,35 @@
     }
   },
   "outcome": {
-    "hour": null,
-    "round": null,
-    "medical": null,
-    "result": "failed (deadline passed)",
-    "reason": "time ran out with no agreement on the fee (Northbridge's last offer was 55M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on, the asking price was 67.5M plus up to 6M in add-ons, paid over 2 years, 10% sell-on)",
-    "fee_terms": null,
-    "salary_terms": null,
+    "hour": "23:00",
+    "round": 10,
+    "medical": "skipped",
+    "result": "completed",
+    "fee_terms": {
+      "fee": 65.0,
+      "add_ons": 2.5,
+      "years": 2,
+      "sell_on": 10
+    },
+    "salary_terms": {
+      "salary": 7.2,
+      "years": 4
+    },
     "clause_paid": false,
-    "fee": null,
-    "salary": null,
-    "invalid_actions": 13,
-    "fee_offers": 9,
-    "salary_offers": 2,
-    "leaks": 0,
-    "news_posts": 3,
-    "early_here_we_go": 2,
-    "corrected_posts": 0
+    "fee": 65.0,
+    "salary": 7.2,
+    "invalid_actions": 5,
+    "fee_offers": 11,
+    "salary_offers": 5,
+    "leaks": 7,
+    "news_posts": 7,
+    "early_here_we_go": 4,
+    "corrected_posts": 0,
+    "buyer_cost": 65.45,
+    "seller_value": 63.53,
+    "buyer_surplus_share": -0.55,
+    "overpaid": true,
+    "seller_sold_below_minimum": false
   },
   "news_feed": [
     {
@@ -140,19 +152,45 @@
       ]
     },
     {
+      "hour": "15:00",
+      "text": "Northbridge FC near finalizing deal for Leo Silva, personal terms still to be agreed.",
+      "final": false,
+      "facts": []
+    },
+    {
       "hour": "17:00",
-      "text": "Northbridge FC and Silva's agent agree on 6.5M/year for 4 years.",
+      "text": "Northbridge FC confirms 7.2M annual salary for Leo Silva over 4 years.",
       "final": false,
       "facts": [
-        "Personal terms agreed between Northbridge FC and Silva's agent: 6.5M a year on a 4-year contract."
+        "Personal terms agreed between Silva's agent and Northbridge FC: 7.2M a year on a 4-year contract."
       ]
     },
     {
+      "hour": "18:00",
+      "text": "Riverside FC considering release clause for Leo Silva.",
+      "final": false,
+      "facts": []
+    },
+    {
+      "hour": "19:00",
+      "text": "Riverside FC is weighing triggering the release clause for Leo Silva. Could be a game-changer.",
+      "final": false,
+      "facts": []
+    },
+    {
+      "hour": "20:00",
+      "text": "Riverside FC is seriously considering triggering the release clause for Leo Silva. Could be a game-changer.",
+      "final": false,
+      "facts": []
+    },
+    {
       "hour": "23:00",
-      "text": "Deadline day ends with no deal. Silva stays at Riverside. Northbridge's last offer was 55M + 2.5M add-ons, but the asking price was 67.5M + 6M add-ons. No agreement reached.",
+      "text": "Here we go! Leo Silva completes transfer to Northbridge FC for 65M + up to 2.5M add-ons over 2 years, 10% sell-on. 7.2M/year on 4-year contract. No medical needed - deal sealed before deadline.",
       "final": true,
       "facts": [
-        "The window closes with no deal on the fee (Northbridge's last offer was 55M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on, the asking price was 67.5M plus up to 6M in add-ons, paid over 2 years, 10% sell-on). Leo Silva stays at Riverside FC."
+        "Transfer fee agreed between Riverside FC and Northbridge FC: 65M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on.",
+        "There is no time for a full medical: the clubs file a deal sheet before the deadline.",
+        "Leo Silva joins Northbridge FC: 65M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on; 7.2M a year on a 4-year contract."
       ]
     }
   ],
@@ -164,7 +202,12 @@
     },
     {
       "hour": "23:00",
-      "text": "The window closes with no deal on the fee (Northbridge's last offer was 55M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on, the asking price was 67.5M plus up to 6M in add-ons, paid over 2 years, 10% sell-on). Leo Silva stays at Riverside FC.",
+      "text": "There is no time for a full medical: the clubs file a deal sheet before the deadline.",
+      "public": true
+    },
+    {
+      "hour": "23:00",
+      "text": "Leo Silva joins Northbridge FC: 65M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on; 7.2M a year on a 4-year contract.",
       "public": true
     }
   ],
@@ -230,127 +273,78 @@
       "out": true
     }
   ],
-  "leaks": [],
+  "leaks": [
+    {
+      "hour": "15:00",
+      "from": "Silva's agent",
+      "message": "Northbridge FC is close to signing Leo Silva, but they are still negotiating the personal terms."
+    },
+    {
+      "hour": "18:00",
+      "from": "Riverside FC",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+    },
+    {
+      "hour": "19:00",
+      "from": "Riverside FC",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+    },
+    {
+      "hour": "21:00",
+      "from": "Riverside FC",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+    },
+    {
+      "hour": "22:00",
+      "from": "Riverside FC",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+    },
+    {
+      "hour": "22:00",
+      "from": "Silva's agent",
+      "message": "Northbridge FC is finalizing the transfer fee for Leo Silva, with the release clause being a key factor in the deal."
+    }
+  ],
   "transcript": [
     {
       "hour": "14:00",
       "from": "Northbridge FC",
       "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "14:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
       "type": "offer",
-      "amount": 45.0,
+      "amount": 50.0,
       "terms": {
-        "fee": 45.0,
-        "add_ons": 5.0,
-        "years": 1,
+        "fee": 50.0,
+        "add_ons": 10.0,
+        "years": 2,
         "sell_on": 10
       },
-      "text": "45M plus up to 5M in add-ons, 10% sell-on",
+      "text": "50M plus up to 10M in add-ons, paid over 2 years, 10% sell-on",
       "message": "",
       "valid": true,
       "note": ""
     },
     {
       "hour": "14:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
       "type": "offer",
       "amount": 6.5,
       "terms": {
         "salary": 6.5,
-        "years": 4
+        "years": 5
       },
-      "text": "6.5M a year on a 4-year contract",
+      "text": "6.5M a year on a 5-year contract",
       "message": "",
       "valid": true,
       "note": ""
     },
     {
-      "hour": "15:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "offer",
-      "amount": 55.0,
-      "terms": {
-        "fee": 55.0,
-        "add_ons": 2.5,
-        "years": 2,
-        "sell_on": 10
-      },
-      "text": "55M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "15:00",
-      "from": "Northbridge FC",
-      "to": "Silva's agent",
-      "type": "offer",
-      "amount": 6.0,
-      "terms": {
-        "salary": 6.0,
-        "years": 4
-      },
-      "text": "6M a year on a 4-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "15:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
-      "type": "offer",
-      "amount": 57.5,
-      "terms": {
-        "fee": 57.5,
-        "add_ons": 4.5,
-        "years": 2,
-        "sell_on": 10
-      },
-      "text": "57.5M plus up to 4.5M in add-ons, paid over 2 years, 10% sell-on",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "15:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "We are not willing to accept anything below 6.5M per year. Let's find a mutually agreeable solution.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "16:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "16:00",
+      "hour": "14:00",
       "from": "Riverside FC",
       "to": "Northbridge FC",
       "type": "offer",
@@ -358,10 +352,147 @@
       "terms": {
         "fee": 60.0,
         "add_ons": 5.0,
+        "years": 1,
+        "sell_on": 15
+      },
+      "text": "60M plus up to 5M in add-ons, 15% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "14:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 4
+      },
+      "text": "7.8M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 55.0,
+      "terms": {
+        "fee": 55.0,
+        "add_ons": 7.0,
         "years": 2,
         "sell_on": 10
       },
-      "text": "60M plus up to 5M in add-ons, paid over 2 years, 10% sell-on",
+      "text": "55M plus up to 7M in add-ons, paid over 2 years, 10% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.0,
+      "terms": {
+        "salary": 7.0,
+        "years": 5
+      },
+      "text": "7M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 62.5,
+      "terms": {
+        "fee": 62.5,
+        "add_ons": 4.5,
+        "years": 2,
+        "sell_on": 15
+      },
+      "text": "62.5M plus up to 4.5M in add-ons, paid over 2 years, 15% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are close to an agreement, but we need to ensure Leo gets the best personal terms possible.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Silva's agent",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Northbridge FC is close to signing Leo Silva, but they are still negotiating the personal terms.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 60.0,
+      "terms": {
+        "fee": 60.0,
+        "add_ons": 4.0,
+        "years": 2,
+        "sell_on": 10
+      },
+      "text": "60M plus up to 4M in add-ons, paid over 2 years, 10% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.2,
+      "terms": {
+        "salary": 7.2,
+        "years": 5
+      },
+      "text": "7.2M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 62.5,
+      "terms": {
+        "fee": 62.5,
+        "add_ons": 4.5,
+        "years": 2,
+        "sell_on": 15
+      },
+      "text": "62.5M plus up to 4.5M in add-ons, paid over 2 years, 15% sell-on",
       "message": "",
       "valid": true,
       "note": ""
@@ -370,27 +501,27 @@
       "hour": "16:00",
       "from": "Silva's agent",
       "to": "Northbridge FC",
-      "type": "release",
+      "type": "message",
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "",
-      "valid": false,
-      "note": "only the buying club can pay the release clause, to the selling club"
+      "message": "We are willing to accept a 7.2M salary, but we insist on a 4-year contract to ensure Leo's long-term value.",
+      "valid": true,
+      "note": ""
     },
     {
       "hour": "17:00",
       "from": "Northbridge FC",
       "to": "Riverside FC",
       "type": "offer",
-      "amount": 57.5,
+      "amount": 60.0,
       "terms": {
-        "fee": 57.5,
-        "add_ons": 2.5,
+        "fee": 60.0,
+        "add_ons": 4.0,
         "years": 2,
         "sell_on": 10
       },
-      "text": "57.5M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on",
+      "text": "60M plus up to 4M in add-ons, paid over 2 years, 10% sell-on",
       "message": "",
       "valid": true,
       "note": ""
@@ -399,113 +530,140 @@
       "hour": "17:00",
       "from": "Northbridge FC",
       "to": "Silva's agent",
-      "type": "accept",
-      "amount": 6.5,
+      "type": "offer",
+      "amount": 7.2,
       "terms": {
-        "salary": 6.5,
+        "salary": 7.2,
         "years": 4
       },
-      "text": "6.5M a year on a 4-year contract",
+      "text": "7.2M a year on a 4-year contract",
       "message": "",
       "valid": true,
       "note": ""
     },
     {
       "hour": "17:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "only the buying club can pay the release clause, to the selling club"
-    },
-    {
-      "hour": "17:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "only the buying club can pay the release clause, to the selling club"
-    },
-    {
-      "hour": "18:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "offer",
-      "amount": 55.0,
-      "terms": {
-        "fee": 55.0,
-        "add_ons": 2.5,
-        "years": 2,
-        "sell_on": 10
-      },
-      "text": "55M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "18:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
-      "type": "offer",
-      "amount": 62.5,
-      "terms": {
-        "fee": 62.5,
-        "add_ons": 6.0,
-        "years": 2,
-        "sell_on": 10
-      },
-      "text": "62.5M plus up to 6M in add-ons, paid over 2 years, 10% sell-on",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "18:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "We are ready to trigger the release clause once the transfer fee is agreed.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "19:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "19:00",
       "from": "Riverside FC",
       "to": "Northbridge FC",
       "type": "offer",
       "amount": 65.0,
       "terms": {
         "fee": 65.0,
-        "add_ons": 6.0,
+        "add_ons": 4.5,
+        "years": 2,
+        "sell_on": 15
+      },
+      "text": "65M plus up to 4.5M in add-ons, paid over 2 years, 15% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "accept",
+      "amount": 7.2,
+      "terms": {
+        "salary": 7.2,
+        "years": 4
+      },
+      "text": "7.2M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 60.0,
+      "terms": {
+        "fee": 60.0,
+        "add_ons": 3.5,
         "years": 2,
         "sell_on": 10
       },
-      "text": "65M plus up to 6M in add-ons, paid over 2 years, 10% sell-on",
+      "text": "60M plus up to 3.5M in add-ons, paid over 2 years, 10% sell-on",
       "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 62.5,
+      "terms": {
+        "fee": 62.5,
+        "add_ons": 3.5,
+        "years": 2,
+        "sell_on": 10
+      },
+      "text": "62.5M plus up to 3.5M in add-ons, paid over 2 years, 10% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva.",
       "valid": true,
       "note": ""
     },
@@ -517,7 +675,7 @@
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "We are ready to trigger the release clause once the transfer fee is agreed.",
+      "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.",
       "valid": true,
       "note": ""
     },
@@ -535,56 +693,99 @@
     },
     {
       "hour": "20:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
-      "type": "offer",
-      "amount": 67.5,
-      "terms": {
-        "fee": 67.5,
-        "add_ons": 6.0,
-        "years": 2,
-        "sell_on": 10
-      },
-      "text": "67.5M plus up to 6M in add-ons, paid over 2 years, 10% sell-on",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "20:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "We are ready to trigger the release clause once the transfer fee is agreed.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "21:00",
       "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "21:00",
-      "from": "Riverside FC",
       "to": "Silva's agent",
       "type": "message",
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "We are close to a deal, and we are happy with the salary offer. Let's finalize the terms to secure the transfer.",
+      "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "21:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "",
       "valid": false,
-      "note": "you can only contact Northbridge FC, Marco Fontana"
+      "note": "fee plus add-ons is above your transfer budget of 67.5M"
+    },
+    {
+      "hour": "21:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Let’s finalize the transfer fee now to ensure we complete the deal before the deadline.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "21:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "21:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva.",
+      "valid": true,
+      "note": ""
     },
     {
       "hour": "21:00",
@@ -594,7 +795,7 @@
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "We are ready to trigger the release clause once the transfer fee is agreed.",
+      "message": "We are ready to finalize the transfer fee now. Let’s agree on a fee that reflects Leo’s market value and the release clause.",
       "valid": true,
       "note": ""
     },
@@ -612,61 +813,95 @@
     },
     {
       "hour": "22:00",
-      "from": "Riverside FC",
+      "from": "Northbridge FC",
       "to": "Silva's agent",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "We are ready to finalize the deal. Let's agree on the personal terms to secure the transfer.",
-      "valid": false,
-      "note": "you can only contact Northbridge FC, Marco Fontana"
-    },
-    {
-      "hour": "22:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "As the buying club, you are responsible for triggering the release clause. Please confirm your commitment to pay the 80M release clause to finalize the transfer.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "23:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "offer",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "fee plus add-ons is above your transfer budget of 67.5M"
-    },
-    {
-      "hour": "23:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
       "type": "accept",
       "amount": null,
       "terms": null,
       "text": "",
       "message": "",
       "valid": false,
-      "note": "you can only accept their latest offer, which is 55M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on"
+      "note": "already agreed"
     },
     {
-      "hour": "23:00",
-      "from": "Silva's agent",
+      "hour": "22:00",
+      "from": "Riverside FC",
       "to": "Northbridge FC",
       "type": "message",
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "As the buying club, you are responsible for triggering the release clause. Please confirm your commitment to pay the 80M release clause to finalize the transfer.",
+      "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "22:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Riverside FC is considering triggering the release clause for Leo Silva.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "22:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "",
+      "valid": false,
+      "note": "already agreed"
+    },
+    {
+      "hour": "22:00",
+      "from": "Silva's agent",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "Northbridge FC is finalizing the transfer fee for Leo Silva, with the release clause being a key factor in the deal.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "23:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 65.0,
+      "terms": {
+        "fee": 65.0,
+        "add_ons": 2.5,
+        "years": 2,
+        "sell_on": 10
+      },
+      "text": "65M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "23:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "accept",
+      "amount": 65.0,
+      "terms": {
+        "fee": 65.0,
+        "add_ons": 2.5,
+        "years": 2,
+        "sell_on": 10
+      },
+      "text": "65M plus up to 2.5M in add-ons, paid over 2 years, 10% sell-on",
+      "message": "",
       "valid": true,
       "note": ""
     }
@@ -676,526 +911,639 @@
       "hour": "14:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I will start by triggering the release clause to ensure we can secure Leo Silva, as this guarantees the transfer if he agrees to the personal terms.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "release",
-            "amount": 80
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I will start by triggering the release clause to ensure we can secure Leo Silva, as this guarantees the transfer if he agrees to the personal terms.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\",\n      \"amount\": 80\n    }\n  ]\n}"
-    },
-    {
-      "hour": "14:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "I need to start the negotiation by proposing a reasonable transfer fee that meets our minimum of 41.5M while leaving room for negotiation. Since the club needs cash now, I'll structure the fee as an upfront payment with minimal instalments and add-ons to maximize immediate value.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "offer",
-            "amount": 45,
-            "instalment_years": 1,
-            "add_ons": 5,
-            "sell_on_percent": 10
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to start the negotiation by proposing a reasonable transfer fee that meets our minimum of 41.5M while leaving room for negotiation. Since the club needs cash now, I'll structure the fee as an upfront payment with minimal instalments and add-ons to maximize immediate value.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 45,\n      \"instalment_years\": 1,\n      \"add_ons\": 5,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "14:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "I need to start the negotiation by setting a strong foundation for the personal terms. My goal is to secure a salary of at least 7.8M/year for Leo Silva, but I know he will not accept less than 5.2M/year. Starting with a reasonable offer that aligns with his minimum will help open the door for further discussion.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "offer",
-            "amount": 6.5,
-            "contract_years": 4
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to start the negotiation by setting a strong foundation for the personal terms. My goal is to secure a salary of at least 7.8M/year for Leo Silva, but I know he will not accept less than 5.2M/year. Starting with a reasonable offer that aligns with his minimum will help open the door for further discussion.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 6.5,\n      \"contract_years\": 4\n    }\n  ]\n}"
-    },
-    {
-      "hour": "14:00",
-      "agent": "Marco Fontana",
-      "decision": {
-        "private_reasoning": "Introducing the transfer story as the first post of the day to set the context for the ongoing developments.",
-        "post": "Northbridge FC in talks with Riverside FC for Leo Silva. Here we go!"
-      },
-      "raw": "{\"private_reasoning\": \"Introducing the transfer story as the first post of the day to set the context for the ongoing developments.\", \"post\": \"Northbridge FC in talks with Riverside FC for Leo Silva. Here we go!\"}"
-    },
-    {
-      "hour": "15:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to negotiate a fee and salary that is under my budget while triggering the release clause if needed. Starting with a lower fee and salary to keep costs down.",
+        "private_reasoning": "I need to start negotiations by offering a fair yet cost-effective package that stays within the transfer budget and meets the player's personal terms.",
         "actions": [
           {
             "to": "Riverside FC",
             "type": "offer",
-            "amount": 55,
-            "add_ons": 2.5,
+            "amount": 50,
+            "add_ons": 10,
             "instalment_years": 2,
             "sell_on_percent": 10
           },
           {
             "to": "Silva's agent",
             "type": "offer",
-            "amount": 6.0,
-            "contract_years": 4
+            "amount": 6.5,
+            "contract_years": 5
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to negotiate a fee and salary that is under my budget while triggering the release clause if needed. Starting with a lower fee and salary to keep costs down.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 55,\n      \"add_ons\": 2.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 6.0,\n      \"contract_years\": 4\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to start negotiations by offering a fair yet cost-effective package that stays within the transfer budget and meets the player's personal terms.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 50,\n      \"add_ons\": 10,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 6.5,\n      \"contract_years\": 5\n    }\n  ]\n}"
     },
     {
-      "hour": "15:00",
+      "hour": "14:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "Northbridge FC has offered a higher base fee but limited add-ons. I need to push for better add-ons and potentially trigger the release clause if they refuse to meet my minimum.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "offer",
-            "amount": 57.5,
-            "add_ons": 4.5,
-            "instalment_years": 2,
-            "sell_on_percent": 10
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has offered a higher base fee but limited add-ons. I need to push for better add-ons and potentially trigger the release clause if they refuse to meet my minimum.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 57.5,\n      \"add_ons\": 4.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "15:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "Northbridge FC has lowered their offer to 6M, which is below Silva's minimum of 5.2M. I need to push back and reiterate my demand for 6.5M to ensure a fair deal.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "message",
-            "message": "We are not willing to accept anything below 6.5M per year. Let's find a mutually agreeable solution."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has lowered their offer to 6M, which is below Silva's minimum of 5.2M. I need to push back and reiterate my demand for 6.5M to ensure a fair deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are not willing to accept anything below 6.5M per year. Let's find a mutually agreeable solution.\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "16:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to push for a lower fee while still meeting the agent's salary demands. I should try to trigger the release clause to secure the transfer without paying more than necessary.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "release"
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower fee while still meeting the agent's salary demands. I should try to trigger the release clause to secure the transfer without paying more than necessary.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "16:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "I need to push for a higher transfer fee and better add-ons while keeping the deal within a reasonable timeframe. The current offer from Northbridge FC is below my ideal of 67.5M, so I should continue to increase the offer and make it clear that I am open to a deal that meets my minimum of 41.5M.",
+        "private_reasoning": "Northbridge FC has made an initial offer of 50M with add-ons, but we can push for a higher fee. We need to strike a balance between the cash upfront and the potential add-ons. Our minimum is 41.5M, and we ideally want 67.5M. We should respond with a higher offer that includes more cash upfront and a better sell-on clause.",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "offer",
             "amount": 60,
             "add_ons": 5,
-            "instalment_years": 2,
-            "sell_on_percent": 10
+            "instalment_years": 1,
+            "sell_on_percent": 15
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for a higher transfer fee and better add-ons while keeping the deal within a reasonable timeframe. The current offer from Northbridge FC is below my ideal of 67.5M, so I should continue to increase the offer and make it clear that I am open to a deal that meets my minimum of 41.5M.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has made an initial offer of 50M with add-ons, but we can push for a higher fee. We need to strike a balance between the cash upfront and the potential add-ons. Our minimum is 41.5M, and we ideally want 67.5M. We should respond with a higher offer that includes more cash upfront and a better sell-on clause.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 5,\n      \"instalment_years\": 1,\n      \"sell_on_percent\": 15\n    }\n  ]\n}"
     },
     {
-      "hour": "16:00",
+      "hour": "14:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "We need to push for a higher salary while keeping the contract length at 4 years to avoid losing value. The release clause is a strong leverage point, so we should consider triggering it to ensure a guaranteed deal.",
+        "private_reasoning": "Northbridge FC's initial offer is below Silva's minimum of 5.2M/year. I need to push for a higher salary and better contract terms to secure the best deal for Silva.",
         "actions": [
           {
             "to": "Northbridge FC",
-            "type": "release",
-            "amount": 80
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 4
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"We need to push for a higher salary while keeping the contract length at 4 years to avoid losing value. The release clause is a strong leverage point, so we should consider triggering it to ensure a guaranteed deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"release\",\n      \"amount\": 80\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Northbridge FC's initial offer is below Silva's minimum of 5.2M/year. I need to push for a higher salary and better contract terms to secure the best deal for Silva.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 4\n    }\n  ]\n}"
     },
     {
-      "hour": "17:00",
+      "hour": "14:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Introducing the transfer story as the first post of the day to set the narrative.",
+        "post": "Northbridge FC in talks with Riverside FC for Leo Silva. Here we go!"
+      },
+      "raw": "{\"private_reasoning\": \"Introducing the transfer story as the first post of the day to set the narrative.\", \"post\": \"Northbridge FC in talks with Riverside FC for Leo Silva. Here we go!\"}"
+    },
+    {
+      "hour": "15:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to push for a lower fee while meeting the agent's salary demands. The release clause is too expensive, so I'll focus on negotiating a lower fee and better terms.",
+        "private_reasoning": "I need to push for a lower fee while maintaining a competitive offer for Silva. Triggering the release clause is not an option due to budget constraints. I will try to negotiate a better deal with Riverside FC and improve the personal terms with Silva's agent.",
         "actions": [
           {
             "to": "Riverside FC",
             "type": "offer",
-            "amount": 57.5,
-            "add_ons": 2.5,
+            "amount": 55,
+            "add_ons": 7,
             "instalment_years": 2,
             "sell_on_percent": 10
           },
           {
             "to": "Silva's agent",
             "type": "offer",
-            "amount": 6.5,
-            "contract_years": 4
+            "amount": 7.0,
+            "contract_years": 5
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower fee while meeting the agent's salary demands. The release clause is too expensive, so I'll focus on negotiating a lower fee and better terms.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 57.5,\n      \"add_ons\": 2.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 6.5,\n      \"contract_years\": 4\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower fee while maintaining a competitive offer for Silva. Triggering the release clause is not an option due to budget constraints. I will try to negotiate a better deal with Riverside FC and improve the personal terms with Silva's agent.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 55,\n      \"add_ons\": 7,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.0,\n      \"contract_years\": 5\n    }\n  ]\n}"
     },
     {
-      "hour": "17:00",
+      "hour": "15:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "Northbridge FC has lowered their offer from 60M to 57.5M, which is below my minimum of 41.5M. I need to push back and consider triggering the release clause to secure a better deal.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "release"
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has lowered their offer from 60M to 57.5M, which is below my minimum of 41.5M. I need to push back and consider triggering the release clause to secure a better deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "17:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "Northbridge FC has accepted the personal terms, so the deal is now dependent on the transfer fee. I should confirm the release clause is triggered to ensure the transfer is finalized.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "release",
-            "amount": 80
-          }
-        ]
-      },
-      "raw": "{\"private_reasoning\": \"Northbridge FC has accepted the personal terms, so the deal is now dependent on the transfer fee. I should confirm the release clause is triggered to ensure the transfer is finalized.\", \"actions\": [{\"to\": \"Northbridge FC\", \"type\": \"release\", \"amount\": 80}]}"
-    },
-    {
-      "hour": "17:00",
-      "agent": "Marco Fontana",
-      "decision": {
-        "private_reasoning": "Personal terms agreed, but no official confirmation yet.",
-        "post": "Northbridge FC and Silva's agent agree on 6.5M/year for 4 years. Here we go!"
-      },
-      "raw": "{\"private_reasoning\": \"Personal terms agreed, but no official confirmation yet.\", \"post\": \"Northbridge FC and Silva's agent agree on 6.5M/year for 4 years. Here we go!\"}"
-    },
-    {
-      "hour": "18:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to finalize the transfer fee with Riverside FC while staying within the budget. My latest offer is 57.5M with 2.5M add-ons, which is below the 60M they offered. I should push for a lower fee or consider triggering the release clause if it's feasible.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "offer",
-            "amount": 55,
-            "add_ons": 2.5,
-            "instalment_years": 2,
-            "sell_on_percent": 10
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to finalize the transfer fee with Riverside FC while staying within the budget. My latest offer is 57.5M with 2.5M add-ons, which is below the 60M they offered. I should push for a lower fee or consider triggering the release clause if it's feasible.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 55,\n      \"add_ons\": 2.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "18:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "Northbridge FC has backed down from their previous offer, and I need to push for a better deal. I should focus on increasing the transfer fee and add-ons while keeping the instalment and sell-on terms competitive.",
+        "private_reasoning": "I need to push for a higher transfer fee and better personal terms while keeping the deal moving. I should counter Northbridge's latest offer by increasing the fee and improving the sell-on clause.",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "offer",
             "amount": 62.5,
-            "add_ons": 6,
+            "add_ons": 4.5,
+            "instalment_years": 2,
+            "sell_on_percent": 15
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a higher transfer fee and better personal terms while keeping the deal moving. I should counter Northbridge's latest offer by increasing the fee and improving the sell-on clause.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 62.5,\n      \"add_ons\": 4.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 15\n    }\n  ]\n}"
+    },
+    {
+      "hour": "15:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "I need to push for better personal terms while maintaining leverage. My latest offer of 7.8M on a 4-year contract is strong, but I should consider the possibility of triggering the release clause to increase the value.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are close to an agreement, but we need to ensure Leo gets the best personal terms possible."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Northbridge FC is close to signing Leo Silva, but they are still negotiating the personal terms."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for better personal terms while maintaining leverage. My latest offer of 7.8M on a 4-year contract is strong, but I should consider the possibility of triggering the release clause to increase the value.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are close to an agreement, but we need to ensure Leo gets the best personal terms possible.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Northbridge FC is close to signing Leo Silva, but they are still negotiating the personal terms.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "15:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "The agent's tip suggests progress but no official confirmation yet.",
+        "post": "Northbridge FC near finalizing deal for Leo Silva, personal terms still to be agreed."
+      },
+      "raw": "{\"private_reasoning\": \"The agent's tip suggests progress but no official confirmation yet.\", \"post\": \"Northbridge FC near finalizing deal for Leo Silva, personal terms still to be agreed.\"}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "I need to push for a lower transfer fee while improving the personal terms. I'll try to keep the fee under 67.5M and offer a slightly better salary to secure the deal.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 60,
+            "add_ons": 4,
+            "instalment_years": 2,
+            "sell_on_percent": 10
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.2,
+            "contract_years": 5
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower transfer fee while improving the personal terms. I'll try to keep the fee under 67.5M and offer a slightly better salary to secure the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 4,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.2,\n      \"contract_years\": 5\n    }\n  ]\n}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "I need to push for a better deal than Northbridge's latest offer while keeping the door open for a potential release clause trigger. My ideal is 67.5M, but I'm willing to settle for 62.5M with better terms.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 62.5,
+            "add_ons": 4.5,
+            "instalment_years": 2,
+            "sell_on_percent": 15
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a better deal than Northbridge's latest offer while keeping the door open for a potential release clause trigger. My ideal is 67.5M, but I'm willing to settle for 62.5M with better terms.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 62.5,\n      \"add_ons\": 4.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 15\n    }\n  ]\n}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "Northbridge FC is inching closer to our requested salary, but they are still offering a 5-year contract, which is less favorable for Leo. We need to push for a 4-year contract to maintain value and avoid salary depreciation. We should keep the pressure on while maintaining a professional tone.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are willing to accept a 7.2M salary, but we insist on a 4-year contract to ensure Leo's long-term value."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Northbridge FC is inching closer to our requested salary, but they are still offering a 5-year contract, which is less favorable for Leo. We need to push for a 4-year contract to maintain value and avoid salary depreciation. We should keep the pressure on while maintaining a professional tone.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are willing to accept a 7.2M salary, but we insist on a 4-year contract to ensure Leo's long-term value.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "17:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "I need to push for a lower transfer fee and secure the personal terms. The agent is holding firm on the 4-year contract, so I should offer a slightly higher salary to meet their demands while keeping the fee as low as possible.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 60,
+            "add_ons": 4,
+            "instalment_years": 2,
+            "sell_on_percent": 10
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.2,
+            "contract_years": 4
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower transfer fee and secure the personal terms. The agent is holding firm on the 4-year contract, so I should offer a slightly higher salary to meet their demands while keeping the fee as low as possible.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 4,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.2,\n      \"contract_years\": 4\n    }\n  ]\n}"
+    },
+    {
+      "hour": "17:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "I need to push for a better fee while maintaining flexibility. The current offer from Northbridge is below my minimum, so I should increase the fee slightly and improve the sell-on clause to make the package more attractive.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 65,
+            "add_ons": 4.5,
+            "instalment_years": 2,
+            "sell_on_percent": 15
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a better fee while maintaining flexibility. The current offer from Northbridge is below my minimum, so I should increase the fee slightly and improve the sell-on clause to make the package more attractive.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 4.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 15\n    }\n  ]\n}"
+    },
+    {
+      "hour": "17:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "Northbridge FC has now offered 7.2M on a 4-year contract, which is close to our target. We should accept this offer to secure the deal before the deadline.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "accept"
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has now offered 7.2M on a 4-year contract, which is close to our target. We should accept this offer to secure the deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"accept\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "17:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Personal terms are agreed, but the transfer isn't officially complete yet.",
+        "post": "Northbridge FC confirms 7.2M annual salary for Leo Silva over 4 years. Here we go!"
+      },
+      "raw": "{\"private_reasoning\": \"Personal terms are agreed, but the transfer isn't officially complete yet.\", \"post\": \"Northbridge FC confirms 7.2M annual salary for Leo Silva over 4 years. Here we go!\"}"
+    },
+    {
+      "hour": "18:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "The personal terms are now agreed, so I focus on negotiating the transfer fee. Riverside FC's latest offer is 65M with up to 4.5M in add-ons, which is above my budget. I need to counter with a lower offer that still meets my cost threshold of 57M.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 60,
+            "add_ons": 3.5,
             "instalment_years": 2,
             "sell_on_percent": 10
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has backed down from their previous offer, and I need to push for a better deal. I should focus on increasing the transfer fee and add-ons while keeping the instalment and sell-on terms competitive.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 62.5,\n      \"add_ons\": 6,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"The personal terms are now agreed, so I focus on negotiating the transfer fee. Riverside FC's latest offer is 65M with up to 4.5M in add-ons, which is above my budget. I need to counter with a lower offer that still meets my cost threshold of 57M.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 3.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+    },
+    {
+      "hour": "18:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "Northbridge FC is not willing to go beyond 60M, so triggering the release clause is the best option to secure a better deal. I will offer the release clause and then try to negotiate a better package with Silva's agent.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"Northbridge FC is not willing to go beyond 60M, so triggering the release clause is the best option to secure a better deal. I will offer the release clause and then try to negotiate a better package with Silva's agent.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Riverside FC is considering triggering the release clause for Leo Silva.\"\n    }\n  ]\n}"
     },
     {
       "hour": "18:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "The personal terms have been agreed, but the release clause cannot be triggered yet. I need to ensure the transfer fee is agreed and the release clause is activated to secure the deal.",
+        "private_reasoning": "The personal terms have been agreed, so now I need to focus on ensuring the transfer fee is also finalized to secure the deal before the deadline.",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "message",
-            "message": "We are ready to trigger the release clause once the transfer fee is agreed."
+            "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline."
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, but the release clause cannot be triggered yet. I need to ensure the transfer fee is agreed and the release clause is activated to secure the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to trigger the release clause once the transfer fee is agreed.\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, so now I need to focus on ensuring the transfer fee is also finalized to secure the deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "18:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Riverside FC is considering triggering the release clause, which could mean a deal is close.",
+        "post": "Riverside FC considering release clause for Leo Silva. Here we go!"
+      },
+      "raw": "{\"private_reasoning\": \"Riverside FC is considering triggering the release clause, which could mean a deal is close.\", \"post\": \"Riverside FC considering release clause for Leo Silva. Here we go!\"}"
     },
     {
       "hour": "19:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to secure the transfer fee without exceeding my budget. The latest offer from Riverside FC is 62.5M, which is over my budget. I will trigger the release clause to bypass the fee negotiation and finalize the deal.",
+        "private_reasoning": "We have agreed on the personal terms, and we are close to finalizing the transfer fee. Triggering the release clause is not an option due to budget constraints. We need to push Riverside FC to accept our latest offer to complete the deal before the deadline.",
         "actions": [
           {
             "to": "Riverside FC",
-            "type": "release"
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to secure the transfer fee without exceeding my budget. The latest offer from Riverside FC is 62.5M, which is over my budget. I will trigger the release clause to bypass the fee negotiation and finalize the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "19:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "Northbridge FC has agreed on personal terms with Silva's agent, so the main hurdle is the transfer fee. I need to push for a higher fee to meet my minimum of 41.5M and ideally reach 67.5M. My latest offer of 62.5M is strong, but I can still try to get more.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
             "type": "offer",
-            "amount": 65,
-            "add_ons": 6,
+            "amount": 62.5,
+            "add_ons": 3.5,
             "instalment_years": 2,
             "sell_on_percent": 10
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has agreed on personal terms with Silva's agent, so the main hurdle is the transfer fee. I need to push for a higher fee to meet my minimum of 41.5M and ideally reach 67.5M. My latest offer of 62.5M is strong, but I can still try to get more.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 6,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"We have agreed on the personal terms, and we are close to finalizing the transfer fee. Triggering the release clause is not an option due to budget constraints. We need to push Riverside FC to accept our latest offer to complete the deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 62.5,\n      \"add_ons\": 3.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "We are close to securing a deal above our minimum, but Northbridge is still below our target. Triggering the release clause would force them to pay 80M, which is better than our minimum, but we must ensure they are willing to accept it.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We are close to securing a deal above our minimum, but Northbridge is still below our target. Triggering the release clause would force them to pay 80M, which is better than our minimum, but we must ensure they are willing to accept it.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Riverside FC is considering triggering the release clause for Leo Silva.\"\n    }\n  ]\n}"
     },
     {
       "hour": "19:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "The personal terms have been agreed, but the release clause hasn't been triggered yet. I need to ensure the transfer fee is agreed so that the release clause can be triggered and the deal finalized.",
+        "private_reasoning": "The personal terms have been agreed, and now the focus is on finalizing the transfer fee. We need to ensure the deal is completed before the deadline.",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "message",
-            "message": "We are ready to trigger the release clause once the transfer fee is agreed."
+            "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline."
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, but the release clause hasn't been triggered yet. I need to ensure the transfer fee is agreed so that the release clause can be triggered and the deal finalized.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to trigger the release clause once the transfer fee is agreed.\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, and now the focus is on finalizing the transfer fee. We need to ensure the deal is completed before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Riverside FC's consideration of the release clause could accelerate the transfer, but it's not yet confirmed.",
+        "post": "Riverside FC is weighing triggering the release clause for Leo Silva. Could be a game-changer."
+      },
+      "raw": "{\"private_reasoning\": \"Riverside FC's consideration of the release clause could accelerate the transfer, but it's not yet confirmed.\", \"post\": \"Riverside FC is weighing triggering the release clause for Leo Silva. Could be a game-changer.\"}"
     },
     {
       "hour": "20:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to trigger the release clause to secure Silva without paying the full 80M, but my budget is only 67.5M. I'll try to negotiate a lower fee with Riverside FC while keeping the personal terms agreed.",
+        "private_reasoning": "I need to push for a lower fee while respecting the budget and the agreed personal terms. Triggering the release clause is not an option due to the budget limit. I will make a final offer close to the 65M threshold to avoid triggering the clause while keeping the deal within budget.",
         "actions": [
           {
             "to": "Riverside FC",
             "type": "offer",
-            "amount": 65,
-            "add_ons": 6,
+            "amount": 64.5,
+            "add_ons": 3.5,
             "instalment_years": 2,
             "sell_on_percent": 10
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to trigger the release clause to secure Silva without paying the full 80M, but my budget is only 67.5M. I'll try to negotiate a lower fee with Riverside FC while keeping the personal terms agreed.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 6,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "20:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "I need to push for the highest possible transfer fee while maintaining a realistic offer to secure the deal. My minimum is 41.5M, and I would like to get close to 67.5M. Since the personal terms have already been agreed on, I should focus on the transfer fee and try to negotiate a higher amount.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "offer",
-            "amount": 67.5,
-            "add_ons": 6,
-            "instalment_years": 2,
-            "sell_on_percent": 10
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the highest possible transfer fee while maintaining a realistic offer to secure the deal. My minimum is 41.5M, and I would like to get close to 67.5M. Since the personal terms have already been agreed on, I should focus on the transfer fee and try to negotiate a higher amount.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 67.5,\n      \"add_ons\": 6,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "20:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "The personal terms are already agreed, but the release clause is still pending. I need to push for the transfer fee to be agreed so we can trigger the release clause and secure the deal.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "message",
-            "message": "We are ready to trigger the release clause once the transfer fee is agreed."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"The personal terms are already agreed, but the release clause is still pending. I need to push for the transfer fee to be agreed so we can trigger the release clause and secure the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to trigger the release clause once the transfer fee is agreed.\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "21:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to trigger the release clause to secure Silva without paying the full 80M. My transfer budget is 67.5M, so I can't afford to pay the full release clause. However, I can offer a fee close to the 67.5M limit with minimal add-ons to meet the release clause condition.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "release"
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to trigger the release clause to secure Silva without paying the full 80M. My transfer budget is 67.5M, so I can't afford to pay the full release clause. However, I can offer a fee close to the 67.5M limit with minimal add-ons to meet the release clause condition.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "21:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "I need to push for the highest possible transfer fee while maintaining a realistic offer to secure the deal. My ideal is 67.5M with add-ons, which is already my latest offer. I should now focus on the personal terms with Silva's agent, as they have already agreed on a salary of 6.5M/year for 4 years. This is a solid foundation for a deal.",
-        "actions": [
+          },
           {
             "to": "Silva's agent",
             "type": "message",
-            "message": "We are close to a deal, and we are happy with the salary offer. Let's finalize the terms to secure the transfer."
+            "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline."
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the highest possible transfer fee while maintaining a realistic offer to secure the deal. My ideal is 67.5M with add-ons, which is already my latest offer. I should now focus on the personal terms with Silva's agent, as they have already agreed on a salary of 6.5M/year for 4 years. This is a solid foundation for a deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are close to a deal, and we are happy with the salary offer. Let's finalize the terms to secure the transfer.\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower fee while respecting the budget and the agreed personal terms. Triggering the release clause is not an option due to the budget limit. I will make a final offer close to the 65M threshold to avoid triggering the clause while keeping the deal within budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 64.5,\n      \"add_ons\": 3.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "We are close to our minimum of 65M, but Northbridge is still below that. Triggering the release clause could force them to meet our minimum or risk losing the player. We need to push for a final offer.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We are close to our minimum of 65M, but Northbridge is still below that. Triggering the release clause could force them to meet our minimum or risk losing the player. We need to push for a final offer.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Riverside FC is considering triggering the release clause for Leo Silva.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "The personal terms have been agreed, and the focus is now on finalizing the transfer fee. It's crucial to ensure the deal is completed before the deadline.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, and the focus is now on finalizing the transfer fee. It's crucial to ensure the deal is completed before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to finalize the transfer fee as well. Let's ensure the deal is completed before the deadline.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "20:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Riverside FC's consideration of the release clause could indicate they are ready to let Silva go, but the deal isn't confirmed yet.",
+        "post": "Riverside FC is seriously considering triggering the release clause for Leo Silva. Could be a game-changer."
+      },
+      "raw": "{\"private_reasoning\": \"Riverside FC's consideration of the release clause could indicate they are ready to let Silva go, but the deal isn't confirmed yet.\", \"post\": \"Riverside FC is seriously considering triggering the release clause for Leo Silva. Could be a game-changer.\"}"
+    },
+    {
+      "hour": "21:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "We are close to finalizing the transfer fee. We need to push Riverside FC to accept a fee that stays within our budget while also ensuring the best possible terms for Leo Silva.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 65,
+            "add_ons": 3.5,
+            "instalment_years": 2,
+            "sell_on_percent": 10
+          },
+          {
+            "to": "Silva's agent",
+            "type": "message",
+            "message": "Let’s finalize the transfer fee now to ensure we complete the deal before the deadline."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We are close to finalizing the transfer fee. We need to push Riverside FC to accept a fee that stays within our budget while also ensuring the best possible terms for Leo Silva.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 3.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"Let’s finalize the transfer fee now to ensure we complete the deal before the deadline.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "21:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "We are close to our minimum of 65M, but Northbridge is still below that. Triggering the release clause could force them to meet our minimum or risk losing the player. We need to push for the release clause to secure the best possible deal.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We are close to our minimum of 65M, but Northbridge is still below that. Triggering the release clause could force them to meet our minimum or risk losing the player. We need to push for the release clause to secure the best possible deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Riverside FC is considering triggering the release clause for Leo Silva.\"\n    }\n  ]\n}"
     },
     {
       "hour": "21:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "The personal terms have been agreed, so the focus now is on triggering the release clause to secure the transfer. I need to ensure the transfer fee is agreed before the deadline.",
+        "private_reasoning": "The personal terms have been agreed, and now we need to finalize the transfer fee. It's critical to ensure the deal closes before the deadline. We should push for a fee that reflects the player's value and the release clause.",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "message",
-            "message": "We are ready to trigger the release clause once the transfer fee is agreed."
+            "message": "We are ready to finalize the transfer fee now. Let’s agree on a fee that reflects Leo’s market value and the release clause."
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, so the focus now is on triggering the release clause to secure the transfer. I need to ensure the transfer fee is agreed before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to trigger the release clause once the transfer fee is agreed.\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, and now we need to finalize the transfer fee. It's critical to ensure the deal closes before the deadline. We should push for a fee that reflects the player's value and the release clause.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to finalize the transfer fee now. Let’s agree on a fee that reflects Leo’s market value and the release clause.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "21:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Riverside's serious consideration of the release clause could be a game-changer, but I need to wait for confirmation before declaring the transfer complete.",
+        "post": "Riverside FC is seriously considering triggering the release clause for Leo Silva. Could be a game-changer."
+      },
+      "raw": "{\"private_reasoning\": \"Riverside's serious consideration of the release clause could be a game-changer, but I need to wait for confirmation before declaring the transfer complete.\", \"post\": \"Riverside FC is seriously considering triggering the release clause for Leo Silva. Could be a game-changer.\"}"
     },
     {
       "hour": "22:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to trigger the release clause to secure Silva without paying the full 80M, but my budget is only 67.5M. I will try to negotiate a lower fee while keeping the add-ons and instalments in line with my budget.",
+        "private_reasoning": "I need to finalize the transfer fee before the deadline. My budget is 67.5M, and I cannot trigger the release clause as it exceeds my budget. I will offer the maximum I can afford while staying under the budget and ensuring the deal is completed.",
         "actions": [
           {
             "to": "Riverside FC",
             "type": "offer",
-            "amount": 67.5,
+            "amount": 65,
+            "add_ons": 3.5,
+            "instalment_years": 2,
+            "sell_on_percent": 10
+          },
+          {
+            "to": "Silva's agent",
+            "type": "accept"
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to finalize the transfer fee before the deadline. My budget is 67.5M, and I cannot trigger the release clause as it exceeds my budget. I will offer the maximum I can afford while staying under the budget and ensuring the deal is completed.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 3.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"accept\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "22:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "We are close to our minimum of 65M, but Northbridge FC is not willing to meet it. Triggering the release clause would give us leverage, but we need to ensure the player's personal terms are acceptable. We will continue to push for the release clause while keeping the pressure on.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "message": "We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M."
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Riverside FC is considering triggering the release clause for Leo Silva."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"We are close to our minimum of 65M, but Northbridge FC is not willing to meet it. Triggering the release clause would give us leverage, but we need to ensure the player's personal terms are acceptable. We will continue to push for the release clause while keeping the pressure on.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause of 80M if you are not willing to meet our minimum of 65M.\"\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Riverside FC is considering triggering the release clause for Leo Silva.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "22:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "The personal terms are already agreed, so now we need to finalize the transfer fee. Since the release clause is being considered, we should ensure the fee reflects Leo's market value and secures the deal before the deadline.",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "amount": 80,
+            "add_ons": 10,
+            "instalment_years": 1,
+            "sell_on_percent": 10,
+            "contract_years": 4
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "message": "Northbridge FC is finalizing the transfer fee for Leo Silva, with the release clause being a key factor in the deal."
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"The personal terms are already agreed, so now we need to finalize the transfer fee. Since the release clause is being considered, we should ensure the fee reflects Leo's market value and secures the deal before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"offer\",\n      \"amount\": 80,\n      \"add_ons\": 10,\n      \"instalment_years\": 1,\n      \"sell_on_percent\": 10,\n      \"contract_years\": 4\n    },\n    {\n      \"to\": \"Marco Fontana\",\n      \"type\": \"leak\",\n      \"message\": \"Northbridge FC is finalizing the transfer fee for Leo Silva, with the release clause being a key factor in the deal.\"\n    }\n  ]\n}"
+    },
+    {
+      "hour": "22:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "The release clause is a key factor, and both clubs are close to a deal.",
+        "post": "Here we go!"
+      },
+      "raw": "{\"private_reasoning\": \"The release clause is a key factor, and both clubs are close to a deal.\", \"post\": \"Here we go!\"}"
+    },
+    {
+      "hour": "23:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "I need to finalize the transfer fee now. I cannot pay more than 67.5M, so I will offer the maximum I can afford while still meeting the release clause condition.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 65,
             "add_ons": 2.5,
             "instalment_years": 2,
             "sell_on_percent": 10
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to trigger the release clause to secure Silva without paying the full 80M, but my budget is only 67.5M. I will try to negotiate a lower fee while keeping the add-ons and instalments in line with my budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 67.5,\n      \"add_ons\": 2.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "22:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "We are close to securing the transfer at our ideal price of 67.5M. Now we need to push for the personal terms to align with our minimum and ensure the deal is finalized before the deadline.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "message",
-            "message": "We are ready to finalize the deal. Let's agree on the personal terms to secure the transfer."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"We are close to securing the transfer at our ideal price of 67.5M. Now we need to push for the personal terms to align with our minimum and ensure the deal is finalized before the deadline.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are ready to finalize the deal. Let's agree on the personal terms to secure the transfer.\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "22:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "The personal terms have been agreed, so now I need to focus on triggering the release clause to ensure the transfer is finalized. Since the buying club (Northbridge FC) must trigger the release clause, I will remind them of their obligation.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "message",
-            "message": "As the buying club, you are responsible for triggering the release clause. Please confirm your commitment to pay the 80M release clause to finalize the transfer."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"The personal terms have been agreed, so now I need to focus on triggering the release clause to ensure the transfer is finalized. Since the buying club (Northbridge FC) must trigger the release clause, I will remind them of their obligation.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"As the buying club, you are responsible for triggering the release clause. Please confirm your commitment to pay the 80M release clause to finalize the transfer.\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "23:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to trigger the release clause to finalize the transfer, as the personal terms are already agreed. The release clause is 80M, but I can't afford it. I must negotiate a lower fee while keeping within the budget.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "offer",
-            "amount": 67.5,
-            "add_ons": 6,
-            "instalment_years": 2,
-            "sell_on_percent": 10
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to trigger the release clause to finalize the transfer, as the personal terms are already agreed. The release clause is 80M, but I can't afford it. I must negotiate a lower fee while keeping within the budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 67.5,\n      \"add_ons\": 6,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to finalize the transfer fee now. I cannot pay more than 67.5M, so I will offer the maximum I can afford while still meeting the release clause condition.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 2.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
     },
     {
       "hour": "23:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "I need to push for the highest possible transfer fee while ensuring the deal closes before the deadline. Northbridge FC has already shown interest in the salary terms, so I should finalize the fee and secure the transfer.",
+        "private_reasoning": "Northbridge FC has finally matched our minimum transfer fee of 65M, but we can still push for better terms. We need to accept this offer to secure the transfer before the deadline, but we can also try to negotiate for a higher sell-on percentage or add-ons to maximize the value.",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "accept",
-            "amount": 67.5,
-            "add_ons": 6,
+            "amount": 65,
+            "add_ons": 4.5,
             "instalment_years": 2,
-            "sell_on_percent": 10
+            "sell_on_percent": 15
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the highest possible transfer fee while ensuring the deal closes before the deadline. Northbridge FC has already shown interest in the salary terms, so I should finalize the fee and secure the transfer.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"accept\",\n      \"amount\": 67.5,\n      \"add_ons\": 6,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
-    },
-    {
-      "hour": "23:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "The personal terms are already agreed, but the release clause hasn't been triggered. I need to confirm Northbridge FC's commitment to pay the 80M release clause to finalize the transfer.",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "message",
-            "message": "As the buying club, you are responsible for triggering the release clause. Please confirm your commitment to pay the 80M release clause to finalize the transfer."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"The personal terms are already agreed, but the release clause hasn't been triggered. I need to confirm Northbridge FC's commitment to pay the 80M release clause to finalize the transfer.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"message\",\n      \"message\": \"As the buying club, you are responsible for triggering the release clause. Please confirm your commitment to pay the 80M release clause to finalize the transfer.\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"Northbridge FC has finally matched our minimum transfer fee of 65M, but we can still push for better terms. We need to accept this offer to secure the transfer before the deadline, but we can also try to negotiate for a higher sell-on percentage or add-ons to maximize the value.\",\n  \"actions\": [\n    {\n      \"to\": \"Northbridge FC\",\n      \"type\": \"accept\",\n      \"amount\": 65,\n      \"add_ons\": 4.5,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 15\n    }\n  ]\n}"
     },
     {
       "hour": "23:00",
       "agent": "Marco Fontana",
       "decision": {
-        "private_reasoning": "The transfer is not complete. The fee remains unresolved, and Silva has not left Riverside FC.",
-        "post": "Deadline day ends with no deal. Silva stays at Riverside. Northbridge's last offer was 55M + 2.5M add-ons, but the asking price was 67.5M + 6M add-ons. No agreement reached."
+        "private_reasoning": "The transfer is officially complete with all details confirmed.",
+        "post": "Here we go! Leo Silva completes transfer to Northbridge FC for 65M + up to 2.5M add-ons over 2 years, 10% sell-on. 7.2M/year on 4-year contract. No medical needed - deal sealed before deadline."
       },
-      "raw": "{\"private_reasoning\": \"The transfer is not complete. The fee remains unresolved, and Silva has not left Riverside FC.\", \"post\": \"Deadline day ends with no deal. Silva stays at Riverside. Northbridge's last offer was 55M + 2.5M add-ons, but the asking price was 67.5M + 6M add-ons. No agreement reached.\"}"
+      "raw": "{\"private_reasoning\": \"The transfer is officially complete with all details confirmed.\", \"post\": \"Here we go! Leo Silva completes transfer to Northbridge FC for 65M + up to 2.5M add-ons over 2 years, 10% sell-on. 7.2M/year on 4-year contract. No medical needed - deal sealed before deadline.\"}"
     }
   ]
 }

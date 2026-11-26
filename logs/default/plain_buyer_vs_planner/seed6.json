@@ -9,7 +9,7 @@
     "seller": "planner",
     "player_agent": "planner"
   },
-  "seconds": 152.8,
+  "seconds": 179.4,
   "choices": {
     "player_name": "Leo Silva",
     "position": "Striker",
@@ -112,40 +112,40 @@
     }
   },
   "outcome": {
-    "hour": "20:00",
-    "round": 7,
+    "hour": "19:00",
+    "round": 6,
     "medical": "passed",
     "result": "completed",
     "fee_terms": {
-      "fee": 55.0,
-      "add_ons": 10.0,
-      "years": 1,
+      "fee": 61.5,
+      "add_ons": 6.0,
+      "years": 3,
       "sell_on": 10
     },
     "salary_terms": {
       "salary": 7.8,
-      "years": 5
+      "years": 4
     },
     "clause_paid": false,
-    "fee": 55.0,
+    "fee": 61.5,
     "salary": 7.8,
-    "invalid_actions": 5,
-    "fee_offers": 4,
+    "invalid_actions": 1,
+    "fee_offers": 8,
     "salary_offers": 3,
     "leaks": 0,
     "news_posts": 5,
-    "early_here_we_go": 2,
+    "early_here_we_go": 3,
     "corrected_posts": 0,
-    "buyer_cost": 60.4,
-    "seller_value": 60.05,
-    "buyer_surplus_share": -0.22,
+    "buyer_cost": 61.61,
+    "seller_value": 57.77,
+    "buyer_surplus_share": -0.3,
     "overpaid": true,
     "seller_sold_below_minimum": false
   },
   "news_feed": [
     {
       "hour": "14:00",
-      "text": "Northbridge FC in talks with Riverside FC for Leo Silva.",
+      "text": "Northbridge FC in talks with Riverside FC over Leo Silva.",
       "final": false,
       "facts": [
         "Northbridge FC open talks with Riverside FC to sign Leo Silva before the window closes."
@@ -153,15 +153,23 @@
     },
     {
       "hour": "15:00",
-      "text": "Eastgate United bid 48M for Leo Silva. Northbridge FC under pressure to complete deal before deadline.",
+      "text": "Eastgate United bid 53.5M for Leo Silva. Northbridge still in talks.",
       "final": false,
       "facts": [
-        "Eastgate United bid 48M for Leo Silva."
+        "Eastgate United bid 53.5M for Leo Silva."
       ]
     },
     {
       "hour": "16:00",
-      "text": "Eastgate United exit clears the path for Northbridge FC to complete Silva deal.",
+      "text": "Northbridge FC and Silva's agent agree on 7.8M/year for 4 years.",
+      "final": false,
+      "facts": [
+        "Personal terms agreed between Northbridge FC and Silva's agent: 7.8M a year on a 4-year contract."
+      ]
+    },
+    {
+      "hour": "17:00",
+      "text": "Eastgate United drop out of the race for Leo Silva.",
       "final": false,
       "facts": [
         "Eastgate United drop out of the race for Leo Silva."
@@ -169,20 +177,12 @@
     },
     {
       "hour": "19:00",
-      "text": "Northbridge FC and Riverside FC have agreed on a 55M fee for Leo Silva, with add-ons.",
-      "final": false,
-      "facts": [
-        "Transfer fee agreed between Riverside FC and Northbridge FC: 55M plus up to 10M in add-ons, 10% sell-on."
-      ]
-    },
-    {
-      "hour": "20:00",
-      "text": "Here we go! Leo Silva completes his move to Northbridge FC for 55M plus up to 10M in add-ons, 10% sell-on clause, 7.8M/year on a 5-year contract. All terms agreed, medical passed, and deal finalized before the deadline.",
+      "text": "Here we go! Leo Silva completes his move to Northbridge FC for 61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on. Salary: 7.8M/year on a 4-year contract. Transfer fee and personal terms finalized.",
       "final": true,
       "facts": [
-        "Personal terms agreed between Silva's agent and Northbridge FC: 7.8M a year on a 5-year contract.",
+        "Transfer fee agreed between Riverside FC and Northbridge FC: 61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on.",
         "Leo Silva passes his medical.",
-        "Leo Silva joins Northbridge FC: 55M plus up to 10M in add-ons, 10% sell-on; 7.8M a year on a 5-year contract."
+        "Leo Silva joins Northbridge FC: 61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on; 7.8M a year on a 4-year contract."
       ]
     }
   ],
@@ -194,22 +194,22 @@
     },
     {
       "hour": "15:00",
-      "text": "Eastgate United bid 48M for Leo Silva.",
+      "text": "Eastgate United bid 53.5M for Leo Silva.",
       "public": true
     },
     {
-      "hour": "16:00",
+      "hour": "17:00",
       "text": "Eastgate United drop out of the race for Leo Silva.",
       "public": true
     },
     {
-      "hour": "20:00",
+      "hour": "19:00",
       "text": "Leo Silva passes his medical.",
       "public": true
     },
     {
-      "hour": "20:00",
-      "text": "Leo Silva joins Northbridge FC: 55M plus up to 10M in add-ons, 10% sell-on; 7.8M a year on a 5-year contract.",
+      "hour": "19:00",
+      "text": "Leo Silva joins Northbridge FC: 61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on; 7.8M a year on a 4-year contract.",
       "public": true
     }
   ],
@@ -223,14 +223,14 @@
     {
       "hour": "15:00",
       "name": "Eastgate United",
-      "bid": 48.0,
+      "bid": 53.5,
       "out": false
     },
     {
       "hour": "16:00",
       "name": "Eastgate United",
-      "bid": null,
-      "out": true
+      "bid": 53.5,
+      "out": false
     },
     {
       "hour": "17:00",
@@ -257,77 +257,21 @@
       "hour": "14:00",
       "from": "Northbridge FC",
       "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "15:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
       "type": "offer",
-      "amount": 55.0,
+      "amount": 50.0,
       "terms": {
-        "fee": 55.0,
+        "fee": 50.0,
         "add_ons": 10.0,
-        "years": 1,
+        "years": 2,
         "sell_on": 10
       },
-      "text": "55M plus up to 10M in add-ons, 10% sell-on",
+      "text": "50M plus up to 10M in add-ons, paid over 2 years, 10% sell-on",
       "message": "",
       "valid": true,
       "note": ""
     },
     {
-      "hour": "15:00",
-      "from": "Riverside FC",
-      "to": "Northbridge FC",
-      "type": "offer",
-      "amount": 67.5,
-      "terms": {
-        "fee": 67.5,
-        "add_ons": 0.0,
-        "years": 1,
-        "sell_on": 0
-      },
-      "text": "67.5M",
-      "message": "We’re not interested in 67.5M — Eastgate United are also in the race, so you’ll need to do better.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "15:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "offer",
-      "amount": 7.8,
-      "terms": {
-        "salary": 7.8,
-        "years": 4
-      },
-      "text": "7.8M a year on a 4-year contract",
-      "message": "We’re looking for a deal that reflects the value of the player, and 7.8M feels too low given the competition.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "16:00",
-      "from": "Northbridge FC",
-      "to": "Riverside FC",
-      "type": "offer",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "",
-      "valid": false,
-      "note": "fee plus add-ons is above your transfer budget of 67.5M"
-    },
-    {
-      "hour": "16:00",
+      "hour": "14:00",
       "from": "Northbridge FC",
       "to": "Silva's agent",
       "type": "offer",
@@ -342,14 +286,129 @@
       "note": ""
     },
     {
-      "hour": "16:00",
+      "hour": "14:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 67.5,
+      "terms": {
+        "fee": 67.5,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "67.5M",
+      "message": "We’re not interested in that offer. Our asking price is higher.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "14:00",
+      "from": "Silva's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 4
+      },
+      "text": "7.8M a year on a 4-year contract",
+      "message": "You're not even close to what I'm looking for.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "",
+      "valid": false,
+      "note": "fee plus add-ons is above your transfer budget of 67.5M"
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "offer",
+      "amount": 7.6,
+      "terms": {
+        "salary": 7.6,
+        "years": 5
+      },
+      "text": "7.6M a year on a 5-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We’ve received interest from another club, so we’ll need a better offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
       "from": "Silva's agent",
       "to": "Northbridge FC",
       "type": "message",
       "amount": null,
       "terms": null,
       "text": "",
-      "message": "We’re not interested in another offer at this stage.",
+      "message": "Their offer doesn't meet my expectations, and with Eastgate also in the mix, they need to step up.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 55.0,
+      "terms": {
+        "fee": 55.0,
+        "add_ons": 8.0,
+        "years": 2,
+        "sell_on": 10
+      },
+      "text": "55M plus up to 8M in add-ons, paid over 2 years, 10% sell-on",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Northbridge FC",
+      "to": "Silva's agent",
+      "type": "accept",
+      "amount": 7.8,
+      "terms": {
+        "salary": 7.8,
+        "years": 4
+      },
+      "text": "7.8M a year on a 4-year contract",
+      "message": "",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We won’t accept that offer. We’re not moving forward without a better deal.",
       "valid": true,
       "note": ""
     },
@@ -357,23 +416,16 @@
       "hour": "17:00",
       "from": "Northbridge FC",
       "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
+      "type": "offer",
+      "amount": 58.0,
+      "terms": {
+        "fee": 58.0,
+        "add_ons": 7.0,
+        "years": 3,
+        "sell_on": 10
+      },
+      "text": "58M plus up to 7M in add-ons, paid over 3 years, 10% sell-on",
       "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "17:00",
-      "from": "Northbridge FC",
-      "to": "Silva's agent",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "We are prepared to trigger the release clause and offer a competitive salary package.",
       "valid": true,
       "note": ""
     },
@@ -382,15 +434,15 @@
       "from": "Riverside FC",
       "to": "Northbridge FC",
       "type": "offer",
-      "amount": 63.5,
+      "amount": 62.5,
       "terms": {
-        "fee": 63.5,
+        "fee": 62.5,
         "add_ons": 0.0,
         "years": 1,
         "sell_on": 0
       },
-      "text": "63.5M",
-      "message": "We’re open to discussing a lower fee, but we need to see real interest from you.",
+      "text": "62.5M",
+      "message": "We’re open to a serious discussion, but we need to see a stronger offer from you.",
       "valid": true,
       "note": ""
     },
@@ -398,13 +450,18 @@
       "hour": "18:00",
       "from": "Northbridge FC",
       "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
+      "type": "offer",
+      "amount": 60.0,
+      "terms": {
+        "fee": 60.0,
+        "add_ons": 6.0,
+        "years": 3,
+        "sell_on": 10
+      },
+      "text": "60M plus up to 6M in add-ons, paid over 3 years, 10% sell-on",
       "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
+      "valid": true,
+      "note": ""
     },
     {
       "hour": "18:00",
@@ -419,7 +476,7 @@
         "sell_on": 0
       },
       "text": "61M",
-      "message": "We’re not holding back on our price — 61M is our best offer, and we want this settled before the deadline.",
+      "message": "We’re ready to finalise this deal, but we need to see a better offer from you.",
       "valid": true,
       "note": ""
     },
@@ -427,23 +484,16 @@
       "hour": "19:00",
       "from": "Northbridge FC",
       "to": "Riverside FC",
-      "type": "release",
-      "amount": null,
-      "terms": null,
-      "text": "",
+      "type": "offer",
+      "amount": 61.5,
+      "terms": {
+        "fee": 61.5,
+        "add_ons": 6.0,
+        "years": 3,
+        "sell_on": 10
+      },
+      "text": "61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on",
       "message": "",
-      "valid": false,
-      "note": "the release clause of 80M is above your transfer budget"
-    },
-    {
-      "hour": "19:00",
-      "from": "Northbridge FC",
-      "to": "Silva's agent",
-      "type": "message",
-      "amount": null,
-      "terms": null,
-      "text": "",
-      "message": "We are prepared to trigger the release clause and offer a competitive salary package.",
       "valid": true,
       "note": ""
     },
@@ -452,45 +502,15 @@
       "from": "Riverside FC",
       "to": "Northbridge FC",
       "type": "accept",
-      "amount": 55.0,
+      "amount": 61.5,
       "terms": {
-        "fee": 55.0,
-        "add_ons": 10.0,
-        "years": 1,
+        "fee": 61.5,
+        "add_ons": 6.0,
+        "years": 3,
         "sell_on": 10
       },
-      "text": "55M plus up to 10M in add-ons, 10% sell-on",
-      "message": "We’re happy with the offer and ready to move forward.",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "20:00",
-      "from": "Northbridge FC",
-      "to": "Silva's agent",
-      "type": "offer",
-      "amount": 7.8,
-      "terms": {
-        "salary": 7.8,
-        "years": 5
-      },
-      "text": "7.8M a year on a 5-year contract",
-      "message": "",
-      "valid": true,
-      "note": ""
-    },
-    {
-      "hour": "20:00",
-      "from": "Silva's agent",
-      "to": "Northbridge FC",
-      "type": "accept",
-      "amount": 7.8,
-      "terms": {
-        "salary": 7.8,
-        "years": 5
-      },
-      "text": "7.8M a year on a 5-year contract",
-      "message": "I'm happy to accept the offer and move forward with the personal terms.",
+      "text": "61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on",
+      "message": "We’re pleased to accept the offer and look forward to finalising the deal.",
       "valid": true,
       "note": ""
     }
@@ -500,71 +520,31 @@
       "hour": "14:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I will start by triggering the release clause to secure the player, as it ensures the transfer is guaranteed if he agrees to the personal terms. This avoids the need to negotiate a fee and allows me to focus on the personal terms with his agent.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "release"
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I will start by triggering the release clause to secure the player, as it ensures the transfer is guaranteed if he agrees to the personal terms. This avoids the need to negotiate a fee and allows me to focus on the personal terms with his agent.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "14:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "fee: not started yet",
-        "actions": [],
-        "intents": [],
-        "rejected_messages": [],
-        "beliefs": []
-      },
-      "raw": []
-    },
-    {
-      "hour": "14:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "personal terms: not started yet",
-        "actions": [],
-        "intents": [],
-        "rejected_messages": [],
-        "beliefs": []
-      },
-      "raw": []
-    },
-    {
-      "hour": "14:00",
-      "agent": "Marco Fontana",
-      "decision": {
-        "private_reasoning": "Introducing the transfer story as the first post of the day to set the narrative.",
-        "post": "Northbridge FC in talks with Riverside FC for Leo Silva. Here we go!"
-      },
-      "raw": "{\"private_reasoning\": \"Introducing the transfer story as the first post of the day to set the narrative.\", \"post\": \"Northbridge FC in talks with Riverside FC for Leo Silva. Here we go!\"}"
-    },
-    {
-      "hour": "15:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to negotiate a fee below 80M while keeping the deal within my budget. Since the release clause is too expensive, I will propose a lower fee with add-ons and a sell-on clause to reduce the effective cost.",
+        "private_reasoning": "I will start by proposing a transfer fee and personal terms that are within my budget while keeping the player interested.",
         "actions": [
           {
             "to": "Riverside FC",
             "type": "offer",
-            "amount": 55,
+            "amount": 50,
             "add_ons": 10,
+            "instalment_years": 2,
             "sell_on_percent": 10
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.5,
+            "contract_years": 5
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to negotiate a fee below 80M while keeping the deal within my budget. Since the release clause is too expensive, I will propose a lower fee with add-ons and a sell-on clause to reduce the effective cost.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 55,\n      \"add_ons\": 10,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I will start by proposing a transfer fee and personal terms that are within my budget while keeping the player interested.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 50,\n      \"add_ons\": 10,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.5,\n      \"contract_years\": 5\n    }\n  ]\n}"
     },
     {
-      "hour": "15:00",
+      "hour": "14:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "fee: their limit is probably near 74.4 (stance: neutral), best final offer worth 64.4 to them; offer 67.5M | a rival club's offer strengthens our hand: tell the buyer",
+        "private_reasoning": "fee: their limit is probably near 67.0 (stance: neutral), best final offer worth 57.8 to them; offer 67.5M",
         "actions": [
           {
             "to": "Northbridge FC",
@@ -575,7 +555,7 @@
               "years": 1,
               "sell_on": 0
             },
-            "message": "We’re not interested in 67.5M — Eastgate United are also in the race, so you’ll need to do better.",
+            "message": "We’re not interested in that offer. Our asking price is higher.",
             "amount": 67.5
           }
         ],
@@ -592,7 +572,7 @@
             },
             "text": "67.5M",
             "tone": "unimpressed",
-            "purpose": "turn down their offer as too low and state our asking price; point out that Eastgate United are bidding too, so they must do better"
+            "purpose": "turn down their offer as too low and state our asking price"
           }
         ],
         "rejected_messages": [],
@@ -600,21 +580,21 @@
           {
             "about": "Northbridge FC",
             "kind": "fee",
-            "mean": 74.38,
-            "low": 62.94,
-            "high": 89.72
+            "mean": 66.96,
+            "low": 56.71,
+            "high": 81.07
           }
         ]
       },
       "raw": [
-        "{\"messages\": [\"We’re not interested in 67.5M — Eastgate United are also in the race, so you’ll need to do better.\"]}"
+        "{\"messages\": [\"We’re not interested in that offer. Our asking price is higher.\", \"We need to discuss a figure that reflects Silva’s true value.\"]}"
       ]
     },
     {
-      "hour": "15:00",
+      "hour": "14:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "personal terms: no offer from them yet; offer 7.8M a year on a 4-year contract | a rival club's offer strengthens our hand: tell the buyer",
+        "private_reasoning": "personal terms: their limit is probably near 9.6 (stance: neutral), best final offer worth 7.8 to them; offer 7.8M a year on a 4-year contract",
         "actions": [
           {
             "to": "Northbridge FC",
@@ -623,7 +603,7 @@
               "salary": 7.8,
               "years": 4
             },
-            "message": "We’re looking for a deal that reflects the value of the player, and 7.8M feels too low given the competition.",
+            "message": "You're not even close to what I'm looking for.",
             "amount": 7.8
           }
         ],
@@ -637,36 +617,44 @@
               "years": 4
             },
             "text": "7.8M a year on a 4-year contract",
-            "tone": "confident",
-            "purpose": "make our opening demand; point out that Eastgate United are bidding too, so they must do better"
+            "tone": "unimpressed",
+            "purpose": "turn down their offer as too low and state our demand"
           }
         ],
         "rejected_messages": [],
-        "beliefs": []
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "salary",
+            "mean": 9.58,
+            "low": 8.11,
+            "high": 11.6
+          }
+        ]
       },
       "raw": [
-        "{\"messages\": [\"We’re looking for a deal that reflects the value of the player, and 7.8M feels too low given the competition.\"]}"
+        "{\"messages\": [\"You're not even close to what I'm looking for.\"]}"
       ]
     },
     {
-      "hour": "15:00",
+      "hour": "14:00",
       "agent": "Marco Fontana",
       "decision": {
-        "private_reasoning": "Eastgate United's bid adds pressure on Northbridge FC to secure Silva before the deadline.",
-        "post": "Eastgate United bid 48M for Leo Silva. Northbridge FC under pressure to complete deal before deadline."
+        "private_reasoning": "Introducing the transfer story as the first post of the day to set the narrative.",
+        "post": "Northbridge FC in talks with Riverside FC over Leo Silva. Here we go!"
       },
-      "raw": "{\"private_reasoning\": \"Eastgate United's bid adds pressure on Northbridge FC to secure Silva before the deadline.\", \"post\": \"Eastgate United bid 48M for Leo Silva. Northbridge FC under pressure to complete deal before deadline.\"}"
+      "raw": "{\"private_reasoning\": \"Introducing the transfer story as the first post of the day to set the narrative.\", \"post\": \"Northbridge FC in talks with Riverside FC over Leo Silva. Here we go!\"}"
     },
     {
-      "hour": "16:00",
+      "hour": "15:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to push for a lower fee while keeping the offer competitive. Triggering the release clause is not viable due to the budget constraint, so I will make a more aggressive offer on the transfer fee and salary to match the agent's expectations.",
+        "private_reasoning": "I need to push Riverside FC to accept a fee close to my budget while also improving the personal terms to make the deal more attractive to Silva. I will offer a slightly higher fee with better add-ons and propose a better salary to improve the personal terms.",
         "actions": [
           {
             "to": "Riverside FC",
             "type": "offer",
-            "amount": 60,
+            "amount": 65,
             "add_ons": 8,
             "instalment_years": 2,
             "sell_on_percent": 10
@@ -674,44 +662,64 @@
           {
             "to": "Silva's agent",
             "type": "offer",
-            "amount": 7.5,
+            "amount": 7.6,
             "contract_years": 5
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for a lower fee while keeping the offer competitive. Triggering the release clause is not viable due to the budget constraint, so I will make a more aggressive offer on the transfer fee and salary to match the agent's expectations.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 8,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.5,\n      \"contract_years\": 5\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push Riverside FC to accept a fee close to my budget while also improving the personal terms to make the deal more attractive to Silva. I will offer a slightly higher fee with better add-ons and propose a better salary to improve the personal terms.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 65,\n      \"add_ons\": 8,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.6,\n      \"contract_years\": 5\n    }\n  ]\n}"
     },
     {
-      "hour": "16:00",
+      "hour": "15:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "fee: their limit is probably near 74.4 (stance: neutral), best final offer worth 61.1 to them; wait, the next move is theirs",
-        "actions": [],
-        "intents": [],
-        "rejected_messages": [],
-        "beliefs": [
-          {
-            "about": "Northbridge FC",
-            "kind": "fee",
-            "mean": 74.38,
-            "low": 62.94,
-            "high": 89.72
-          }
-        ]
-      },
-      "raw": []
-    },
-    {
-      "hour": "16:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "personal terms: their limit is probably near 9.4 (stance: neutral), best final offer worth 7.8 to them; reject their offer and hold our position",
+        "private_reasoning": "fee: their limit is probably near 67.0 (stance: neutral), best final offer worth 65.3 to them; wait, the next move is theirs | a rival club's offer strengthens our hand: tell the buyer",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "message",
             "terms": null,
-            "message": "We’re not interested in another offer at this stage.",
+            "message": "We’ve received interest from another club, so we’ll need a better offer.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "matter-of-fact",
+            "purpose": "tell them the situation has changed; point out that Eastgate United are bidding too, so they must do better"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 66.96,
+            "low": 56.71,
+            "high": 81.07
+          }
+        ]
+      },
+      "raw": [
+        "{\"messages\": [\"We’ve received interest from another club, so we’ll need a better offer.\"]}"
+      ]
+    },
+    {
+      "hour": "15:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "personal terms: their limit is probably near 9.5 (stance: neutral), best final offer worth 7.8 to them; reject their offer and hold our position | a rival club's offer strengthens our hand: tell the buyer",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "terms": null,
+            "message": "Their offer doesn't meet my expectations, and with Eastgate also in the mix, they need to step up.",
             "amount": null
           }
         ],
@@ -723,7 +731,7 @@
             "terms": null,
             "text": "",
             "tone": "firm",
-            "purpose": "turn down their latest offer without making a new one; it is not enough"
+            "purpose": "turn down their latest offer without making a new one; it is not enough; point out that Eastgate United are bidding too, so they must do better"
           }
         ],
         "rejected_messages": [],
@@ -731,61 +739,145 @@
           {
             "about": "Northbridge FC",
             "kind": "salary",
-            "mean": 9.44,
-            "low": 8.05,
-            "high": 11.36
+            "mean": 9.55,
+            "low": 8.16,
+            "high": 11.45
           }
         ]
       },
       "raw": [
-        "{\"messages\": [\"We’re not interested in another offer at this stage.\"]}"
+        "{\"messages\": [\"Their offer doesn't meet my expectations, and with Eastgate also in the mix, they need to step up.\"]}"
       ]
+    },
+    {
+      "hour": "15:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Eastgate United's bid indicates Silva is in high demand, but Northbridge's interest remains strong.",
+        "post": "Eastgate United bid 53.5M for Leo Silva. Northbridge still in talks."
+      },
+      "raw": "{\"private_reasoning\": \"Eastgate United's bid indicates Silva is in high demand, but Northbridge's interest remains strong.\", \"post\": \"Eastgate United bid 53.5M for Leo Silva. Northbridge still in talks.\"}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "I need to improve my offer to Riverside FC while keeping within the transfer budget. I will increase the fee slightly and add-ons to match Eastgate's bid and show interest. I also need to offer better personal terms to Silva's agent to secure the deal.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 55,
+            "add_ons": 8,
+            "instalment_years": 2,
+            "sell_on_percent": 10
+          },
+          {
+            "to": "Silva's agent",
+            "type": "offer",
+            "amount": 7.8,
+            "contract_years": 4
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to improve my offer to Riverside FC while keeping within the transfer budget. I will increase the fee slightly and add-ons to match Eastgate's bid and show interest. I also need to offer better personal terms to Silva's agent to secure the deal.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 55,\n      \"add_ons\": 8,\n      \"instalment_years\": 2,\n      \"sell_on_percent\": 10\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 4\n    }\n  ]\n}"
+    },
+    {
+      "hour": "16:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 70.3 (stance: neutral), best final offer worth 66.4 to them; reject their offer and hold our position",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "terms": null,
+            "message": "We won’t accept that offer. We’re not moving forward without a better deal.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "firm",
+            "purpose": "turn down their latest offer without making a new one; it is not enough"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 70.25,
+            "low": 60.67,
+            "high": 82.76
+          }
+        ]
+      },
+      "raw": [
+        "{\"messages\": [\"We won’t accept that offer. We’re not moving forward without a better deal.\", \"We’ve made our position clear. No more negotiations until you meet our requirements.\"]}"
+      ]
+    },
+    {
+      "hour": "16:00",
+      "agent": "Silva's agent",
+      "decision": {
+        "private_reasoning": "nothing left to negotiate",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": []
+      },
+      "raw": []
     },
     {
       "hour": "16:00",
       "agent": "Marco Fontana",
       "decision": {
-        "private_reasoning": "Eastgate United dropping out reduces competition, allowing Northbridge to focus on finalizing the deal.",
-        "post": "Eastgate United exit clears the path for Northbridge FC to complete Silva deal."
+        "private_reasoning": "Personal terms agreed, but no official transfer yet.",
+        "post": "Northbridge FC and Silva's agent agree on 7.8M/year for 4 years. Here we go!"
       },
-      "raw": "{\"private_reasoning\": \"Eastgate United dropping out reduces competition, allowing Northbridge to focus on finalizing the deal.\", \"post\": \"Eastgate United exit clears the path for Northbridge FC to complete Silva deal.\"}"
+      "raw": "{\"private_reasoning\": \"Personal terms agreed, but no official transfer yet.\", \"post\": \"Northbridge FC and Silva's agent agree on 7.8M/year for 4 years. Here we go!\"}"
     },
     {
       "hour": "17:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to push for the release clause to avoid paying more than 80M, but I must ensure the personal terms are acceptable to keep the deal within budget. The agent has already rejected my offer, so I need to reconsider my approach.",
+        "private_reasoning": "I need to push Riverside FC closer to an agreement by increasing the transfer fee while staying within my budget. My current offer of 55M plus 8M in add-ons is still below their asking price, but I can make it more attractive by adjusting the instalment terms or adding incentives.",
         "actions": [
           {
             "to": "Riverside FC",
-            "type": "release"
-          },
-          {
-            "to": "Silva's agent",
-            "type": "message",
-            "message": "We are prepared to trigger the release clause and offer a competitive salary package."
+            "type": "offer",
+            "amount": 58,
+            "add_ons": 7,
+            "instalment_years": 3,
+            "sell_on_percent": 10
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to push for the release clause to avoid paying more than 80M, but I must ensure the personal terms are acceptable to keep the deal within budget. The agent has already rejected my offer, so I need to reconsider my approach.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause and offer a competitive salary package.\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push Riverside FC closer to an agreement by increasing the transfer fee while staying within my budget. My current offer of 55M plus 8M in add-ons is still below their asking price, but I can make it more attractive by adjusting the instalment terms or adding incentives.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 58,\n      \"add_ons\": 7,\n      \"instalment_years\": 3,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
     },
     {
       "hour": "17:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "fee: their limit is probably near 74.4 (stance: neutral), best final offer worth 61.1 to them; offer 63.5M",
+        "private_reasoning": "fee: their limit is probably near 68.7 (stance: neutral), best final offer worth 60.0 to them; offer 62.5M",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "offer",
             "terms": {
-              "fee": 63.5,
+              "fee": 62.5,
               "add_ons": 0.0,
               "years": 1,
               "sell_on": 0
             },
-            "message": "We’re open to discussing a lower fee, but we need to see real interest from you.",
-            "amount": 63.5
+            "message": "We’re open to a serious discussion, but we need to see a stronger offer from you.",
+            "amount": 62.5
           }
         ],
         "intents": [
@@ -794,12 +886,12 @@
             "kind": "fee",
             "type": "offer",
             "terms": {
-              "fee": 63.5,
+              "fee": 62.5,
               "add_ons": 0.0,
               "years": 1,
               "sell_on": 0
             },
-            "text": "63.5M",
+            "text": "62.5M",
             "tone": "constructive",
             "purpose": "lower our asking price in a meaningful step and ask them to respond"
           }
@@ -809,57 +901,60 @@
           {
             "about": "Northbridge FC",
             "kind": "fee",
-            "mean": 74.38,
-            "low": 62.94,
-            "high": 89.72
+            "mean": 68.71,
+            "low": 61.36,
+            "high": 77.45
           }
         ]
       },
       "raw": [
-        "{\"messages\": [\"We’re open to discussing a lower fee, but we need to see real interest from you.\"]}"
+        "{\"messages\": [\"We’re open to a serious discussion, but we need to see a stronger offer from you.\"]}"
       ]
     },
     {
       "hour": "17:00",
       "agent": "Silva's agent",
       "decision": {
-        "private_reasoning": "personal terms: their limit is probably near 9.3 (stance: firm), best final offer worth 7.8 to them; wait, the next move is theirs",
+        "private_reasoning": "nothing left to negotiate",
         "actions": [],
         "intents": [],
         "rejected_messages": [],
-        "beliefs": [
-          {
-            "about": "Northbridge FC",
-            "kind": "salary",
-            "mean": 9.28,
-            "low": 7.99,
-            "high": 11.12
-          }
-        ]
+        "beliefs": []
       },
-      "raw": [
-        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"release clause triggered\"}"
-      ]
+      "raw": []
+    },
+    {
+      "hour": "17:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Northbridge FC has secured Silva's services with the agent, but the deal is not yet official.",
+        "post": "Here we go!"
+      },
+      "raw": "{\"private_reasoning\": \"Northbridge FC has secured Silva's services with the agent, but the deal is not yet official.\", \"post\": \"Here we go!\"}"
     },
     {
       "hour": "18:00",
       "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "I need to trigger the release clause to secure Silva, as the fee is too high for my budget. The salary offer is already within my wage budget, so I will proceed with triggering the release clause.",
+        "private_reasoning": "I need to push Riverside FC closer to an agreement without exceeding my transfer budget. My latest offer of 58M plus 7M add-ons is close to my budget, but I can still try to increase the fee slightly while keeping the add-ons and instalment terms reasonable.",
         "actions": [
           {
             "to": "Riverside FC",
-            "type": "release"
+            "type": "offer",
+            "amount": 60,
+            "add_ons": 6,
+            "instalment_years": 3,
+            "sell_on_percent": 10
           }
         ]
       },
-      "raw": "{\n  \"private_reasoning\": \"I need to trigger the release clause to secure Silva, as the fee is too high for my budget. The salary offer is already within my wage budget, so I will proceed with triggering the release clause.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    }\n  ]\n}"
+      "raw": "{\n  \"private_reasoning\": \"I need to push Riverside FC closer to an agreement without exceeding my transfer budget. My latest offer of 58M plus 7M add-ons is close to my budget, but I can still try to increase the fee slightly while keeping the add-ons and instalment terms reasonable.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 60,\n      \"add_ons\": 6,\n      \"instalment_years\": 3,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
     },
     {
       "hour": "18:00",
       "agent": "Riverside FC",
       "decision": {
-        "private_reasoning": "fee: their limit is probably near 74.4 (stance: neutral), best final offer worth 61.1 to them; offer 61M",
+        "private_reasoning": "fee: their limit is probably near 68.2 (stance: neutral), best final offer worth 61.1 to them; offer 61M",
         "actions": [
           {
             "to": "Northbridge FC",
@@ -870,7 +965,7 @@
               "years": 1,
               "sell_on": 0
             },
-            "message": "We’re not holding back on our price — 61M is our best offer, and we want this settled before the deadline.",
+            "message": "We’re ready to finalise this deal, but we need to see a better offer from you.",
             "amount": 61.0
           }
         ],
@@ -895,155 +990,19 @@
           {
             "about": "Northbridge FC",
             "kind": "fee",
-            "mean": 74.38,
-            "low": 62.94,
-            "high": 89.72
+            "mean": 68.2,
+            "low": 62.33,
+            "high": 74.67
           }
         ]
       },
       "raw": [
-        "{\"messages\": [\"We’re not holding back on our price — 61M is our best offer, and we want this settled before the deadline.\", \"We’re not waiting around, so you’ll need to move quickly if you want to complete this.\"]}"
+        "{\"messages\": [\"We’re ready to finalise this deal, but we need to see a better offer from you.\", \"We’re not holding out, but we’re not settling for less than our best price.\"]}"
       ]
     },
     {
       "hour": "18:00",
       "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "personal terms: their limit is probably near 9.3 (stance: firm), best final offer worth 7.8 to them; wait, the next move is theirs",
-        "actions": [],
-        "intents": [],
-        "rejected_messages": [],
-        "beliefs": [
-          {
-            "about": "Northbridge FC",
-            "kind": "salary",
-            "mean": 9.28,
-            "low": 7.99,
-            "high": 11.12
-          }
-        ]
-      },
-      "raw": []
-    },
-    {
-      "hour": "19:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "I need to trigger the release clause to secure Leo Silva, as the fee is too high. The release clause is the only way to get the player without paying more than 80M, which is within my budget. I will also try to negotiate the personal terms to keep the salary within the wage budget.",
-        "actions": [
-          {
-            "to": "Riverside FC",
-            "type": "release"
-          },
-          {
-            "to": "Silva's agent",
-            "type": "message",
-            "message": "We are prepared to trigger the release clause and offer a competitive salary package."
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"I need to trigger the release clause to secure Leo Silva, as the fee is too high. The release clause is the only way to get the player without paying more than 80M, which is within my budget. I will also try to negotiate the personal terms to keep the salary within the wage budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"release\"\n    },\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"message\",\n      \"message\": \"We are prepared to trigger the release clause and offer a competitive salary package.\"\n    }\n  ]\n}"
-    },
-    {
-      "hour": "19:00",
-      "agent": "Riverside FC",
-      "decision": {
-        "private_reasoning": "fee: their limit is probably near 74.4 (stance: neutral), best final offer worth 61.0 to them; accept their offer because we want this done now, and a deal beats no deal",
-        "actions": [
-          {
-            "to": "Northbridge FC",
-            "type": "accept",
-            "terms": {
-              "fee": 55.0,
-              "add_ons": 10.0,
-              "years": 1,
-              "sell_on": 10
-            },
-            "message": "We’re happy with the offer and ready to move forward.",
-            "amount": 55.0
-          }
-        ],
-        "intents": [
-          {
-            "to": "Northbridge FC",
-            "kind": "fee",
-            "type": "accept",
-            "terms": {
-              "fee": 55.0,
-              "add_ons": 10.0,
-              "years": 1,
-              "sell_on": 10
-            },
-            "text": "55M plus up to 10M in add-ons, 10% sell-on",
-            "tone": "pleased",
-            "purpose": "accept their offer and close this part of the deal"
-          }
-        ],
-        "rejected_messages": [],
-        "beliefs": [
-          {
-            "about": "Northbridge FC",
-            "kind": "fee",
-            "mean": 74.38,
-            "low": 62.94,
-            "high": 89.72
-          }
-        ]
-      },
-      "raw": [
-        "{\"messages\": [\"We’re happy with the offer and ready to move forward.\", \"Let’s finalise the details and get this done before the deadline.\"]}"
-      ]
-    },
-    {
-      "hour": "19:00",
-      "agent": "Silva's agent",
-      "decision": {
-        "private_reasoning": "personal terms: their limit is probably near 9.3 (stance: firm), best final offer worth 7.8 to them; wait, the next move is theirs",
-        "actions": [],
-        "intents": [],
-        "rejected_messages": [],
-        "beliefs": [
-          {
-            "about": "Northbridge FC",
-            "kind": "salary",
-            "mean": 9.28,
-            "low": 7.99,
-            "high": 11.12
-          }
-        ]
-      },
-      "raw": [
-        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"release clause triggered\"}"
-      ]
-    },
-    {
-      "hour": "19:00",
-      "agent": "Marco Fontana",
-      "decision": {
-        "private_reasoning": "The transfer fee has been agreed, and the deal is close to completion.",
-        "post": "Northbridge FC and Riverside FC have agreed on a 55M fee for Leo Silva, with add-ons. Here we go!"
-      },
-      "raw": "{\"private_reasoning\": \"The transfer fee has been agreed, and the deal is close to completion.\", \"post\": \"Northbridge FC and Riverside FC have agreed on a 55M fee for Leo Silva, with add-ons. Here we go!\"}"
-    },
-    {
-      "hour": "20:00",
-      "agent": "Northbridge FC",
-      "decision": {
-        "private_reasoning": "Riverside FC has accepted the fee offer, so now I need to finalize the personal terms with Silva's agent. My wage budget allows a maximum of 7.8M/year, and I prefer a 5-year contract. I will offer 7.8M/year on a 5-year contract to match my wage budget and secure the player.",
-        "actions": [
-          {
-            "to": "Silva's agent",
-            "type": "offer",
-            "amount": 7.8,
-            "contract_years": 5
-          }
-        ]
-      },
-      "raw": "{\n  \"private_reasoning\": \"Riverside FC has accepted the fee offer, so now I need to finalize the personal terms with Silva's agent. My wage budget allows a maximum of 7.8M/year, and I prefer a 5-year contract. I will offer 7.8M/year on a 5-year contract to match my wage budget and secure the player.\",\n  \"actions\": [\n    {\n      \"to\": \"Silva's agent\",\n      \"type\": \"offer\",\n      \"amount\": 7.8,\n      \"contract_years\": 5\n    }\n  ]\n}"
-    },
-    {
-      "hour": "20:00",
-      "agent": "Riverside FC",
       "decision": {
         "private_reasoning": "nothing left to negotiate",
         "actions": [],
@@ -1054,32 +1013,54 @@
       "raw": []
     },
     {
-      "hour": "20:00",
-      "agent": "Silva's agent",
+      "hour": "19:00",
+      "agent": "Northbridge FC",
       "decision": {
-        "private_reasoning": "personal terms: their limit is probably near 8.7 (stance: firm), best final offer worth 7.8 to them; accept their offer because we want this done now, and a deal beats no deal",
+        "private_reasoning": "I need to push Riverside FC closer to an agreement without exceeding my transfer budget. My latest offer of 60M plus 6M add-ons is still below their 61M offer, so I should increase the fee slightly while keeping the add-ons and instalment terms to stay under budget.",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "amount": 61.5,
+            "add_ons": 6,
+            "instalment_years": 3,
+            "sell_on_percent": 10
+          }
+        ]
+      },
+      "raw": "{\n  \"private_reasoning\": \"I need to push Riverside FC closer to an agreement without exceeding my transfer budget. My latest offer of 60M plus 6M add-ons is still below their 61M offer, so I should increase the fee slightly while keeping the add-ons and instalment terms to stay under budget.\",\n  \"actions\": [\n    {\n      \"to\": \"Riverside FC\",\n      \"type\": \"offer\",\n      \"amount\": 61.5,\n      \"add_ons\": 6,\n      \"instalment_years\": 3,\n      \"sell_on_percent\": 10\n    }\n  ]\n}"
+    },
+    {
+      "hour": "19:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 68.1 (stance: neutral), best final offer worth 61.0 to them; accept their offer because we want this done now, and a deal beats no deal",
         "actions": [
           {
             "to": "Northbridge FC",
             "type": "accept",
             "terms": {
-              "salary": 7.8,
-              "years": 5
+              "fee": 61.5,
+              "add_ons": 6.0,
+              "years": 3,
+              "sell_on": 10
             },
-            "message": "I'm happy to accept the offer and move forward with the personal terms.",
-            "amount": 7.8
+            "message": "We’re pleased to accept the offer and look forward to finalising the deal.",
+            "amount": 61.5
           }
         ],
         "intents": [
           {
             "to": "Northbridge FC",
-            "kind": "salary",
+            "kind": "fee",
             "type": "accept",
             "terms": {
-              "salary": 7.8,
-              "years": 5
+              "fee": 61.5,
+              "add_ons": 6.0,
+              "years": 3,
+              "sell_on": 10
             },
-            "text": "7.8M a year on a 5-year contract",
+            "text": "61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on",
             "tone": "pleased",
             "purpose": "accept their offer and close this part of the deal"
           }
@@ -1088,25 +1069,25 @@
         "beliefs": [
           {
             "about": "Northbridge FC",
-            "kind": "salary",
-            "mean": 8.73,
-            "low": 8.25,
-            "high": 9.36
+            "kind": "fee",
+            "mean": 68.07,
+            "low": 63.77,
+            "high": 72.66
           }
         ]
       },
       "raw": [
-        "{\"messages\": [\"I'm happy to accept the offer and move forward with the personal terms.\", \"Let’s finalize everything before the deadline.\"]}"
+        "{\"messages\": [\"We’re pleased to accept the offer and look forward to finalising the deal.\", \"Let’s move forward with the paperwork and make this a successful transfer.\"]}"
       ]
     },
     {
-      "hour": "20:00",
+      "hour": "19:00",
       "agent": "Marco Fontana",
       "decision": {
         "private_reasoning": "The transfer is officially complete with all details confirmed.",
-        "post": "Here we go! Leo Silva completes his move to Northbridge FC for 55M plus up to 10M in add-ons, 10% sell-on clause, 7.8M/year on a 5-year contract. All terms agreed, medical passed, and deal finalized before the deadline."
+        "post": "Here we go! Leo Silva completes his move to Northbridge FC for 61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on. Salary: 7.8M/year on a 4-year contract. Transfer fee and personal terms finalized."
       },
-      "raw": "{\"private_reasoning\": \"The transfer is officially complete with all details confirmed.\", \"post\": \"Here we go! Leo Silva completes his move to Northbridge FC for 55M plus up to 10M in add-ons, 10% sell-on clause, 7.8M/year on a 5-year contract. All terms agreed, medical passed, and deal finalized before the deadline.\"}"
+      "raw": "{\"private_reasoning\": \"The transfer is officially complete with all details confirmed.\", \"post\": \"Here we go! Leo Silva completes his move to Northbridge FC for 61.5M plus up to 6M in add-ons, paid over 3 years, 10% sell-on. Salary: 7.8M/year on a 4-year contract. Transfer fee and personal terms finalized.\"}"
     }
   ]
 }

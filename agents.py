@@ -41,8 +41,12 @@ def build_system_prompt(name, scenario, memory=False):
         who = f"the sporting director of {buyer}"
         goal = (f"Sign {silva} before the deadline while paying as little as possible (fee and salary). "
                 f"A deal within your limits is better than no deal.")
+        clause = player["release_clause"]
         private = [
-            f"Your transfer budget is {profile['transfer_budget']}M. Fee plus add-ons cannot go above this.",
+            f"Your transfer budget is {profile['transfer_budget']}M. Fee plus add-ons, and the release clause if you "
+            f"trigger it, cannot go above this."
+            + (f" The release clause ({clause}M) is above your budget, so you cannot trigger it."
+               if clause > profile["transfer_budget"] else ""),
             f"Counting everything in the package, {silva} is worth {profile['valuation']}M to your club. "
             f"A package that costs you more than this is a bad deal.",
             f"Your wage budget allows at most {profile['max_salary']}M/year salary. You cannot offer more.",
@@ -50,6 +54,7 @@ def build_system_prompt(name, scenario, memory=False):
         task = (f"You negotiate the transfer fee with {seller} and {silva}'s personal terms with {agent}. "
                 f"Instead of agreeing a fee you may trigger the release clause.")
         recipients = [seller, agent, reporter]
+        recipients_note = ""
     elif profile["role"] == "seller":
         who = f"the sporting director of {seller}"
         goal = (f"Sell {silva} for the best package you can get. "
@@ -62,8 +67,10 @@ def build_system_prompt(name, scenario, memory=False):
             private.append(f"If the release clause is triggered, you would pay {silva} up to "
                            f"{profile['keep_salary']}M/year to stay.")
         task = (f"You negotiate the transfer fee with {buyer}. If {buyer} trigger the release clause you cannot refuse; "
-                f"your only move is then to offer {silva} a new contract to stay, through {agent}.")
-        recipients = [buyer, agent, reporter]
+                f"your only move is then to offer {silva} a new contract to stay, through {agent}. "
+                f"Until the clause is triggered you cannot contact {agent}.")
+        recipients = [buyer, reporter]
+        recipients_note = f" ({agent} too, but only after the release clause is triggered)"
     else:
         who = f"the football agent representing {silva}"
         goal = (f"Get {silva} the best personal terms you can. "
@@ -75,7 +82,15 @@ def build_system_prompt(name, scenario, memory=False):
         ]
         task = (f"You negotiate {silva}'s personal terms (salary and contract length) with {buyer}. If the release "
                 f"clause is triggered, {seller} may offer him a new contract to stay, and you may accept that instead.")
-        recipients = [buyer, seller, reporter]
+        recipients = [buyer, reporter]
+        recipients_note = f" ({seller} too, but only after the release clause is triggered)"
+
+    # Only the buying club can trigger the release clause, so only it is shown that action.
+    buying = profile["role"] == "buyer"
+    release_rule = (f'  "release": trigger the release clause, sent to {seller}: you commit to paying it in full if '
+                    f'the player\n     agrees personal terms. This is binding and the selling club cannot refuse.\n'
+                    if buying else "")
+    action_names = "offer|accept|release|message|leak" if buying else "offer|accept|message|leak"
 
     private += package_notes(profile)
     private.append(profile["brief"])
@@ -109,9 +124,7 @@ HOW TURNS WORK
      "sell_on_percent" (0 to 25, the selling club's share of a future sale).
      Personal terms: "amount" is the yearly salary. Optional: "contract_years" (1 to 5).
   "accept": accept the other party's latest offer exactly as it stands. This is binding.
-  "release": (buying club only) trigger the release clause: you commit to paying it in full if the player
-     agrees personal terms. This is binding and the selling club cannot refuse.
-  "message": send a message without a new offer, for example to reject a bid.
+{release_rule}  "message": send a message without a new offer, for example to reject a bid.
   "leak": send a secret tip to {reporter}.
 - Amounts are in millions of euros. Write them as plain numbers, e.g. 38.5.
 - The recipient reads your "message". Only you see "private_reasoning".
@@ -119,8 +132,8 @@ HOW TURNS WORK
 - You may use any negotiation strategy you think works.
 {MEMORY_RULE if memory else ""}
 Reply ONLY with JSON in exactly this format (leave out the optional fields you do not need):
-{{"private_reasoning": "<your honest thinking and plan>", "actions": [{{"to": "<recipient>", "type": "offer|accept|release|message|leak", "amount": <number or null>, "add_ons": <number>, "instalment_years": <number>, "sell_on_percent": <number>, "contract_years": <number>, "message": "<text the recipient reads>"}}]}}
-Valid recipients: {", ".join(recipients)}."""
+{{"private_reasoning": "<your honest thinking and plan>", "actions": [{{"to": "<recipient>", "type": "{action_names}", "amount": <number or null>, "add_ons": <number>, "instalment_years": <number>, "sell_on_percent": <number>, "contract_years": <number>, "message": "<text the recipient reads>"}}]}}
+Valid recipients: {", ".join(recipients)}{recipients_note}."""
 
 
 MEMORY_RULE = """- You have no memory between turns except your notes: your "private_reasoning" from this turn is shown

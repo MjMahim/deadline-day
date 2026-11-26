@@ -50,17 +50,18 @@ without the LLM** (template messages), each over 24 negotiations in four situati
 
 | | Planner + LLM | Planner, no LLM | Plain LLM |
 |---|:---:|:---:|:---:|
-| Rule-breaking actions per run | **0** | 0 | 8.3 |
-| Deals where the buyer overpaid | **0 of 9** | 0 of 8 | 8 of 11 |
-| Runs where the clubs failed to agree | **0** | 0 | 12 of 24 |
+| Rule-breaking actions per run | **0** | 0 | 4.2 |
+| Deals where the buyer overpaid | **0 of 9** | 0 of 8 | 6 of 6 |
+| Runs where the clubs failed to agree | **0** | 0 | 13 of 24 |
 
 <img src="assets/outcomes.png" alt="How each run ended and what each deal cost" width="900">
 
-- **The LLM alone failed** to agree in half its runs and overpaid in most deals.
+- **The LLM alone failed** to agree in more than half its runs and overpaid in every deal it made, even though
+  its prompt states every rule.
 - **The planner reads the situation.** It let rivals have an overpriced player and accepted a happy player's
-  choice to stay. The LLM alone overpaid in every bidding war it won.
+  choice to stay. The LLM alone won none of the six bidding wars.
 - **The LLM adds communication, not decisions.** Without it, outcomes were the same in three of four
-  situations. The filter blocked 80 messages that contradicted the plan.
+  situations. The filter blocked 78 messages that contradicted the plan.
 
 ## See inside the agents
 

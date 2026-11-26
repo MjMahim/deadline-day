@@ -317,7 +317,8 @@ class Market:
             what = f" {e['text']}" if e["text"] else ""
             note = "" if e["valid"] else f"  [REJECTED BY SYSTEM: {e['note']}]"
             lines.append(f"[{e['hour']}] {sender} -> {receiver}: {e['type'].upper()}{what}. \"{e['message']}\"{note}")
-        lines.append("\nDecide your actions for this turn.")
+        lines.append(f"\nYou can contact this turn: {', '.join(self.counterparts(name) + [self.reporter])}.")
+        lines.append("Decide your actions for this turn.")
         return "\n".join(lines)
 
     def checks(self, name, turns_left):
