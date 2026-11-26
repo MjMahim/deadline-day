@@ -4,7 +4,6 @@
     python run.py --think                           # also show each agent's private thinking
     python run.py --no-llm                          # planner agents, template wording (instant)
     python run.py --plain buyer                     # the plain LLM agent as the buyer
-    python run.py --rule seller player_agent        # rule-based seller and player's agent
     python run.py --scenario bidding_war --seed 4   # another situation, another seed
 """
 import argparse
@@ -15,7 +14,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from agents import RuleReporter
+from agents import FactReporter
 from llm import MODEL
 from market import Market
 from scenario_builder import DEFAULTS, build_scenario
@@ -35,21 +34,20 @@ SCENARIOS = {
 }
 
 
-def run_once(scenario_name="default", seed=1, plain_roles=(), rule_roles=(), features=(), use_llm=True,
+def run_once(scenario_name="default", seed=1, plain_roles=(), features=(), use_llm=True,
              verbose=True, think=False, log_file=None):
     """Run one negotiation, write its log and return (market, log file, seconds).
 
-    Every seat is played by the planner agent unless it is listed in plain_roles (plain LLM) or rule_roles.
-    use_llm=False gives the planner template wording and replaces the journalist by a rule, so no model is needed.
+    Every seat is played by the planner agent unless it is listed in plain_roles (plain LLM).
+    use_llm=False gives the planner template wording and a journalist that reports facts only, so no model is needed.
     """
     choices = {**DEFAULTS, **SCENARIOS[scenario_name]}
     scenario, facts = build_scenario(choices)
-    planner_roles = [role for role in ROLES if role not in plain_roles and role not in rule_roles]
-    all_rule = len(rule_roles) == len(ROLES)
-    market = Market(scenario, "rule" if all_rule else "llm", seed=seed, verbose=verbose, show_thinking=think,
-                    rule_roles=rule_roles, features=features, planner_roles=planner_roles)
+    planner_roles = [role for role in ROLES if role not in plain_roles]
+    market = Market(scenario, seed=seed, verbose=verbose, show_thinking=think, features=features,
+                    planner_roles=planner_roles)
     if not use_llm:
-        market.journalist = RuleReporter()
+        market.journalist = FactReporter()
         for agent in market.agents.values():
             if hasattr(agent, "use_llm"):
                 agent.use_llm = False
@@ -59,9 +57,9 @@ def run_once(scenario_name="default", seed=1, plain_roles=(), rule_roles=(), fea
 
     if log_file is None:
         log_file = Path(__file__).parent / "logs" / f"{scenario_name}_seed{seed}_{datetime.now():%Y%m%d_%H%M%S}.json"
-    seats = {role: "rule" if role in rule_roles else "plain" if role in plain_roles else "planner" for role in ROLES}
+    seats = {role: "plain" if role in plain_roles else "planner" for role in ROLES}
     save_log(log_file, market, facts, choices, seats, seconds, scenario_name=scenario_name, seed=seed,
-             features=sorted(features), use_llm=use_llm, model=MODEL if use_llm and not all_rule else None)
+             features=sorted(features), use_llm=use_llm, model=MODEL if use_llm else None)
     return market, log_file, seconds
 
 
@@ -78,7 +76,6 @@ def save_log(log_file, market, facts, choices, seats, seconds, **details):
 def add_run_options(parser):
     parser.add_argument("--scenario", choices=list(SCENARIOS), default="default")
     parser.add_argument("--plain", nargs="*", choices=ROLES, default=[], help="roles played by the plain LLM agent")
-    parser.add_argument("--rule", nargs="*", choices=ROLES, default=[], help="roles played by the rule agent")
     parser.add_argument("--features", nargs="*", choices=FEATURES, default=[],
                         help="optional upgrades for the plain LLM agent")
     parser.add_argument("--no-llm", action="store_true", help="planner with template wording; no model needed")
@@ -97,7 +94,7 @@ def main():
         parser.error("--plain needs the language model, so it cannot be combined with --no-llm")
 
     try:
-        market, log_file, seconds = run_once(args.scenario, args.seed, args.plain, args.rule, args.features,
+        market, log_file, seconds = run_once(args.scenario, args.seed, args.plain, args.features,
                                              use_llm=not args.no_llm, verbose=not args.quiet, think=args.think)
     except RuntimeError as problem:
         sys.exit(f"\n{problem}")

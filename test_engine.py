@@ -2,7 +2,7 @@
 
     python test_engine.py
 """
-from agents import RuleReporter
+from agents import FactReporter
 from deal import describe, normalise, worth
 from market import Market
 from scenario_builder import PRESETS, build_scenario
@@ -10,11 +10,10 @@ from scenario_builder import PRESETS, build_scenario
 ALL_PLANNERS = ["buyer", "seller", "player_agent"]
 
 
-def market(choices=None, seed=1, planner=ALL_PLANNERS, rule=()):
+def market(choices=None, seed=1, planner=ALL_PLANNERS):
     scenario, facts = build_scenario(choices)
-    m = Market(scenario, "rule" if len(rule) == 3 else "llm", seed=seed, verbose=False,
-               rule_roles=rule, planner_roles=planner)
-    m.journalist = RuleReporter()
+    m = Market(scenario, seed=seed, verbose=False, planner_roles=planner)
+    m.journalist = FactReporter()
     for agent in m.agents.values():
         if hasattr(agent, "use_llm"):
             agent.use_llm = False
@@ -62,15 +61,6 @@ def test_rules():
     entry = do(buyer, agent, "offer", 6, years=4)
     assert entry["type"] == "accept" and m.salary.agreed, "offering exactly what was asked closes the deal"
     assert do(buyer, m.reporter, "message")["type"] == "leak"
-
-
-def test_rule_baseline_is_deterministic():
-    results = set()
-    for seed in (1, 2, 3):
-        m, _ = market(seed=seed, planner=(), rule=ALL_PLANNERS)
-        o = m.run()
-        results.add((o["result"], o["fee"], o["salary"], o["hour"]))
-    assert len(results) == 1 and next(iter(results))[0] == "completed", results
 
 
 def test_planner_negotiations():

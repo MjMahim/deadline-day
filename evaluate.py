@@ -36,7 +36,7 @@ def run(args):
         if log_file.exists():
             print(f"seed {seed}: already done, skipping", flush=True)
             continue
-        market, _, seconds = run_once(args.scenario, seed, args.plain, args.rule, args.features,
+        market, _, seconds = run_once(args.scenario, seed, args.plain, args.features,
                                       use_llm=not args.no_llm, verbose=False, log_file=log_file)
         o = market.outcome
         deal = f"fee {o['fee']:g}M, salary {o['salary']:g}M/yr" if o["fee"] is not None else "-"

@@ -11,7 +11,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
 ![No dependencies](https://img.shields.io/badge/dependencies-standard_library_only-2ea44f)
 ![LLM](https://img.shields.io/badge/LLM-Qwen3_8B_via_Ollama-000000?logo=ollama&logoColor=white)
-![Runs](https://img.shields.io/badge/recorded_negotiations-108-f6c343)
+![Runs](https://img.shields.io/badge/recorded_negotiations-84-f6c343)
 ![Course](https://img.shields.io/badge/LUT_University-BM40A1601-e4007c)
 
 <img src="assets/replay.png" alt="The replay site: a completed transfer with the agreed fee, salary and contract" width="900">
@@ -38,27 +38,27 @@ medical and a journalist who reports on every move.
 Every hour the agent runs five steps. The belief is a Bayesian estimate of the other side's secret limit, updated
 from how fast they concede. Every number the agent sends comes from the plan.
 
-<img src="assets/timeline.png" alt="One negotiation: the buyer opens low, holds, outbids a rival by 1M and signs 13.5M below the player's worth" width="760">
+<img src="assets/timeline.png" alt="One negotiation: fee talks and salary talks hour by hour, ending with a signing at 22:00" width="760">
 
-*One real run: the buyer opens low, waits while the seller comes down, outbids a rival by just 1M and signs
-the player 13.5M below his worth to the club.*
+*One real run: the buyer holds while the seller comes down, offers add-ons when a rival bids, and signs the
+player at 22:00 for 46M in cash, 11M below his worth to the club.*
 
 ## Results
 
-The planner was compared with a **plain LLM agent** (the same model deciding on its own) and a **rule-based
-negotiator** (Faratin et al., 1998), each over 24 negotiations in four situations.
+The planner was compared with a **plain LLM agent** (the same model deciding on its own) and with **itself
+without the LLM** (template messages), each over 24 negotiations in four situations.
 
-| | Planner + LLM | Plain LLM | Rule-based |
+| | Planner + LLM | Planner, no LLM | Plain LLM |
 |---|:---:|:---:|:---:|
-| Rule-breaking actions per run | **0** | 8.3 | 0 |
-| Deals where the buyer overpaid | **0 of 9** | 8 of 11 | 0 of 23 |
-| Runs where the clubs failed to agree | **0** | 12 of 24 | 0 |
+| Rule-breaking actions per run | **0** | 0 | 8.3 |
+| Deals where the buyer overpaid | **0 of 9** | 0 of 8 | 8 of 11 |
+| Runs where the clubs failed to agree | **0** | 0 | 12 of 24 |
 
 <img src="assets/outcomes.png" alt="How each run ended and what each deal cost" width="900">
 
 - **The LLM alone failed** to agree in half its runs and overpaid in most deals.
 - **The planner reads the situation.** It let rivals have an overpriced player and accepted a happy player's
-  choice to stay. The rule-based seller sold at 54.2M while a rival was offering up to 63.5M.
+  choice to stay. The LLM alone overpaid in every bidding war it won.
 - **The LLM adds communication, not decisions.** Without it, outcomes were the same in three of four
   situations. The filter blocked 80 messages that contradicted the plan.
 
@@ -96,7 +96,7 @@ with `ollama pull qwen3:8b`. Everything marked "no model" works without it.
 
 In the web app you choose the player and the situation, start the negotiation and watch it hour by hour.
 "Behind the scenes" under each hour shows what every agent believed, planned and wrote. The
-[online copy](https://mjmahim.github.io/deadline-day/) replays the 108 recorded negotiations without needing
+[online copy](https://mjmahim.github.io/deadline-day/) replays the 84 recorded negotiations without needing
 Python or a model.
 
 ## Project structure
@@ -104,7 +104,7 @@ Python or a model.
 | File | What it is |
 |---|---|
 | `planner_agent.py` | The agent: read, believe, plan, write, filter |
-| `agents.py` | The two comparison agents (plain language model, rule-based) and the journalist |
+| `agents.py` | The comparison agent (plain language model) and the journalist |
 | `market.py` | The engine: runs the hours, enforces the rules, rival clubs, release clause, medical |
 | `deal.py` | What a deal consists of and what it is worth to each party |
 | `scenario_builder.py` | Turns the player and the situation into each party's private numbers |
@@ -126,6 +126,4 @@ Learning, LUT University, 2026.
 
 - Meta Fundamental AI Research Diplomacy Team (FAIR) (2022). Human-level play in the game of Diplomacy by
   combining language models with strategic reasoning. *Science*, 378(6624), 1067–1074.
-- Faratin, P., Sierra, C. and Jennings, N. R. (1998). Negotiation decision functions for autonomous agents.
-  *Robotics and Autonomous Systems*, 24(3–4), 159–182.
 - Yang, A. et al. (2025). Qwen3 technical report. arXiv:2505.09388.

@@ -11,7 +11,7 @@ import random
 import re
 import unicodedata
 
-from agents import LLMAgent, LLMReporter, RuleAgent, RuleReporter
+from agents import LLMAgent, LLMReporter
 from deal import describe, headline, money, normalise, worth
 from planner_agent import PlannerAgent
 
@@ -117,11 +117,10 @@ def number(x):
 
 
 class Market:
-    def __init__(self, scenario, mode, seed=None, verbose=True, show_thinking=False, rule_roles=(), features=(),
-                 planner_roles=()):
-        """mode: "llm" or "rule". rule_roles / planner_roles: roles played by the rule agent or by the
-        CICERO-inspired planner agent instead of the plain LLM agent (cross-play).
-        features: optional upgrades for the plain LLM agent, any of "memory" and "checks"."""
+    def __init__(self, scenario, seed=None, verbose=True, show_thinking=False, features=(), planner_roles=()):
+        """planner_roles: roles played by the CICERO-inspired planner agent instead of the plain LLM agent
+        (cross-play). features: optional upgrades for the plain LLM agent, any of "memory" and "checks".
+        The journalist uses the language model; runs without it swap in agents.FactReporter."""
         self.scenario = scenario
         self.features = set(features)
         self.verbose = verbose
@@ -152,13 +151,11 @@ class Market:
 
         self.agents = {}
         for name in self.order:
-            if mode == "rule" or self.role[name] in rule_roles:
-                self.agents[name] = RuleAgent(name, scenario)
-            elif self.role[name] in planner_roles:
+            if self.role[name] in planner_roles:
                 self.agents[name] = PlannerAgent(name, scenario, seed)
             else:
                 self.agents[name] = LLMAgent(name, scenario, seed, memory="memory" in self.features)
-        self.journalist = LLMReporter(scenario, seed) if mode == "llm" else RuleReporter()
+        self.journalist = LLMReporter(scenario, seed)
 
         self.transcript = []   # every action, valid or not
         self.turns = []        # every decision, including private reasoning

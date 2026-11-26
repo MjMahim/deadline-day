@@ -1,8 +1,7 @@
-"""The comparison agents (plain LLM and rule-based) and the transfer journalist.
+"""The comparison agent (plain LLM) and the transfer journalist.
 
 The agent this project is about, the CICERO-inspired planner, is in planner_agent.py.
 """
-from deal import worth
 from llm import chat_json
 
 
@@ -185,54 +184,11 @@ class LLMReporter:
         return _ask(self.system_prompt, view, self.seed, "post", str)
 
 
-class RuleAgent:
-    """Baseline with a time-dependent linear concession strategy (Faratin et al., 1998).
-
-    The agent moves its limit in a straight line from an opening value to its reservation value over the
-    window, accepts any package that beats the current limit, and otherwise offers the limit itself as a
-    plain package (no add-ons, no instalments, no sell-on). It never leaks to the media.
-    """
-    OPENING = 0.7   # buyer opens at 70% of its maximum
-
-    def __init__(self, name, scenario):
-        self.name = name
-        self.rounds = scenario["rounds"]
-        self.profile = profile = scenario["agents"][name]
-        self.buying = profile["role"] == "buyer"
-        self.clause = scenario["player"]["release_clause"]
-        if profile["role"] == "buyer":
-            self.limits = {"fee": (self.OPENING * profile["valuation"], profile["valuation"]),
-                           "salary": (self.OPENING * profile["max_salary"], profile["max_salary"])}
-        elif profile["role"] == "seller":
-            self.limits = {"fee": (profile["asking_fee"], profile["min_fee"])}
-        else:
-            self.limits = {"salary": (profile["target_salary"], scenario["player"]["min_salary"])}
-
-    def act(self, view, snapshot):
-        progress = snapshot["round"] / max(self.rounds - 1, 1)
-        actions = []
-        for counterpart, neg in snapshot["negotiations"].items():
-            if neg["agreed"] is not None or neg["topic"] not in self.limits:
-                continue
-            start, end = self.limits[neg["kind"]]
-            limit = round(start + (end - start) * progress, 1 if neg["kind"] == "fee" else 2)
-            theirs = neg["theirs"]   # the other side's open offer
-            value = worth(self.profile, neg["kind"], theirs["terms"]) if theirs else None
-            if theirs and (value <= limit if self.buying else value >= limit):
-                actions.append({"to": counterpart, "type": "accept", "amount": None, "message": ""})
-            elif self.buying and neg["kind"] == "fee" and self.clause <= min(limit, self.profile["transfer_budget"]):
-                actions.append({"to": counterpart, "type": "release", "amount": self.clause, "message": ""})
-            else:
-                terms = {} if neg["kind"] == "fee" else {"years": self.profile["prefs"]["contract_years"]}
-                actions.append({"to": counterpart, "type": "offer", "amount": limit, "terms": terms, "message": ""})
-        return {"private_reasoning": f"rule: limit moves linearly, progress {progress:.0%}", "actions": actions}, None
-
-
-class RuleReporter:
-    """Baseline journalist: publishes confirmed facts only, ignores tips."""
+class FactReporter:
+    """The journalist for runs without the language model: publishes confirmed facts only, ignores tips."""
 
     def act(self, view, snapshot):
         post = " ".join(fact["text"] for fact in snapshot["facts"])
         if snapshot["completed"]:
             post = "Here we go! " + post
-        return {"private_reasoning": "rule: report confirmed facts only", "post": post}, None
+        return {"private_reasoning": "report confirmed facts only", "post": post}, None

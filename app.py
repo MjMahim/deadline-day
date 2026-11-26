@@ -19,7 +19,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import parse_qs, urlparse
 
-from agents import RuleReporter
+from agents import FactReporter
 from deal import describe
 from evaluate import summarise
 from llm import MODEL
@@ -30,7 +30,7 @@ from scenario_builder import DEFAULTS, OPTIONS, PRESETS, RIVAL_CLUBS, build_scen
 PORT = 8000
 HERE = Path(__file__).parent
 LOGS = HERE / "logs"
-AGENT_TYPES = {"planner": "Planner + LLM (Cicero-inspired)", "llm": "Plain LLM", "rule": "Rule-based"}
+AGENT_TYPES = {"planner": "Planner + LLM (Cicero-inspired)", "llm": "Plain LLM"}
 SPEEDS = {"llm": "With the language model (a few minutes)", "instant": "Instant preview (no language model)"}
 
 run = {"id": 0, "status": "idle"}        # the current or latest live negotiation
@@ -40,16 +40,15 @@ lock = threading.Lock()
 def start(choices):
     scenario, facts = build_scenario(choices)
     seats = {role: choices.get(f"agent_{role}", "planner") for role in ("buyer", "seller", "player_agent")}
+    seats = {role: kind if kind in AGENT_TYPES else "planner" for role, kind in seats.items()}
     instant = choices.get("speed") == "instant"
     seed = random.randint(1, 9999)
     if instant:                           # no model: plain LLM seats fall back to the planner
-        seats = {role: "rule" if kind == "rule" else "planner" for role, kind in seats.items()}
-    all_rule = all(kind == "rule" for kind in seats.values())
-    market = Market(scenario, "rule" if all_rule else "llm", seed=seed, verbose=False,
-                    rule_roles=[r for r, k in seats.items() if k == "rule"],
+        seats = {role: "planner" for role in seats}
+    market = Market(scenario, seed=seed, verbose=False,
                     planner_roles=[r for r, k in seats.items() if k == "planner"])
     if instant:
-        market.journalist = RuleReporter()
+        market.journalist = FactReporter()
         for agent in market.agents.values():
             if hasattr(agent, "use_llm"):
                 agent.use_llm = False
@@ -65,7 +64,7 @@ def start(choices):
             save_log(LOGS / "web" / f"run_{datetime.now():%Y%m%d_%H%M%S}.json", market, facts, run["choices"],
                      {role: "plain" if kind == "llm" else kind for role, kind in seats.items()},
                      round(time.time() - started, 1), scenario_name="web", seed=seed, features=[],
-                     use_llm=not instant, model=None if instant or all_rule else MODEL)
+                     use_llm=not instant, model=None if instant else MODEL)
         except Exception as error:        # most likely: Ollama is not running
             run["error"] = f"{type(error).__name__}: {error}"
             run["status"] = "error"
@@ -156,7 +155,7 @@ def saved():
         try:
             log = json.loads(path.read_text(encoding="utf-8"))
             o, kinds = log["outcome"], set(log["seats"].values())
-            who = {"planner": "planner agents", "plain": "plain LLM agents", "rule": "rule agents"}.get(
+            who = {"planner": "planner agents", "plain": "plain LLM agents"}.get(
                 next(iter(kinds)), "") if len(kinds) == 1 else "mixed agents"
             if "rival_history" not in log:        # saved by an older version: cannot be replayed faithfully
                 continue

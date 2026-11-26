@@ -15,7 +15,7 @@ HERE = Path(__file__).parent
 OUT = HERE / "docs"
 FLAG = '<script>window.STATIC_SITE = true;</script>\n'
 SITUATIONS = ["default", "bidding_war", "injured", "release_clause"]
-LINEUPS = ["planner", "plain", "rule", "planner_no_llm", "planner_buyer_vs_plain", "plain_buyer_vs_planner"]
+LINEUPS = ["planner", "plain", "planner_no_llm", "planner_buyer_vs_plain", "plain_buyer_vs_planner"]
 
 
 def write(path, data):
