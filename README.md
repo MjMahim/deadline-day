@@ -59,7 +59,7 @@ without the LLM** (template messages), each over 24 negotiations in four situati
 - **The LLM alone failed** to agree in more than half its runs and overpaid in every deal it made, even though
   its prompt states every rule.
 - **The planner reads the situation.** It let rivals have an overpriced player and accepted a happy player's
-  choice to stay. The LLM alone won none of the six bidding wars.
+  choice to stay. Four of the LLM alone's six bidding wars ended with no deal at all.
 - **The LLM adds communication, not decisions.** Without it, outcomes were the same in three of four
   situations. The filter blocked 78 messages that contradicted the plan.
 
