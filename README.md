@@ -56,7 +56,7 @@ negotiations in four situations.
 
 <img src="assets/outcomes.png" alt="How each run ended and what each deal cost" width="900">
 
-- **The LLM alone failed** to agree in more than half its runs and overpaid in 9 of its 13 deals, even though
+- **The LLM alone failed** to agree in more than half its runs and overpaid in 9 of its 13 completed deals, even though
   its prompt states every rule.
 - **The planner reads the situation.** It let rivals have an overpriced player and accepted a happy player's
   choice to stay. Seven of the LLM alone's twelve bidding wars ended with no deal at all.
