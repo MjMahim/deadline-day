@@ -2,7 +2,6 @@
 
     python run.py                                   # planner agents with the language model
     python run.py --think                           # also show each agent's private thinking
-    python run.py --no-llm                          # planner agents, template wording (instant)
     python run.py --plain buyer                     # the plain LLM agent as the buyer
     python run.py --scenario bidding_war --seed 4   # another situation, another seed
 """
@@ -14,7 +13,6 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from agents import FactReporter
 from llm import MODEL
 from market import Market
 from scenario_builder import DEFAULTS, build_scenario
@@ -34,23 +32,16 @@ SCENARIOS = {
 }
 
 
-def run_once(scenario_name="default", seed=1, plain_roles=(), features=(), use_llm=True,
-             verbose=True, think=False, log_file=None):
+def run_once(scenario_name="default", seed=1, plain_roles=(), features=(), verbose=True, think=False, log_file=None):
     """Run one negotiation, write its log and return (market, log file, seconds).
 
     Every seat is played by the planner agent unless it is listed in plain_roles (plain LLM).
-    use_llm=False gives the planner template wording and a journalist that reports facts only, so no model is needed.
     """
     choices = {**DEFAULTS, **SCENARIOS[scenario_name]}
     scenario, facts = build_scenario(choices)
     planner_roles = [role for role in ROLES if role not in plain_roles]
     market = Market(scenario, seed=seed, verbose=verbose, show_thinking=think, features=features,
                     planner_roles=planner_roles)
-    if not use_llm:
-        market.journalist = FactReporter()
-        for agent in market.agents.values():
-            if hasattr(agent, "use_llm"):
-                agent.use_llm = False
     started = time.time()
     market.run()
     seconds = round(time.time() - started, 1)
@@ -59,7 +50,7 @@ def run_once(scenario_name="default", seed=1, plain_roles=(), features=(), use_l
         log_file = Path(__file__).parent / "logs" / f"{scenario_name}_seed{seed}_{datetime.now():%Y%m%d_%H%M%S}.json"
     seats = {role: "plain" if role in plain_roles else "planner" for role in ROLES}
     save_log(log_file, market, facts, choices, seats, seconds, scenario_name=scenario_name, seed=seed,
-             features=sorted(features), use_llm=use_llm, model=MODEL if use_llm else None)
+             features=sorted(features), use_llm=True, model=MODEL)
     return market, log_file, seconds
 
 
@@ -78,7 +69,6 @@ def add_run_options(parser):
     parser.add_argument("--plain", nargs="*", choices=ROLES, default=[], help="roles played by the plain LLM agent")
     parser.add_argument("--features", nargs="*", choices=FEATURES, default=[],
                         help="optional upgrades for the plain LLM agent")
-    parser.add_argument("--no-llm", action="store_true", help="planner with template wording; no model needed")
 
 
 def main():
@@ -90,12 +80,10 @@ def main():
     parser.add_argument("--think", action="store_true", help="show each agent's private thinking")
     parser.add_argument("--quiet", action="store_true", help="only show the summary")
     args = parser.parse_args()
-    if args.no_llm and args.plain:
-        parser.error("--plain needs the language model, so it cannot be combined with --no-llm")
 
     try:
         market, log_file, seconds = run_once(args.scenario, args.seed, args.plain, args.features,
-                                             use_llm=not args.no_llm, verbose=not args.quiet, think=args.think)
+                                             verbose=not args.quiet, think=args.think)
     except RuntimeError as problem:
         sys.exit(f"\n{problem}")
     print("\n" + "-" * 100)

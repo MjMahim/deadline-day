@@ -2,7 +2,6 @@
 
     python evaluate.py run planner --seeds 1-6                           # planner agents in every seat
     python evaluate.py run plain --seeds 1-6 --plain buyer seller player_agent
-    python evaluate.py run planner_no_llm --seeds 1-6 --no-llm           # same planning, template wording
     python evaluate.py run planner --scenario bidding_war --seeds 1-6
     python evaluate.py report                                            # table of every experiment so far
 
@@ -36,8 +35,7 @@ def run(args):
         if log_file.exists():
             print(f"seed {seed}: already done, skipping", flush=True)
             continue
-        market, _, seconds = run_once(args.scenario, seed, args.plain, args.features,
-                                      use_llm=not args.no_llm, verbose=False, log_file=log_file)
+        market, _, seconds = run_once(args.scenario, seed, args.plain, args.features, verbose=False, log_file=log_file)
         o = market.outcome
         deal = f"fee {o['fee']:g}M, salary {o['salary']:g}M/yr" if o["fee"] is not None else "-"
         print(f"seed {seed}: {o['result']:<26} {deal:<28} invalid {o['invalid_actions']}  "

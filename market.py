@@ -120,7 +120,7 @@ class Market:
     def __init__(self, scenario, seed=None, verbose=True, show_thinking=False, features=(), planner_roles=()):
         """planner_roles: roles played by the CICERO-inspired planner agent instead of the plain LLM agent
         (cross-play). features: optional upgrades for the plain LLM agent, any of "memory" and "checks".
-        The journalist uses the language model; runs without it swap in agents.FactReporter."""
+        The journalist uses the language model; only the engine checks swap in agents.FactReporter."""
         self.scenario = scenario
         self.features = set(features)
         self.verbose = verbose

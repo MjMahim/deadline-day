@@ -1,0 +1,1406 @@
+{
+  "scenario_name": "injured",
+  "seed": 12,
+  "features": [],
+  "use_llm": true,
+  "model": "qwen3:8b",
+  "seats": {
+    "buyer": "planner",
+    "seller": "planner",
+    "player_agent": "planner"
+  },
+  "seconds": 169.1,
+  "choices": {
+    "player_name": "Rafael Costa",
+    "position": "Defender",
+    "age": 27,
+    "performance": "Key player",
+    "contract": "3 years left",
+    "injuries": "Serious injury last season",
+    "seller_stance": "Must sell (needs the money)",
+    "buyer_need": "A main target",
+    "buyer_finances": "Comfortable",
+    "player_attitude": "Open to it",
+    "rivals": "No other club",
+    "release_clause": "80M",
+    "buyer_name": "Northbridge FC",
+    "seller_name": "Riverside FC"
+  },
+  "facts": {
+    "summary": "Rafael Costa is a 27-year-old defender, rated as: key player. He has 3 years left on his contract at Riverside FC, with a release clause of 80M. He had a serious injury last season.",
+    "market_value": 26.5,
+    "market_wage": 2.6,
+    "release_clause": 80,
+    "deal_possible": true
+  },
+  "scenario": {
+    "rounds": 10,
+    "start_hour": 14,
+    "market": {
+      "value": 26.5,
+      "wage": 2.6
+    },
+    "medical": {
+      "pass": 0.55,
+      "concern": 0.33
+    },
+    "rivals": {
+      "level": 0,
+      "clubs": []
+    },
+    "player": {
+      "name": "Rafael Costa",
+      "position": "defender",
+      "age": 27,
+      "club": "Riverside FC",
+      "min_salary": 2.6,
+      "release_clause": 80,
+      "loyalty": 0.95
+    },
+    "agents": {
+      "Northbridge FC": {
+        "role": "buyer",
+        "short": "Northbridge",
+        "hurry": 0.4,
+        "transfer_budget": 34.5,
+        "valuation": 29.0,
+        "max_salary": 4.0,
+        "brief": "He is one of your main targets in this window. Rafael Costa is a 27-year-old defender, rated as: key player. He has 3 years left on his contract at Riverside FC, with a release clause of 80M. He had a serious injury last season.",
+        "prefs": {
+          "delay": 0.03,
+          "add_on": 0.4,
+          "resale": 7.13,
+          "contract_years": 4
+        }
+      },
+      "Riverside FC": {
+        "role": "seller",
+        "short": "Riverside",
+        "hurry": 0.7,
+        "min_fee": 21.0,
+        "asking_fee": 34.5,
+        "keep_salary": 0,
+        "brief": "The club needs money now to cover debts, so selling matters and cash up front matters. Rafael Costa is a 27-year-old defender, rated as: key player. He has 3 years left on his contract at Riverside FC, with a release clause of 80M. He had a serious injury last season.",
+        "prefs": {
+          "delay": 0.06,
+          "add_on": 0.35,
+          "resale": 7.92,
+          "contract_years": 4
+        }
+      },
+      "Costa's agent": {
+        "role": "player_agent",
+        "short": "Agent",
+        "hurry": 0.4,
+        "target_salary": 3.9,
+        "brief": "You earn a 10% commission on his salary, so you want it as high as possible. Costa is open to the move if the terms are right. Rafael Costa is a 27-year-old defender, rated as: key player. He has 3 years left on his contract at Riverside FC, with a release clause of 80M. He had a serious injury last season.",
+        "prefs": {
+          "contract_years": 4
+        }
+      }
+    },
+    "reporter": {
+      "name": "Marco Fontana",
+      "short": "Fontana"
+    }
+  },
+  "outcome": {
+    "hour": "21:00",
+    "round": 8,
+    "medical": "passed",
+    "result": "completed",
+    "fee_terms": {
+      "fee": 24.0,
+      "add_ons": 0.0,
+      "years": 1,
+      "sell_on": 10
+    },
+    "salary_terms": {
+      "salary": 2.6,
+      "years": 4
+    },
+    "clause_paid": false,
+    "fee": 24.0,
+    "salary": 2.6,
+    "invalid_actions": 0,
+    "fee_offers": 6,
+    "salary_offers": 4,
+    "leaks": 1,
+    "news_posts": 3,
+    "early_here_we_go": 1,
+    "corrected_posts": 0,
+    "buyer_cost": 24.71,
+    "seller_value": 24.79,
+    "buyer_surplus_share": 0.54,
+    "overpaid": false,
+    "seller_sold_below_minimum": false
+  },
+  "news_feed": [
+    {
+      "hour": "14:00",
+      "text": "Northbridge FC in talks with Riverside FC over Rafael Costa.",
+      "final": false,
+      "facts": [
+        "Northbridge FC open talks with Riverside FC to sign Rafael Costa before the window closes."
+      ]
+    },
+    {
+      "hour": "20:00",
+      "text": "Northbridge FC has agreed personal terms with Rafael Costa's agent on a 4-year deal worth 2.6M a year.",
+      "final": false,
+      "facts": [
+        "Personal terms agreed between Costa's agent and Northbridge FC: 2.6M a year on a 4-year contract."
+      ]
+    },
+    {
+      "hour": "21:00",
+      "text": "Here we go! Rafael Costa joins Northbridge FC for 24M plus 10% sell-on. 2.6M/year on a 4-year contract. Medical passed. Transfer complete.",
+      "final": true,
+      "facts": [
+        "Transfer fee agreed between Northbridge FC and Riverside FC: 24M, 10% sell-on.",
+        "Rafael Costa passes his medical.",
+        "Rafael Costa joins Northbridge FC: 24M, 10% sell-on; 2.6M a year on a 4-year contract."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "hour": "14:00",
+      "text": "Northbridge FC open talks with Riverside FC to sign Rafael Costa before the window closes.",
+      "public": true
+    },
+    {
+      "hour": "21:00",
+      "text": "Rafael Costa passes his medical.",
+      "public": true
+    },
+    {
+      "hour": "21:00",
+      "text": "Rafael Costa joins Northbridge FC: 24M, 10% sell-on; 2.6M a year on a 4-year contract.",
+      "public": true
+    }
+  ],
+  "rival_history": [],
+  "leaks": [
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "message": "There’s a rumor circulating that you’re considering selling to a third party — we suggest you take it seriously."
+    }
+  ],
+  "transcript": [
+    {
+      "hour": "14:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 19.0,
+      "terms": {
+        "fee": 19.0,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "19M",
+      "message": "We’re making our opening bid of 19M for Costa.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "14:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 34.5,
+      "terms": {
+        "fee": 34.5,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "34.5M",
+      "message": "Our offer: 34.5M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We’re not interested in your offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "15:00",
+      "from": "Costa's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 3.9,
+      "terms": {
+        "salary": 3.9,
+        "years": 4
+      },
+      "text": "3.9M a year on a 4-year contract",
+      "message": "We’re looking for a more competitive package, especially with the deadline approaching.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "16:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 31.5,
+      "terms": {
+        "fee": 31.5,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "31.5M",
+      "message": "Our offer: 31.5M.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "17:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We’re not interested in your offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Northbridge FC",
+      "to": "Costa's agent",
+      "type": "offer",
+      "amount": 2.3,
+      "terms": {
+        "salary": 2.3,
+        "years": 4
+      },
+      "text": "2.3M a year on a 4-year contract",
+      "message": "We’re offering 2.3M annually on a four-year deal.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 26.5,
+      "terms": {
+        "fee": 26.5,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 10
+      },
+      "text": "26.5M, 10% sell-on",
+      "message": "We’re offering 26.5M with a 10% sell-on clause. Can we expect a better response?",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "18:00",
+      "from": "Costa's agent",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We’re not interested in a deal that doesn’t meet our expectations.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We’re not interested in your offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 24.0,
+      "terms": {
+        "fee": 24.0,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 10
+      },
+      "text": "24M, 10% sell-on",
+      "message": "We’re pushing for a better deal, and 24M is far below what we’re looking for.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "19:00",
+      "from": "Costa's agent",
+      "to": "Northbridge FC",
+      "type": "offer",
+      "amount": 2.9,
+      "terms": {
+        "salary": 2.9,
+        "years": 4
+      },
+      "text": "2.9M a year on a 4-year contract",
+      "message": "We’re pushing for a deal that reflects the market value and the urgency of the deadline.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "offer",
+      "amount": 19.0,
+      "terms": {
+        "fee": 19.0,
+        "add_ons": 5.7,
+        "years": 1,
+        "sell_on": 0
+      },
+      "text": "19M plus up to 5.7M in add-ons",
+      "message": "We’re not going to wait any longer — this is our final offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Northbridge FC",
+      "to": "Costa's agent",
+      "type": "offer",
+      "amount": 2.6,
+      "terms": {
+        "salary": 2.6,
+        "years": 4
+      },
+      "text": "2.6M a year on a 4-year contract",
+      "message": "We’re not going to wait any longer — this is our final offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "to": "Northbridge FC",
+      "type": "message",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "We’re not budging on this — we need a better offer.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Riverside FC",
+      "to": "Marco Fontana",
+      "type": "leak",
+      "amount": null,
+      "terms": null,
+      "text": "",
+      "message": "There’s a rumor circulating that you’re considering selling to a third party — we suggest you take it seriously.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "20:00",
+      "from": "Costa's agent",
+      "to": "Northbridge FC",
+      "type": "accept",
+      "amount": 2.6,
+      "terms": {
+        "salary": 2.6,
+        "years": 4
+      },
+      "text": "2.6M a year on a 4-year contract",
+      "message": "We’re happy to accept the offer and move forward with the contract.",
+      "valid": true,
+      "note": ""
+    },
+    {
+      "hour": "21:00",
+      "from": "Northbridge FC",
+      "to": "Riverside FC",
+      "type": "accept",
+      "amount": 24.0,
+      "terms": {
+        "fee": 24.0,
+        "add_ons": 0.0,
+        "years": 1,
+        "sell_on": 10
+      },
+      "text": "24M, 10% sell-on",
+      "message": "We’re ready to move forward with the deal as long as it includes the 10% sell-on clause.",
+      "valid": true,
+      "note": ""
+    }
+  ],
+  "turns": [
+    {
+      "hour": "14:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: no offer from them yet; offer 19M | personal terms: not started yet",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "terms": {
+              "fee": 19.0,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 0
+            },
+            "message": "We’re making our opening bid of 19M for Costa.",
+            "amount": 19.0
+          }
+        ],
+        "intents": [
+          {
+            "to": "Riverside FC",
+            "kind": "fee",
+            "type": "offer",
+            "terms": {
+              "fee": 19.0,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 0
+            },
+            "text": "19M",
+            "tone": "confident",
+            "purpose": "make our opening bid"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": []
+      },
+      "raw": [
+        "{\"messages\": [\"We’re making our opening bid of 19M for Costa.\"]}"
+      ]
+    },
+    {
+      "hour": "14:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 22.8 (stance: firm), best final offer worth 24.8 to them; offer 34.5M",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "terms": {
+              "fee": 34.5,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 0
+            },
+            "message": "Our offer: 34.5M.",
+            "amount": 34.5
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "offer",
+            "terms": {
+              "fee": 34.5,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 0
+            },
+            "text": "34.5M",
+            "tone": "unimpressed",
+            "purpose": "turn down their offer as too low and state our asking price"
+          }
+        ],
+        "rejected_messages": [
+          {
+            "message": "We’re not interested in 19M; our asking price is higher.",
+            "why": "states an amount that is not part of the plan"
+          },
+          {
+            "message": "We can’t consider 19M — our asking price is higher.",
+            "why": "states an amount that is not part of the plan"
+          }
+        ],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 22.76,
+            "low": 19.43,
+            "high": 27.41
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"Initial bid stated\"}",
+        "{\"messages\": [\"We’re not interested in 19M; our asking price is higher.\", \"We’re looking for a significant increase, and we won’t settle for less.\"]}",
+        "{\"messages\": [\"We can’t consider 19M — our asking price is higher.\", \"We’re looking for a figure closer to 34.5M.\"]}"
+      ]
+    },
+    {
+      "hour": "14:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: not started yet",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": []
+      },
+      "raw": []
+    },
+    {
+      "hour": "14:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Introducing the key players in the transfer saga.",
+        "post": "Northbridge FC in talks with Riverside FC over Rafael Costa. Here we go!"
+      },
+      "raw": "{\"private_reasoning\": \"Introducing the key players in the transfer saga.\", \"post\": \"Northbridge FC in talks with Riverside FC over Rafael Costa. Here we go!\"}"
+    },
+    {
+      "hour": "15:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 28.4 (stance: firm), best final offer worth 25.5 to them; reject their offer and hold our position | personal terms: not started yet",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "terms": null,
+            "message": "We’re not interested in your offer.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Riverside FC",
+            "kind": "fee",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "firm",
+            "purpose": "turn down their latest offer without making a new one; it is still too much"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 28.37,
+            "low": 21.13,
+            "high": 33.85
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"Clear offer with no indication of flexibility\"}",
+        "{\"messages\": [\"We’re not interested in your offer.\", \"We’re not moving forward with any new proposal.\"]}"
+      ]
+    },
+    {
+      "hour": "15:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 22.8 (stance: firm), best final offer worth 24.8 to them; wait, the next move is theirs",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 22.76,
+            "low": 19.43,
+            "high": 27.41
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"no interest\"}"
+      ]
+    },
+    {
+      "hour": "15:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: no offer from them yet; offer 3.9M a year on a 4-year contract",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "terms": {
+              "salary": 3.9,
+              "years": 4
+            },
+            "message": "We’re looking for a more competitive package, especially with the deadline approaching.",
+            "amount": 3.9
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "salary",
+            "type": "offer",
+            "terms": {
+              "salary": 3.9,
+              "years": 4
+            },
+            "text": "3.9M a year on a 4-year contract",
+            "tone": "confident",
+            "purpose": "make our opening demand"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": []
+      },
+      "raw": [
+        "{\"messages\": [\"We’re looking for a more competitive package, especially with the deadline approaching.\"]}"
+      ]
+    },
+    {
+      "hour": "16:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 28.4 (stance: firm), best final offer worth 25.5 to them; wait, the next move is theirs | personal terms: not started yet",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 28.37,
+            "low": 21.13,
+            "high": 33.85
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"flexible\", \"wants_cash_now\": false, \"why\": \"deadline pressure\"}"
+      ]
+    },
+    {
+      "hour": "16:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 22.8 (stance: firm), best final offer worth 24.8 to them; offer 31.5M",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "terms": {
+              "fee": 31.5,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 0
+            },
+            "message": "Our offer: 31.5M.",
+            "amount": 31.5
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "offer",
+            "terms": {
+              "fee": 31.5,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 0
+            },
+            "text": "31.5M",
+            "tone": "constructive",
+            "purpose": "lower our asking price in a meaningful step and ask them to respond"
+          }
+        ],
+        "rejected_messages": [
+          {
+            "message": "We’re prepared to consider a higher offer than 19M, but it needs to be closer to our initial figure.",
+            "why": "states an amount that is not part of the plan"
+          },
+          {
+            "message": "We’re ready to consider a higher bid, but 19M is too low.",
+            "why": "states an amount that is not part of the plan"
+          }
+        ],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 22.76,
+            "low": 19.43,
+            "high": 27.41
+          }
+        ]
+      },
+      "raw": [
+        "{\"messages\": [\"We’re prepared to consider a higher offer than 19M, but it needs to be closer to our initial figure.\", \"We’re looking for a more serious proposal, and we expect a response soon.\"]}",
+        "{\"messages\": [\"We’re ready to consider a higher bid, but 19M is too low.\", \"Let’s discuss a fair price that reflects Costa’s value.\"]}"
+      ]
+    },
+    {
+      "hour": "16:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: no offer from them yet; wait, the next move is theirs",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": []
+      },
+      "raw": []
+    },
+    {
+      "hour": "17:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 25.7 (stance: firm), best final offer worth 24.0 to them; reject their offer and hold our position | personal terms: not started yet",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "terms": null,
+            "message": "We’re not interested in your offer.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Riverside FC",
+            "kind": "fee",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "firm",
+            "purpose": "turn down their latest offer without making a new one; it is still too much"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 25.72,
+            "low": 19.49,
+            "high": 30.71
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"Clear offer with no indication of flexibility\"}",
+        "{\"messages\": [\"We’re not interested in your offer.\", \"Our interest remains unchanged, and we’re not moving forward with this deal.\"]}"
+      ]
+    },
+    {
+      "hour": "17:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 22.8 (stance: firm), best final offer worth 24.7 to them; wait, the next move is theirs",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 22.76,
+            "low": 19.43,
+            "high": 27.41
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"clear rejection\"}"
+      ]
+    },
+    {
+      "hour": "17:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: no offer from them yet; wait, the next move is theirs",
+        "actions": [],
+        "intents": [],
+        "rejected_messages": [],
+        "beliefs": []
+      },
+      "raw": []
+    },
+    {
+      "hour": "18:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 25.7 (stance: firm), best final offer worth 24.0 to them; wait, the next move is theirs | personal terms: their limit is probably near 3.1 (stance: flexible), best final offer worth 3.1 to them; offer 2.3M a year on a 4-year contract",
+        "actions": [
+          {
+            "to": "Costa's agent",
+            "type": "offer",
+            "terms": {
+              "salary": 2.3,
+              "years": 4
+            },
+            "message": "We’re offering 2.3M annually on a four-year deal.",
+            "amount": 2.3
+          }
+        ],
+        "intents": [
+          {
+            "to": "Costa's agent",
+            "kind": "salary",
+            "type": "offer",
+            "terms": {
+              "salary": 2.3,
+              "years": 4
+            },
+            "text": "2.3M a year on a 4-year contract",
+            "tone": "confident",
+            "purpose": "make our opening bid"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 25.72,
+            "low": 19.49,
+            "high": 30.71
+          },
+          {
+            "about": "Costa's agent",
+            "kind": "salary",
+            "mean": 3.1,
+            "low": 2.27,
+            "high": 3.78
+          }
+        ]
+      },
+      "raw": [
+        "{\"messages\": [\"We’re offering 2.3M annually on a four-year deal.\", \"We’re confident this meets your expectations.\"]}"
+      ]
+    },
+    {
+      "hour": "18:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 22.8 (stance: firm), best final offer worth 24.7 to them; offer 26.5M, 10% sell-on",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "terms": {
+              "fee": 26.5,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 10
+            },
+            "message": "We’re offering 26.5M with a 10% sell-on clause. Can we expect a better response?",
+            "amount": 26.5
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "offer",
+            "terms": {
+              "fee": 26.5,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 10
+            },
+            "text": "26.5M, 10% sell-on",
+            "tone": "constructive",
+            "purpose": "lower our asking price in a meaningful step and ask them to respond; the package now includes a sell-on clause"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 22.76,
+            "low": 19.43,
+            "high": 27.41
+          }
+        ]
+      },
+      "raw": [
+        "{\"messages\": [\"We’re offering 26.5M with a 10% sell-on clause. Can we expect a better response?\"]}"
+      ]
+    },
+    {
+      "hour": "18:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: their limit is probably near 2.6 (stance: firm), best final offer worth 2.9 to them; reject their offer and hold our position",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "terms": null,
+            "message": "We’re not interested in a deal that doesn’t meet our expectations.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "salary",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "firm",
+            "purpose": "turn down their latest offer without making a new one; it is not enough"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "salary",
+            "mean": 2.65,
+            "low": 2.33,
+            "high": 3.11
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"Clear offer, no flexibility\"}",
+        "{\"messages\": [\"We’re not interested in a deal that doesn’t meet our expectations.\", \"Let’s discuss something that aligns with our goals, not just what’s on the table.\"]}"
+      ]
+    },
+    {
+      "hour": "19:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 20.7 (stance: flexible), best final offer worth 22.8 to them; reject their offer and hold our position | personal terms: their limit is probably near 3.2 (stance: firm), best final offer worth 3.4 to them; wait, the next move is theirs",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "message",
+            "terms": null,
+            "message": "We’re not interested in your offer.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Riverside FC",
+            "kind": "fee",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "firm",
+            "purpose": "turn down their latest offer without making a new one; it is still too much"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 20.75,
+            "low": 15.99,
+            "high": 25.34
+          },
+          {
+            "about": "Costa's agent",
+            "kind": "salary",
+            "mean": 3.23,
+            "low": 2.41,
+            "high": 3.83
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"flexible\", \"wants_cash_now\": false, \"why\": \"asking for better offer\"}",
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"clear stance on expectations\"}",
+        "{\"messages\": [\"We’re not interested in your offer.\", \"We’re not interested in your offer.\"]}"
+      ]
+    },
+    {
+      "hour": "19:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 22.8 (stance: firm), best final offer worth 24.8 to them; offer 24M, 10% sell-on",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "terms": {
+              "fee": 24.0,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 10
+            },
+            "message": "We’re pushing for a better deal, and 24M is far below what we’re looking for.",
+            "amount": 24.0
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "offer",
+            "terms": {
+              "fee": 24.0,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 10
+            },
+            "text": "24M, 10% sell-on",
+            "tone": "pressing",
+            "purpose": "put our best asking price on the table and push to get this done now; the package now includes a sell-on clause"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 22.76,
+            "low": 19.43,
+            "high": 27.41
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"no interest\"}",
+        "{\"messages\": [\"We’re pushing for a better deal, and 24M is far below what we’re looking for.\", \"We’re not wasting time on low-ball offers anymore. Let’s find a way to move forward.\"]}"
+      ]
+    },
+    {
+      "hour": "19:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: their limit is probably near 2.6 (stance: firm), best final offer worth 2.9 to them; offer 2.9M a year on a 4-year contract",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "offer",
+            "terms": {
+              "salary": 2.9,
+              "years": 4
+            },
+            "message": "We’re pushing for a deal that reflects the market value and the urgency of the deadline.",
+            "amount": 2.9
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "salary",
+            "type": "offer",
+            "terms": {
+              "salary": 2.9,
+              "years": 4
+            },
+            "text": "2.9M a year on a 4-year contract",
+            "tone": "pressing",
+            "purpose": "put our best demand on the table and push to get this done now"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "salary",
+            "mean": 2.65,
+            "low": 2.33,
+            "high": 3.11
+          }
+        ]
+      },
+      "raw": [
+        "{\"messages\": [\"We’re pushing for a deal that reflects the market value and the urgency of the deadline.\", \"We’re ready to move forward if you’re willing to meet our demands.\"]}"
+      ]
+    },
+    {
+      "hour": "20:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 19.8 (stance: firm), best final offer worth 22.1 to them; offer 19M plus up to 5.7M in add-ons | personal terms: their limit is probably near 2.2 (stance: flexible), best final offer worth 2.6 to them; offer 2.6M a year on a 4-year contract",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "offer",
+            "terms": {
+              "fee": 19.0,
+              "add_ons": 5.7,
+              "years": 1,
+              "sell_on": 0
+            },
+            "message": "We’re not going to wait any longer — this is our final offer.",
+            "amount": 19.0
+          },
+          {
+            "to": "Costa's agent",
+            "type": "offer",
+            "terms": {
+              "salary": 2.6,
+              "years": 4
+            },
+            "message": "We’re not going to wait any longer — this is our final offer.",
+            "amount": 2.6
+          }
+        ],
+        "intents": [
+          {
+            "to": "Riverside FC",
+            "kind": "fee",
+            "type": "offer",
+            "terms": {
+              "fee": 19.0,
+              "add_ons": 5.7,
+              "years": 1,
+              "sell_on": 0
+            },
+            "text": "19M plus up to 5.7M in add-ons",
+            "tone": "pressing",
+            "purpose": "put our best bid on the table and push to get this done now; the package now includes add-ons"
+          },
+          {
+            "to": "Costa's agent",
+            "kind": "salary",
+            "type": "offer",
+            "terms": {
+              "salary": 2.6,
+              "years": 4
+            },
+            "text": "2.6M a year on a 4-year contract",
+            "tone": "pressing",
+            "purpose": "put our best bid on the table and push to get this done now"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 19.85,
+            "low": 16.37,
+            "high": 23.32
+          },
+          {
+            "about": "Costa's agent",
+            "kind": "salary",
+            "mean": 2.21,
+            "low": 1.69,
+            "high": 2.72
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"high demand\"}",
+        "{\"stance\": \"flexible\", \"wants_cash_now\": false, \"why\": \"urgency of deadline\"}",
+        "{\"messages\": [\"We’re not going to wait any longer — this is our final offer.\", \"We’re not going to wait any longer — this is our final offer.\"]}"
+      ]
+    },
+    {
+      "hour": "20:00",
+      "agent": "Riverside FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 23.4 (stance: firm), best final offer worth 22.8 to them; reject their offer and hold our position | Northbridge FC has stopped moving: leak to add pressure",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "message",
+            "terms": null,
+            "message": "We’re not budging on this — we need a better offer.",
+            "amount": null
+          },
+          {
+            "to": "Marco Fontana",
+            "type": "leak",
+            "terms": null,
+            "message": "There’s a rumor circulating that you’re considering selling to a third party — we suggest you take it seriously.",
+            "amount": null
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "fee",
+            "type": "message",
+            "terms": null,
+            "text": "",
+            "tone": "firm",
+            "purpose": "turn down their latest offer without making a new one; it is not enough"
+          },
+          {
+            "to": "Marco Fontana",
+            "kind": "fee",
+            "type": "leak",
+            "terms": null,
+            "text": "",
+            "tone": "anonymous insider tip",
+            "purpose": "make Northbridge FC feel public pressure to move, because the deal may collapse before the deadline"
+          }
+        ],
+        "rejected_messages": [
+          {
+            "message": "We won’t accept anything less than 35M — time is running out.",
+            "why": "states an amount that is not part of the plan"
+          }
+        ],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "fee",
+            "mean": 23.4,
+            "low": 22.01,
+            "high": 25.13
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"Final offer\"}",
+        "{\n  \"messages\": [\n    \"We won’t accept anything less than 35M — time is running out.\",\n    \"There’s a rumor circulating that you’re considering selling to a third party — we suggest you take it seriously.\"\n  ]\n}",
+        "{\"messages\": [\"We’re not budging on this — we need a better offer.\", \"The market’s watching, and we’re not settling for less.\"]}"
+      ]
+    },
+    {
+      "hour": "20:00",
+      "agent": "Costa's agent",
+      "decision": {
+        "private_reasoning": "personal terms: their limit is probably near 2.9 (stance: firm), best final offer worth 2.9 to them; accept their offer because we want this done now, and a deal beats no deal",
+        "actions": [
+          {
+            "to": "Northbridge FC",
+            "type": "accept",
+            "terms": {
+              "salary": 2.6,
+              "years": 4
+            },
+            "message": "We’re happy to accept the offer and move forward with the contract.",
+            "amount": 2.6
+          }
+        ],
+        "intents": [
+          {
+            "to": "Northbridge FC",
+            "kind": "salary",
+            "type": "accept",
+            "terms": {
+              "salary": 2.6,
+              "years": 4
+            },
+            "text": "2.6M a year on a 4-year contract",
+            "tone": "pleased",
+            "purpose": "accept their offer and close this part of the deal"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Northbridge FC",
+            "kind": "salary",
+            "mean": 2.9,
+            "low": 2.64,
+            "high": 3.22
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"final offer\"}",
+        "{\"messages\": [\"We’re happy to accept the offer and move forward with the contract.\", \"Let’s finalize everything now before the deadline hits.\"]}"
+      ]
+    },
+    {
+      "hour": "20:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "Personal terms are agreed, but no official transfer yet.",
+        "post": "Northbridge FC has agreed personal terms with Rafael Costa's agent on a 4-year deal worth 2.6M a year."
+      },
+      "raw": "{\"private_reasoning\": \"Personal terms are agreed, but no official transfer yet.\", \"post\": \"Northbridge FC has agreed personal terms with Rafael Costa's agent on a 4-year deal worth 2.6M a year.\"}"
+    },
+    {
+      "hour": "21:00",
+      "agent": "Northbridge FC",
+      "decision": {
+        "private_reasoning": "fee: their limit is probably near 19.8 (stance: firm), best final offer worth 22.6 to them; accept their offer because we want this done now, and a deal beats no deal",
+        "actions": [
+          {
+            "to": "Riverside FC",
+            "type": "accept",
+            "terms": {
+              "fee": 24.0,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 10
+            },
+            "message": "We’re ready to move forward with the deal as long as it includes the 10% sell-on clause.",
+            "amount": 24.0
+          }
+        ],
+        "intents": [
+          {
+            "to": "Riverside FC",
+            "kind": "fee",
+            "type": "accept",
+            "terms": {
+              "fee": 24.0,
+              "add_ons": 0.0,
+              "years": 1,
+              "sell_on": 10
+            },
+            "text": "24M, 10% sell-on",
+            "tone": "pleased",
+            "purpose": "accept their offer and close this part of the deal"
+          }
+        ],
+        "rejected_messages": [],
+        "beliefs": [
+          {
+            "about": "Riverside FC",
+            "kind": "fee",
+            "mean": 19.85,
+            "low": 16.37,
+            "high": 23.32
+          }
+        ]
+      },
+      "raw": [
+        "{\"stance\": \"firm\", \"wants_cash_now\": false, \"why\": \"firm stance on offer\"}",
+        "{\"stance\": \"flexible\", \"wants_cash_now\": false, \"why\": \"open to offer\"}",
+        "{\"messages\": [\"We’re ready to move forward with the deal as long as it includes the 10% sell-on clause.\", \"Let’s finalise this quickly before the deadline hits.\"]}"
+      ]
+    },
+    {
+      "hour": "21:00",
+      "agent": "Marco Fontana",
+      "decision": {
+        "private_reasoning": "The transfer is officially complete, so I must confirm all the details in my final post.",
+        "post": "Here we go! Rafael Costa joins Northbridge FC for 24M plus 10% sell-on. 2.6M/year on a 4-year contract. Medical passed. Transfer complete."
+      },
+      "raw": "{\"private_reasoning\": \"The transfer is officially complete, so I must confirm all the details in my final post.\", \"post\": \"Here we go! Rafael Costa joins Northbridge FC for 24M plus 10% sell-on. 2.6M/year on a 4-year contract. Medical passed. Transfer complete.\"}"
+    }
+  ]
+}

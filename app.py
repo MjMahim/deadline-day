@@ -19,7 +19,6 @@ from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import parse_qs, urlparse
 
-from agents import FactReporter
 from deal import describe
 from evaluate import summarise
 from llm import MODEL
@@ -31,7 +30,6 @@ PORT = 8000
 HERE = Path(__file__).parent
 LOGS = HERE / "logs"
 AGENT_TYPES = {"planner": "Planner + LLM (Cicero-inspired)", "llm": "Plain LLM"}
-SPEEDS = {"llm": "With the language model (a few minutes)", "instant": "Instant preview (no language model)"}
 
 run = {"id": 0, "status": "idle"}        # the current or latest live negotiation
 lock = threading.Lock()
@@ -41,20 +39,12 @@ def start(choices):
     scenario, facts = build_scenario(choices)
     seats = {role: choices.get(f"agent_{role}", "planner") for role in ("buyer", "seller", "player_agent")}
     seats = {role: kind if kind in AGENT_TYPES else "planner" for role, kind in seats.items()}
-    instant = choices.get("speed") == "instant"
     seed = random.randint(1, 9999)
-    if instant:                           # no model: plain LLM seats fall back to the planner
-        seats = {role: "planner" for role in seats}
     market = Market(scenario, seed=seed, verbose=False,
                     planner_roles=[r for r, k in seats.items() if k == "planner"])
-    if instant:
-        market.journalist = FactReporter()
-        for agent in market.agents.values():
-            if hasattr(agent, "use_llm"):
-                agent.use_llm = False
     with lock:
         run.update(id=run["id"] + 1, status="running", market=market, scenario=scenario, facts=facts,
-                   seats=seats, seed=seed, error=None, instant=instant, choices={**DEFAULTS, **choices})
+                   seats=seats, seed=seed, error=None, choices={**DEFAULTS, **choices})
 
     def work():
         started = time.time()
@@ -64,7 +54,7 @@ def start(choices):
             save_log(LOGS / "web" / f"run_{datetime.now():%Y%m%d_%H%M%S}.json", market, facts, run["choices"],
                      {role: "plain" if kind == "llm" else kind for role, kind in seats.items()},
                      round(time.time() - started, 1), scenario_name="web", seed=seed, features=[],
-                     use_llm=not instant, model=None if instant else MODEL)
+                     use_llm=True, model=MODEL)
         except Exception as error:        # most likely: Ollama is not running
             run["error"] = f"{type(error).__name__}: {error}"
             run["status"] = "error"
@@ -143,7 +133,7 @@ def replay(name, upto):
     done = market.outcome is not None
     return state({"id": name, "status": "done" if done else "running", "market": market,
                   "scenario": log["scenario"], "facts": log["facts"], "seats": seats, "seed": log.get("seed"),
-                  "error": None, "instant": not log.get("use_llm", True), "choices": choices,
+                  "error": None, "choices": choices,
                   "replay": {"file": name, "hour": upto, "last_hour": market.last_hour,
                              "first_hour": log["scenario"]["start_hour"]}})
 
@@ -159,12 +149,14 @@ def saved():
                 next(iter(kinds)), "") if len(kinds) == 1 else "mixed agents"
             if "rival_history" not in log:        # saved by an older version: cannot be replayed faithfully
                 continue
+            if not log.get("use_llm", True):       # an old test run without the language model
+                continue
             result = {"completed": f"deal at {o['hour']}", "joined rival": "lost to a rival",
                       "stayed (new contract)": "player stayed", "collapsed after medical": "failed medical",
                       "failed (deadline passed)": "no deal", "player refused": "player refused"}[o["result"]]
             where = path.relative_to(LOGS).as_posix()
             items.append({"file": where, "label": f"{log['scenario']['player']['name']}: {result} "
-                                                  f"({who}{'' if log.get('use_llm', True) else ', no LLM'}) "
+                                                  f"({who}) "
                                                   f"[{where.rsplit('.', 1)[0]}]"})
         except (KeyError, ValueError, StopIteration):
             continue
@@ -314,8 +306,6 @@ def state(ctx=None):
     for turn in list(market.turns):
         decision = turn["decision"]
         name = turn["agent"]
-        if name == market.reporter and ctx["instant"]:
-            continue
         actions = [e for e in market.transcript if e["hour"] == turn["hour"] and e["from"] == name]
         raw = turn["raw"] if isinstance(turn["raw"], list) else [turn["raw"]] if turn["raw"] else []
         hour(turn["hour"])["thinking"].append({
@@ -446,7 +436,7 @@ class Handler(BaseHTTPRequestHandler):
             elif url.path == "/options":
                 self.send({"options": {k: list(v) for k, v in OPTIONS.items()}, "ages": OPTIONS["age"],
                            "presets": PRESETS, "rival_clubs": RIVAL_CLUBS,
-                           "defaults": DEFAULTS, "agent_types": AGENT_TYPES, "speeds": SPEEDS})
+                           "defaults": DEFAULTS, "agent_types": AGENT_TYPES})
             elif url.path == "/state":
                 self.send(state())
             elif url.path == "/saved":

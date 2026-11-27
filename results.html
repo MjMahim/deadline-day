@@ -43,10 +43,10 @@
 <script>
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 // The agent designs, always in the same order and colours.
-const AGENTS = [["planner", "Planner + language model", "#2a78d6"], ["planner_no_llm", "Planner, no language model", "#1baf7a"], ["plain", "Plain language model", "#eb6834"]];
+const AGENTS = [["planner", "Planner + language model", "#2a78d6"], ["plain", "Plain language model", "#eb6834"]];
 const NAMES = {default: "Default", bidding_war: "Bidding war", injured: "Injured player", release_clause: "Release clause"};
 const LABELS = {planner: "Planner + language model", plain: "Plain language model",
-  planner_no_llm: "Planner, no language model", planner_buyer_vs_plain: "Planner buys, plain model sells",
+  planner_buyer_vs_plain: "Planner buys, plain model sells",
   plain_buyer_vs_planner: "Plain model buys, planner sells"};
 
 // Grouped columns: one group per situation, one column per agent design.

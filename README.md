@@ -11,7 +11,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
 ![No dependencies](https://img.shields.io/badge/dependencies-standard_library_only-2ea44f)
 ![LLM](https://img.shields.io/badge/LLM-Qwen3_8B_via_Ollama-000000?logo=ollama&logoColor=white)
-![Runs](https://img.shields.io/badge/recorded_negotiations-84-f6c343)
+![Runs](https://img.shields.io/badge/recorded_negotiations-120-f6c343)
 ![Course](https://img.shields.io/badge/LUT_University-BM40A1601-e4007c)
 
 <img src="assets/replay.png" alt="The replay site: a completed transfer with the agreed fee, salary and contract" width="900">
@@ -45,23 +45,23 @@ player at 22:00 for 46M in cash, 11M below his worth to the club.*
 
 ## Results
 
-The planner was compared with a **plain LLM agent** (the same model deciding on its own) and with **itself
-without the LLM** (template messages), each over 24 negotiations in four situations.
+The planner was compared with a **plain LLM agent** (the same model deciding on its own), each over 48
+negotiations in four situations.
 
-| | Planner + LLM | Planner, no LLM | Plain LLM |
-|---|:---:|:---:|:---:|
-| Rule-breaking actions per run | **0** | 0 | 4.2 |
-| Deals where the buyer overpaid | **0 of 9** | 0 of 8 | 6 of 6 |
-| Runs where the clubs failed to agree | **0** | 0 | 13 of 24 |
+| | Planner + LLM | Plain LLM |
+|---|:---:|:---:|
+| Rule-breaking actions per run | **0** | 3.9 |
+| Deals where the buyer overpaid | **0 of 22** | 9 of 13 |
+| Runs where the clubs failed to agree | **0** | 25 of 48 |
 
 <img src="assets/outcomes.png" alt="How each run ended and what each deal cost" width="900">
 
-- **The LLM alone failed** to agree in more than half its runs and overpaid in every deal it made, even though
+- **The LLM alone failed** to agree in more than half its runs and overpaid in 9 of its 13 deals, even though
   its prompt states every rule.
 - **The planner reads the situation.** It let rivals have an overpriced player and accepted a happy player's
-  choice to stay. Four of the LLM alone's six bidding wars ended with no deal at all.
-- **The LLM adds communication, not decisions.** Without it, outcomes were the same in three of four
-  situations. The filter blocked 78 messages that contradicted the plan.
+  choice to stay. Seven of the LLM alone's twelve bidding wars ended with no deal at all.
+- **The planner decides, the LLM talks.** The LLM reads the other side's messages and writes the replies; the
+  filter blocked 149 messages that contradicted the plan.
 
 ## See inside the agents
 
@@ -82,14 +82,13 @@ journalist's feed.
 ## Run it
 
 **Requirements:** Python 3.11+ (no extra packages). For runs with the language model, [Ollama](https://ollama.com)
-with `ollama pull qwen3:8b`. Everything marked "no model" works without it.
+with `ollama pull qwen3:8b`.
 
 | What | Command |
 |---|---|
 | The web app (opens http://localhost:8000) | `python app.py` |
 | One negotiation in the terminal | `python run.py --think` |
-| The same without the language model | `python run.py --no-llm` |
-| The checks (no model) | `python test_engine.py` |
+| The checks of the engine and the planner (no model needed) | `python test_engine.py` |
 | One experiment: a line-up of agents over several seeds | `python evaluate.py run planner --seeds 1-6` |
 | The table of all experiment results | `python evaluate.py report` |
 | Continue the full set of experiments | `resume_experiments.bat` |
@@ -97,7 +96,7 @@ with `ollama pull qwen3:8b`. Everything marked "no model" works without it.
 
 In the web app you choose the player and the situation, start the negotiation and watch it hour by hour.
 "Behind the scenes" under each hour shows what every agent believed, planned and wrote. The
-[online copy](https://mjmahim.github.io/deadline-day/) replays the 84 recorded negotiations without needing
+[online copy](https://mjmahim.github.io/deadline-day/) replays the 120 recorded negotiations without needing
 Python or a model.
 
 ## Project structure

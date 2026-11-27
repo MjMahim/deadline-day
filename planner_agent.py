@@ -99,7 +99,7 @@ class PlannerAgent:
     def __init__(self, name, scenario, seed=None, use_llm=True):
         self.name = name
         self.seed = seed
-        self.use_llm = use_llm          # False: template messages only (for tests without the model)
+        self.use_llm = use_llm          # False only in test_engine.py: template messages, so checks run without the model
         self.rounds = scenario["rounds"]
         self.start_hour = scenario["start_hour"]
         self.reporter = scenario["reporter"]["name"]

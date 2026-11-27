@@ -300,11 +300,10 @@
       <section class="panel" style="--c: var(--press)">
         <h2 class="live">3 &middot; Kick off</h2>
         <h2 class="staticnote" style="color: var(--ink); font-size: 20px">Replay a recorded negotiation</h2>
-        <p class="staticnote">This online copy replays the 84 negotiations recorded for the experiments, hour by hour,
+        <p class="staticnote">This online copy replays the 120 negotiations recorded for the experiments, hour by hour,
            with what every agent believed, planned and wrote. To set up a new transfer, run the app locally with
            Ollama (see the README on GitHub).</p>
         <div class="live">
-        <label for="speed">Speed</label><select id="speed"></select>
         <details>
           <summary>Choose which kind of agent plays each side</summary>
           <label for="agent_buyer">Buying club</label><select id="agent_buyer"></select>
@@ -312,8 +311,8 @@
           <label for="agent_player_agent">Player's agent</label><select id="agent_player_agent"></select>
         </details>
         <button class="go" id="go" type="submit">Kick off the negotiation</button>
-        <p style="color: var(--soft); font-size: 13px; margin: 12px 0 0">With the language model, each hour of
-           deadline day takes a little while. The instant preview uses the same planning without the wording.</p>
+        <p style="color: var(--soft); font-size: 13px; margin: 12px 0 0">Each hour of deadline day takes a little
+           while, because the language model reads and writes every message.</p>
         </div>
         <div class="replay">
           <label for="saved">Replay a saved negotiation</label><select id="saved"></select>
@@ -360,7 +359,7 @@ function fill(select, values, labels) {
 }
 const choices = () => {
   const c = {};
-  ["player_name", "speed", "agent_buyer", "agent_seller", "agent_player_agent"].forEach(f => c[f] = $(f).value);
+  ["player_name", "agent_buyer", "agent_seller", "agent_player_agent"].forEach(f => c[f] = $(f).value);
   FIELDS.forEach(f => c[f] = el(f).value);
   return c;
 };
@@ -408,7 +407,6 @@ async function setup() {
   options = o.options; presets = o.presets; ages = o.ages; rivalClubs = o.rival_clubs;
   fill($("preset"), [...Object.keys(o.presets), ""], [...Object.keys(o.presets), "Custom player"]);
   FIELDS.forEach(f => fill(el(f), o.options[f]));
-  fill($("speed"), Object.keys(o.speeds), Object.values(o.speeds));
   ["agent_buyer", "agent_seller", "agent_player_agent"].forEach(f => fill($(f), Object.keys(o.agent_types), Object.values(o.agent_types)));
   Object.entries(o.defaults).forEach(([k, v]) => { const e = k === "rivals" ? el(k) : $(k); if (e) e.value = v; });
   $("preset").addEventListener("change", () => {

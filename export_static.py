@@ -15,7 +15,7 @@ HERE = Path(__file__).parent
 OUT = HERE / "docs"
 FLAG = '<script>window.STATIC_SITE = true;</script>\n'
 SITUATIONS = ["default", "bidding_war", "injured", "release_clause"]
-LINEUPS = ["planner", "plain", "planner_no_llm", "planner_buyer_vs_plain", "plain_buyer_vs_planner"]
+LINEUPS = ["planner", "plain", "planner_buyer_vs_plain", "plain_buyer_vs_planner"]
 
 
 def write(path, data):
@@ -34,7 +34,7 @@ data = OUT / "data"
 
 options = {"options": {k: list(v) for k, v in app.OPTIONS.items()}, "ages": app.OPTIONS["age"],
            "presets": app.PRESETS, "rival_clubs": app.RIVAL_CLUBS, "defaults": app.DEFAULTS,
-           "agent_types": app.AGENT_TYPES, "speeds": app.SPEEDS}
+           "agent_types": app.AGENT_TYPES}
 write(data / "options.json", options)
 write(data / "state.json", app.state())
 write(data / "results.json", app.results())

@@ -198,7 +198,8 @@ class LLMReporter:
 
 
 class FactReporter:
-    """The journalist for runs without the language model: publishes confirmed facts only, ignores tips."""
+    """Test-only journalist for test_engine.py, which runs without the language model: publishes
+    confirmed facts only and ignores tips. It is not used in the experiments or the web app."""
 
     def act(self, view, snapshot):
         post = " ".join(fact["text"] for fact in snapshot["facts"])
