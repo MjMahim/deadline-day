@@ -117,10 +117,12 @@ Python or a model.
 | `test_engine.py` | Checks for the engine and the planner |
 | `logs/` | The recorded experiments: `logs/<situation>/<line-up>/seed<N>.json` |
 
-## Author
+## Authors
 
-**Monjurul Islam Mahim**. Course project for BM40A1601 Foundations of Artificial Intelligence and Machine
-Learning, LUT University, 2026.
+- **Monjurul Islam Mahim**: agent design and implementation, simulation, experiments, report writing.
+- **Toki Ahamed**: literature review, analysis of results, poster.
+
+Course project for BM40A1601 Foundations of Artificial Intelligence and Machine Learning, LUT University, 2026.
 
 ## References
 
